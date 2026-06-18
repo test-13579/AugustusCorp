@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Page Not Found — Augustus Corp{% endblock %}
+{% block content %}
+<section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+
+  <div class="relative z-10 text-center px-6">
+    <p class="font-black mb-4" style="font-size:clamp(6rem,18vw,12rem);line-height:1;background:linear-gradient(135deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">404</p>
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="text-[10px] font-bold uppercase tracking-[.25em]" style="color:#E8A22A;">Page Not Found</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white mb-4" style="font-size:clamp(1.5rem,3vw,2.2rem);">This page doesn't exist</h1>
+    <p class="mb-10 max-w-md mx-auto" style="color:rgba(255,255,255,.55);font-size:1rem;line-height:1.7;">
+      The route you followed may have moved or been removed. Head back home or use the navigation above.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/"
+         class="inline-flex items-center gap-2.5 text-white font-bold uppercase text-[11px] tracking-[.15em] px-8 py-4 transition-all"
+         style="background:linear-gradient(135deg,#1A6EEB,#1458C0);box-shadow:0 4px 24px rgba(26,110,235,.5);">
+        ← Back to Home
+      </a>
+      <a href="/contact/"
+         class="inline-flex items-center gap-2.5 font-medium uppercase text-[11px] tracking-[.15em] px-8 py-4 transition-all hover:bg-white/10"
+         style="border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);">
+        Contact Support
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

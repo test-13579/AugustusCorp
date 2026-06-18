@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — Augustus Corp{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="relative py-24 overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+
+  <div class="max-w-4xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <a href="{% url 'blog' %}" class="text-[10px] font-bold uppercase tracking-[.25em] hover:opacity-70 transition-opacity" style="color:#E8A22A;">News &amp; Insights</a>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-900/60 text-blue-300 inline-block mb-5">{{ post.category }}</span>
+    <h1 class="font-bold text-white leading-[1.1] mb-6" style="font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.02em;">{{ post.title }}</h1>
+    <div class="flex items-center justify-center gap-5 text-sm" style="color:rgba(255,255,255,.5);">
+      <span>{{ post.published_at|date:"F j, Y" }}</span>
+      <span class="w-1 h-1 rounded-full bg-white/30 inline-block"></span>
+      <span>{{ post.author }}</span>
+    </div>
+  </div>
+</section>
+
+<!-- Article body -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+
+    {% if post.image %}
+    <div class="mb-10 rounded-sm overflow-hidden shadow-lg">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full object-cover" style="max-height:480px;"/>
+    </div>
+    {% endif %}
+
+    <div class="flex flex-col lg:flex-row gap-12">
+
+      <!-- Main content -->
+      <article class="flex-1 min-w-0">
+        <p class="text-gray-600 text-lg leading-relaxed mb-8 font-medium border-l-4 border-primary-600 pl-5" style="color:#334155;">{{ post.excerpt }}</p>
+        <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-5">
+          {{ post.content|linebreaks }}
+        </div>
+        <div class="mt-10 pt-8 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
+          <a href="{% url 'blog' %}" class="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm hover:gap-3 transition-all">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to all articles
+          </a>
+          <a href="{% url 'quote' %}" class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs uppercase tracking-[.12em] px-6 py-3 rounded-sm transition-colors">
+            Get a Quote
+          </a>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-64 shrink-0 space-y-8">
+
+        {% if related %}
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-navy-800 mb-4 pb-2 border-b border-gray-100">Related Articles</h3>
+          <div class="space-y-5">
+            {% for r in related %}
+            <a href="{% url 'blog_detail' r.slug %}" class="group block">
+              {% if r.image %}
+              <div class="overflow-hidden rounded-sm mb-2" style="height:100px;">
+                <img src="{{ r.image.url }}" alt="{{ r.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+              </div>
+              {% endif %}
+              <p class="text-xs text-primary-600 font-semibold mb-1">{{ r.category }}</p>
+              <h4 class="text-sm font-semibold text-navy-800 leading-snug group-hover:text-primary-600 transition-colors line-clamp-2">{{ r.title }}</h4>
+              <p class="text-xs text-gray-400 mt-1">{{ r.published_at|date:"M d, Y" }}</p>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- CTA -->
+        <div class="rounded-sm p-6 text-white" style="background:linear-gradient(135deg,#0E1F3B,#1A3D5C);">
+          <h4 class="font-bold text-base mb-2">Need a freight quote?</h4>
+          <p class="text-white/60 text-sm mb-4 leading-relaxed">Get competitive rates across all 48 U.S. states and Canada — same-day response.</p>
+          <a href="{% url 'quote' %}" class="block text-center bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs uppercase tracking-[.12em] px-4 py-3 rounded-sm transition-colors">
+            Request a Quote
+          </a>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

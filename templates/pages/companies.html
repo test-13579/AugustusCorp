@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Our Companies — Augustus Corp Group{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+{% endblock %}
+{% block content %}
+<section class="relative py-28 overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 20%,rgba(26,110,235,.12) 0%,transparent 65%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="font-bold uppercase tracking-[.25em]" style="font-size:.625rem;color:#E8A22A;">United States &nbsp;·&nbsp; UAE &nbsp;·&nbsp; Global Reach</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white leading-[1.05] mb-5" style="font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.02em;">
+      Our<br>
+      <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Companies</span>
+    </h1>
+    <p class="max-w-2xl mx-auto leading-relaxed" style="color:rgba(255,255,255,.6);font-size:clamp(.9rem,1.5vw,1.05rem);">Three specialist companies. One seamless logistics ecosystem — from domestic trucking across America to international freight forwarding through Dubai.</p>
+  </div>
+</section>
+
+<div class="bg-primary-600 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+    {% for val, lbl in group_stats %}
+    <div><div class="text-2xl font-bold">{{ val }}</div><div class="text-white/70 text-xs mt-0.5">{{ lbl }}</div></div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 py-16 space-y-20">
+  {% for co in companies %}
+  <section class="scroll-mt-32" id="co-{{ forloop.counter }}">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="{{ co.bg_class }} inline-flex items-center gap-3 px-4 py-2 rounded-sm mb-5">
+          <svg class="w-5 h-5 {{ co.icon_class }}" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 16.5H5a2 2 0 01-2-2v-8l9-4 9 4v8a2 2 0 01-2 2z"/></svg>
+          <span class="font-bold text-navy-800 text-sm">{{ co.name }}</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-navy-800 mb-2">{{ co.tagline }}</h2>
+        <p class="text-gray-500 leading-relaxed text-sm mb-6">{{ co.description }}</p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          {% for lbl, val in co.stat_pairs %}
+          <div class="bg-ocean-pale border border-blue-100 rounded-sm px-4 py-2 text-center">
+            <div class="text-sm font-bold text-navy-800">{{ val }}</div>
+            <div class="text-[10px] text-gray-400">{{ lbl }}</div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
+          {% for h in co.highlights %}
+          <div class="flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 text-primary-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span class="text-xs text-gray-600">{{ h }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="{% url 'quote' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 uppercase text-sm tracking-wide transition-colors inline-flex">
+          Get a Quote →
+        </a>
+      </div>
+      <div>
+        <div class="relative rounded-sm overflow-hidden shadow-2xl" style="min-height:320px;background:linear-gradient(135deg,#0a1f3d 0%,#1a4a7a 100%)">
+          {% if co.image %}
+          <img src="{{ co.image.url }}" alt="{{ co.name }}" class="absolute inset-0 w-full h-full object-cover opacity-80" loading="lazy"/>
+          {% endif %}
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-800/80 to-transparent"></div>
+          <div class="{{ co.bg_class }} absolute bottom-5 left-5 px-4 py-2 rounded-sm flex items-center gap-2 shadow-md">
+            <span class="text-sm font-bold {{ co.icon_class }}">{{ co.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if co.show_calculator %}
+    <!-- ── Trucking Cost Calculator for {{ co.name }} ── -->
+    <div class="mt-14 bg-white rounded-sm shadow-xl border border-blue-100 overflow-hidden calc-widget" data-company="{{ forloop.counter }}">
+      <div class="bg-navy-800 px-6 py-4 flex items-center gap-3">
+        <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+        </svg>
+        <span class="text-white font-semibold text-sm">{{ co.name }} — Trucking Cost Estimator</span>
+        <span class="ml-auto text-blue-300 text-xs hidden sm:block">City-to-city estimate</span>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-xs font-semibold text-navy-800 uppercase tracking-wide mb-2">📍 Origin City</label>
+            <input type="text" class="calc-origin w-full border border-blue-200 rounded-sm px-4 py-3 text-gray-700 bg-white focus:outline-none focus:border-blue-500 text-sm"
+                   list="calc-city-list-{{ forloop.counter }}" placeholder="e.g. Los Angeles, USA" autocomplete="off"/>
+            <p class="calc-origin-err hidden text-red-500 text-xs mt-1">⚠ City not found</p>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-navy-800 uppercase tracking-wide mb-2">🏁 Destination City</label>
+            <input type="text" class="calc-dest w-full border border-blue-200 rounded-sm px-4 py-3 text-gray-700 bg-white focus:outline-none focus:border-blue-500 text-sm"
+                   list="calc-city-list-{{ forloop.counter }}" placeholder="e.g. Chicago, USA" autocomplete="off"/>
+            <p class="calc-dest-err hidden text-red-500 text-xs mt-1">⚠ City not found</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div>
+            <label class="block text-xs font-semibold text-navy-800 uppercase tracking-wide mb-2">🚛 Vessel Size</label>
+            <select class="calc-truck w-full border border-blue-300 rounded-sm px-3 py-3 text-gray-700 bg-blue-50 focus:outline-none focus:border-blue-500 text-sm">
+              {% for t in calc_trucks %}<option value="{{ t.key }}" data-capacity="{{ t.capacity }}">{{ t.name }}</option>{% endfor %}
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-navy-800 uppercase tracking-wide mb-2">📦 Cargo Type</label>
+            <select class="calc-cargo w-full border border-blue-300 rounded-sm px-3 py-3 text-gray-700 bg-blue-50 focus:outline-none focus:border-blue-500 text-sm">
+              {% for c in calc_cargos %}<option value="{{ c.key }}">{{ c.name }}</option>{% endfor %}
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-navy-800 uppercase tracking-wide mb-2">⚖ Weight (lbs)</label>
+            <input type="number" class="calc-weight w-full border border-blue-200 rounded-sm px-3 py-3 text-gray-700 bg-white focus:outline-none focus:border-blue-500 text-sm" min="100" value="20000"/>
+          </div>
+          <div class="flex items-end">
+            <button class="calc-btn w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 uppercase text-sm tracking-wide transition-colors rounded-sm flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              Calculate
+            </button>
+          </div>
+        </div>
+        <datalist id="calc-city-list-{{ forloop.counter }}"></datalist>
+
+        <div class="calc-result hidden">
+          <div class="calc-loading hidden text-center py-6">
+            <div style="display:inline-block;width:2rem;height:2rem;border:3px solid #e5e7eb;border-top-color:#4A99CC;border-radius:50%;animation:spin .8s linear infinite"></div>
+            <p class="text-gray-500 text-sm mt-2">Getting route distance…</p>
+          </div>
+          <div class="calc-map" style="width:100%;height:280px;border-radius:.25rem;overflow:hidden;margin-bottom:1.25rem;border:1px solid #dbeafe;position:relative;z-index:0;"></div>
+          <div class="grid grid-cols-3 gap-3 mb-5">
+            <div class="bg-navy-800 rounded-sm p-4 text-center">
+              <p class="text-blue-300 text-xs uppercase tracking-widest mb-1">Distance</p>
+              <p class="calc-distance text-2xl font-bold text-white"></p>
+              <p class="text-white/50 text-xs mt-0.5">miles</p>
+            </div>
+            <div class="bg-primary-600 rounded-sm p-4 text-center">
+              <p class="text-white/70 text-xs uppercase tracking-widest mb-1">Est. Cost</p>
+              <p class="calc-total text-xl font-bold text-white leading-tight"></p>
+              <p class="text-white/70 text-xs mt-0.5">indicative USD</p>
+            </div>
+            <div class="bg-navy-800 rounded-sm p-4 text-center">
+              <p class="text-blue-300 text-xs uppercase tracking-widest mb-1">Transit</p>
+              <p class="calc-transit text-2xl font-bold text-white"></p>
+              <p class="text-white/50 text-xs mt-0.5">days</p>
+            </div>
+          </div>
+          <div class="bg-ocean-pale border border-blue-100 rounded-sm p-5 mb-4">
+            <p class="text-xs font-bold text-navy-800 uppercase tracking-wide mb-3">Cost Breakdown</p>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between"><span class="text-gray-500 calc-rate-label">Base Rate</span><span class="font-semibold text-navy-800 calc-base"></span></div>
+              <div class="flex justify-between"><span class="text-gray-500 calc-fuel-label">Fuel Surcharge</span><span class="font-semibold text-navy-800 calc-fuel"></span></div>
+              <div class="flex justify-between calc-cargo-row"><span class="text-gray-500">Cargo Surcharge</span><span class="font-semibold text-navy-800 calc-cargo-cost"></span></div>
+              <div class="border-t border-blue-200 pt-2 flex justify-between"><span class="font-bold text-navy-800">Estimated Total</span><span class="font-bold text-primary-600 text-base calc-total-breakdown"></span></div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
+            <p class="text-xs text-gray-400">* Indicative estimate. Actual rates depend on fuel, lanes, availability &amp; cargo specifics.</p>
+            <a href="{% url 'quote' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-2.5 text-sm uppercase tracking-wide transition-colors rounded-sm whitespace-nowrap">Get Firm Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if not forloop.last %}<div class="border-b border-blue-100 mt-20"></div>{% endif %}
+  </section>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+{% if site.google_maps_api_key %}
+<script>function onGMapsReady(){window._gmaps=true;}</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}&callback=onGMapsReady" crossorigin></script>
+{% endif %}
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+<script>
+const CITY_NAMES = {{ calc_cities_json|safe }};
+const fmt = n => '$' + Math.round(n).toLocaleString();
+
+// Populate all datalists
+document.querySelectorAll('[id^="calc-city-list-"]').forEach(dl => {
+  CITY_NAMES.forEach(c => { const o = document.createElement('option'); o.value = c; dl.appendChild(o); });
+});
+
+// Per-widget Leaflet map instances
+const _maps = {};
+
+function drawMap(mapDiv, orig, dest, routeCoords, widgetIdx) {
+  if (!mapDiv) return;
+  if (_maps[widgetIdx]) { _maps[widgetIdx].remove(); delete _maps[widgetIdx]; }
+  const m = L.map(mapDiv, { zoomControl: true, scrollWheelZoom: false });
+  _maps[widgetIdx] = m;
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom: 19
+  }).addTo(m);
+  function pin(ll, letter, bg) {
+    return L.marker(ll, { icon: L.divIcon({
+      className: '',
+      html: `<div style="background:${bg};color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.4);font-family:sans-serif">${letter}</div>`,
+      iconSize: [32,32], iconAnchor: [16,16], popupAnchor: [0,-18]
+    })});
+  }
+  const oLL = [orig.lat, orig.lng], dLL = [dest.lat, dest.lng];
+  pin(oLL, 'A', '#1A3D5C').addTo(m).bindPopup('<b>Origin:</b> ' + orig.label);
+  pin(dLL, 'B', '#E84231').addTo(m).bindPopup('<b>Destination:</b> ' + dest.label);
+  if (routeCoords && routeCoords.length > 1) {
+    const poly = L.polyline(routeCoords, { color: '#4A99CC', weight: 5, opacity: 0.9 });
+    poly.addTo(m);
+    m.fitBounds(poly.getBounds(), { padding: [50, 50] });
+  } else {
+    m.fitBounds(L.latLngBounds([oLL, dLL]), { padding: [70, 70] });
+  }
+  setTimeout(() => m.invalidateSize(), 250);
+}
+
+document.querySelectorAll('.calc-widget').forEach((widget, idx) => {
+  const originInput = widget.querySelector('.calc-origin');
+  const destInput   = widget.querySelector('.calc-dest');
+  const originErr   = widget.querySelector('.calc-origin-err');
+  const destErr     = widget.querySelector('.calc-dest-err');
+  const truckSel    = widget.querySelector('.calc-truck');
+  const cargoSel    = widget.querySelector('.calc-cargo');
+  const weightInput = widget.querySelector('.calc-weight');
+  const calcBtn     = widget.querySelector('.calc-btn');
+  const resultDiv   = widget.querySelector('.calc-result');
+  const loadingDiv  = widget.querySelector('.calc-loading');
+  const mapDiv      = widget.querySelector('.calc-map');
+
+  originInput.addEventListener('input', () => originErr.classList.add('hidden'));
+  destInput.addEventListener('input',   () => destErr.classList.add('hidden'));
+
+  calcBtn.addEventListener('click', async () => {
+    const origin = originInput.value.trim();
+    const dest   = destInput.value.trim();
+    let valid = true;
+    if (!origin || !CITY_NAMES.includes(origin)) { originErr.classList.remove('hidden'); valid = false; }
+    if (!dest   || !CITY_NAMES.includes(dest))   { destErr.classList.remove('hidden');   valid = false; }
+    if (!valid) return;
+
+    resultDiv.classList.add('hidden');
+    loadingDiv.classList.remove('hidden');
+    resultDiv.classList.remove('hidden');
+    loadingDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    try {
+      const res = await fetch('{% url "calculate_cost" %}', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '' },
+        body: JSON.stringify({ origin, destination: dest, truck_key: truckSel.value, cargo_key: cargoSel.value, weight: parseInt(weightInput.value) || 20000 }),
+      });
+      const d = await res.json();
+      if (!d.success) { loadingDiv.classList.add('hidden'); alert(d.error || 'Calculation failed.'); resultDiv.classList.add('hidden'); return; }
+
+      widget.querySelector('.calc-distance').textContent    = d.miles.toLocaleString();
+      widget.querySelector('.calc-total').textContent       = d.total_low.toLocaleString() + ' – ' + d.total_high.toLocaleString();
+      widget.querySelector('.calc-transit').textContent     = d.transit;
+      widget.querySelector('.calc-rate-label').textContent  = 'Base Rate (' + d.rate_label + ')';
+      widget.querySelector('.calc-base').textContent        = fmt(d.base_rate);
+      widget.querySelector('.calc-fuel-label').textContent  = d.fuel_label;
+      widget.querySelector('.calc-fuel').textContent        = fmt(d.fuel_surcharge);
+      widget.querySelector('.calc-cargo-cost').textContent  = d.cargo_adj > 0 ? '+' + fmt(d.cargo_adj) : '$0';
+      widget.querySelector('.calc-cargo-row').style.display = d.cargo_adj > 0 ? '' : 'none';
+      widget.querySelector('.calc-total-breakdown').textContent = fmt(d.total_low) + ' – ' + fmt(d.total_high);
+
+      loadingDiv.classList.add('hidden');
+      resultDiv.classList.remove('hidden');
+      resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      setTimeout(() => drawMap(mapDiv, d.origin, d.dest, d.route_coords, idx), 80);
+
+    } catch (e) {
+      loadingDiv.classList.add('hidden');
+      resultDiv.classList.add('hidden');
+      alert('Network error. Please check your connection.');
+    }
+  });
+});
+</script>
+{% endblock %}

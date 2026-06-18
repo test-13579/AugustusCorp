@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}About Us — Augustus Brokerage{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="relative py-28 overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 20%,rgba(26,110,235,.12) 0%,transparent 65%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="font-bold uppercase tracking-[.25em]" style="font-size:.625rem;color:#E8A22A;">Who We Are</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white leading-[1.05] mb-5" style="font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.02em;">
+      About<br>
+      <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Augustus Corporation</span>
+    </h1>
+    <p class="max-w-2xl mx-auto leading-relaxed" style="color:rgba(255,255,255,.6);font-size:clamp(.9rem,1.5vw,1.05rem);">Transportation solutions across the US, Canada, and international corridors — backed by our own fleet, strong carrier network, and a commitment to reliability.</p>
+  </div>
+</section>
+
+<!-- About Us Story -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-primary-600 font-semibold text-xs uppercase tracking-widest mb-3 flex items-center gap-2"><span class="w-8 h-px bg-primary-600"></span>Our Story</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-6">Control, Capacity &amp; Reliability — All in One Place</h2>
+        <p class="text-gray-500 leading-relaxed mb-5">Augustus Brokerage is a customer-focused logistics company providing reliable transportation solutions across the United States and Canada.</p>
+        <p class="text-gray-500 leading-relaxed mb-5">We maintain a strong carrier network spanning the full continental U.S. and Canada — connecting businesses to the capacity they need, when they need it.</p>
+        <p class="text-gray-500 leading-relaxed mb-8">Our commitment to service quality, compliance, and transparency sets us apart. Every shipment is handled with the care and accountability your freight deserves.</p>
+
+        <h3 class="font-bold text-navy-800 text-sm uppercase tracking-wide mb-4">Our Commitment</h3>
+        <div class="space-y-3 mb-8">
+          {% for c in commitments %}
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 text-primary-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span class="text-sm font-medium text-gray-700">{{ c }}</span>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          {% for item in about_highlights %}
+          <div class="flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 text-primary-600 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span class="text-xs text-gray-600">{{ item }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="relative">
+        {% if site.about_image %}<img src="{{ site.about_image.url }}" alt="Augustus Brokerage fleet" class="w-full h-[440px] object-cover rounded-sm shadow-2xl"/>{% endif %}
+        <div class="absolute -bottom-6 -left-6 bg-primary-600 text-white p-6 rounded-sm shadow-xl">
+          <div class="text-4xl font-bold">48</div>
+          <div class="text-sm font-semibold uppercase tracking-wide mt-1">States Covered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="py-20" style="background:linear-gradient(135deg,#1A3D5C 0%,#2A6090 55%,#82C5F2 100%)">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div><div class="text-4xl md:text-5xl font-bold text-white mb-3">48</div><div class="w-10 h-1 bg-primary-600 mx-auto mb-3"></div><p class="text-white/55 text-sm uppercase tracking-wider">States Covered</p></div>
+      <div><div class="text-4xl md:text-5xl font-bold text-white mb-3">Own</div><div class="w-10 h-1 bg-primary-600 mx-auto mb-3"></div><p class="text-white/55 text-sm uppercase tracking-wider">Fleet Advantage</p></div>
+      <div><div class="text-4xl md:text-5xl font-bold text-white mb-3"><span data-count="98">0</span>%</div><div class="w-10 h-1 bg-primary-600 mx-auto mb-3"></div><p class="text-white/55 text-sm uppercase tracking-wider">On-Time Delivery</p></div>
+      <div><div class="text-4xl md:text-5xl font-bold text-white mb-3">24/7</div><div class="w-10 h-1 bg-primary-600 mx-auto mb-3"></div><p class="text-white/55 text-sm uppercase tracking-wider">Dispatch Support</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="py-20" style="background:#EBF5FC">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-6">
+      <p class="text-primary-600 font-semibold text-xs uppercase tracking-widest mb-3 flex items-center justify-center gap-2"><span class="w-8 h-px bg-primary-600"></span>Our People<span class="w-8 h-px bg-primary-600"></span></p>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-800">Leadership Team</h2>
+      <p class="text-gray-500 max-w-xl mx-auto mt-3 text-sm leading-relaxed">Our team of logistics professionals brings hands-on experience in domestic and international freight operations. We pride ourselves on fast response times, operational expertise, and building long-term client partnerships.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+      {% for member in team %}
+      <div class="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="overflow-hidden h-60 bg-ocean-pale flex items-center justify-center">
+          {% if member.image %}
+          <img src="{{ member.image.url }}" alt="{{ member.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
+          {% else %}
+          <svg class="w-20 h-20 text-blue-200" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          {% endif %}
+        </div>
+        <div class="p-6 text-center">
+          <div class="w-8 h-1 bg-primary-600 mx-auto mb-4"></div>
+          <h3 class="font-bold text-navy-800 text-base leading-snug">{{ member.name }}</h3>
+          <p class="text-primary-600 text-xs font-semibold mb-2 uppercase tracking-wide">{{ member.position }}</p>
+          <p class="text-gray-500 text-xs leading-relaxed">{{ member.bio }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Industries Served -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-primary-600 font-semibold text-xs uppercase tracking-widest mb-3 flex items-center justify-center gap-2"><span class="w-8 h-px bg-primary-600"></span>Industries We Serve<span class="w-8 h-px bg-primary-600"></span></p>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Who We Move Freight For</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">Augustus Brokerage supports transportation and logistics needs for a wide range of industries — from manufacturing and retail to healthcare and automotive.</p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {% for industry in industries %}
+      <div class="bg-ocean-pale border border-blue-100 rounded-sm p-5 text-center hover:shadow-md hover:border-primary-600 transition-all group">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
+          <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <p class="text-xs font-semibold text-navy-800 leading-snug group-hover:text-primary-600 transition-colors">{{ industry }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 bg-navy-800">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="text-blue-300 font-semibold text-xs uppercase tracking-widest mb-3">Ready to Move?</p>
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Partner with a Provider That Delivers</h2>
+    <p class="text-white/55 text-sm mb-8 leading-relaxed">Need reliable transportation across the U.S.? Partner with a logistics provider that offers capacity, control, and consistency — all in one place.</p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="{% url 'quote' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-3 uppercase text-sm tracking-wide transition-colors rounded-sm">
+        Get a Quote →
+      </a>
+      <a href="{% url 'contact' %}" class="border-2 border-white text-white hover:bg-white hover:text-navy-800 font-bold px-8 py-3 uppercase text-sm tracking-wide transition-colors rounded-sm">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+asgiref==3.11.1
+Django==4.2.30
+cloudinary==1.42.1
+django-cloudinary-storage==0.3.0
+dj-database-url==2.3.0
+gunicorn==23.0.0
+packaging==26.2
+pillow==11.3.0
+psycopg2-binary==2.9.10
+sqlparse==0.5.5
+typing_extensions==4.15.0
+whitenoise==6.11.0

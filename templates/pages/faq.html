@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+{% block title %}FAQs — Augustus Corp{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* ── FAQ Hero ───────────────────────────────────────────────── */
+  .faq-hero {
+    background: linear-gradient(120deg, #030913 0%, #06112A 60%, #0B1A30 100%);
+  }
+
+  /* ── FAQ Body section ────────────────────────────────────────── */
+  .faq-body {
+    background: linear-gradient(180deg, #F4F8FF 0%, #EBF2FF 100%);
+  }
+  html.dark .faq-body {
+    background: linear-gradient(180deg, #060E1E 0%, #0A1428 100%);
+  }
+
+  /* ── FAQ Item card ───────────────────────────────────────────── */
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #BFDBFE;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: border-color .25s, background .25s, box-shadow .25s;
+    box-shadow: 0 1px 4px rgba(26,110,235,.06);
+  }
+  html.dark .faq-item {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: none;
+  }
+
+  .faq-item.is-open {
+    border-color: #1A6EEB;
+    box-shadow: 0 4px 20px rgba(26,110,235,.12);
+  }
+  html.dark .faq-item.is-open {
+    background: rgba(96,165,250,.06);
+    border-color: rgba(96,165,250,.35);
+    box-shadow: 0 4px 20px rgba(96,165,250,.08);
+  }
+
+  /* ── FAQ toggle button ───────────────────────────────────────── */
+  .faq-toggle { background: transparent; border: none; cursor: pointer; }
+  .faq-toggle:hover .faq-q-text { color: #1A6EEB; }
+  html.dark .faq-toggle:hover .faq-q-text { color: #93C5FD; }
+
+  /* ── Number badge ────────────────────────────────────────────── */
+  .faq-num {
+    background: rgba(26,110,235,.08);
+    border: 1px solid rgba(26,110,235,.18);
+    color: #1A6EEB;
+    min-width: 1.75rem; height: 1.75rem;
+    border-radius: 0.5rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .72rem; font-weight: 700; font-family: monospace;
+    flex-shrink: 0; margin-top: .15rem;
+    transition: background .25s, border-color .25s;
+  }
+  html.dark .faq-num {
+    background: rgba(96,165,250,.1);
+    border: 1px solid rgba(96,165,250,.2);
+    color: #60A5FA;
+  }
+  .faq-item.is-open .faq-num {
+    background: #1A6EEB;
+    border-color: #1A6EEB;
+    color: #fff;
+  }
+  html.dark .faq-item.is-open .faq-num {
+    background: rgba(96,165,250,.25);
+    border-color: rgba(96,165,250,.5);
+    color: #93C5FD;
+  }
+
+  /* ── Question text ───────────────────────────────────────────── */
+  .faq-q-text {
+    color: #0E1F3B;
+    font-size: .975rem;
+    font-weight: 600;
+    line-height: 1.45;
+    transition: color .2s;
+  }
+  html.dark .faq-q-text { color: rgba(255,255,255,.9); }
+
+  /* ── Chevron pill ────────────────────────────────────────────── */
+  .faq-chevron-pill {
+    background: rgba(26,110,235,.07);
+    border: 1px solid rgba(26,110,235,.15);
+    min-width: 1.75rem; height: 1.75rem;
+    border-radius: 0.5rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: .15rem;
+    transition: background .25s, border-color .25s;
+    color: #1A6EEB;
+  }
+  html.dark .faq-chevron-pill {
+    background: rgba(96,165,250,.08);
+    border-color: rgba(96,165,250,.18);
+    color: #60A5FA;
+  }
+  .faq-item.is-open .faq-chevron-pill {
+    background: rgba(26,110,235,.12);
+    border-color: rgba(26,110,235,.3);
+  }
+  html.dark .faq-item.is-open .faq-chevron-pill {
+    background: rgba(96,165,250,.15);
+    border-color: rgba(96,165,250,.35);
+  }
+
+  .faq-chevron-pill svg { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+  .faq-item.is-open .faq-chevron-pill svg { transform: rotate(180deg); }
+
+  /* ── Divider ─────────────────────────────────────────────────── */
+  .faq-divider { height: 1px; background: #BFDBFE; margin-bottom: 1.25rem; }
+  html.dark .faq-divider { background: rgba(255,255,255,.07); }
+
+  /* ── Answer text ─────────────────────────────────────────────── */
+  .faq-answer-text {
+    color: #475569;
+    font-size: .9rem;
+    line-height: 1.8;
+  }
+  html.dark .faq-answer-text { color: rgba(255,255,255,.55); }
+
+  /* ── CTA section ─────────────────────────────────────────────── */
+  .faq-cta {
+    background: linear-gradient(135deg, #0E1F3B 0%, #1A3457 50%, #0E2B5E 100%);
+  }
+  html.dark .faq-cta {
+    background: linear-gradient(135deg, #030913 0%, #081428 50%, #0C1F3E 100%);
+  }
+
+  .faq-cta-icon-wrap {
+    background: rgba(96,165,250,.12);
+    border: 1px solid rgba(96,165,250,.22);
+  }
+
+  .faq-cta-btn-primary {
+    background: linear-gradient(135deg, #1A6EEB, #2563EB);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(26,110,235,.4);
+  }
+  .faq-cta-btn-primary:hover { box-shadow: 0 6px 28px rgba(26,110,235,.55); transform: translateY(-1px); }
+
+  .faq-cta-btn-outline {
+    border: 1.5px solid rgba(255,255,255,.22);
+    color: rgba(255,255,255,.8);
+    background: rgba(255,255,255,.05);
+  }
+  .faq-cta-btn-outline:hover { background: rgba(255,255,255,.1); transform: translateY(-1px); }
+
+  /* ── Dot grid overlay ────────────────────────────────────────── */
+  .faq-dot-grid {
+    background-image: radial-gradient(rgba(26,110,235,.12) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  html.dark .faq-dot-grid {
+    background-image: radial-gradient(rgba(96,165,250,.06) 1px, transparent 1px);
+  }
+
+  /* ── Answer slide animation ──────────────────────────────────── */
+  .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .3s cubic-bezier(.4,0,.2,1);
+  }
+  .faq-answer.is-open { grid-template-rows: 1fr; }
+  .faq-answer > div { overflow: hidden; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="faq-hero relative py-28 overflow-hidden">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 20%,rgba(26,110,235,.12) 0%,transparent 65%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-6" style="background:rgba(26,110,235,.15);border:1px solid rgba(26,110,235,.3);">
+      <svg class="w-6 h-6" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+        <circle cx="12" cy="12" r="10"/>
+        <path stroke-linecap="round" d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+        <circle cx="12" cy="17" r=".5" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="font-bold uppercase tracking-[.25em]" style="font-size:.625rem;color:#E8A22A;">Help Center</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white leading-[1.05] mb-5" style="font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.02em;">
+      Frequently Asked<br>
+      <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Questions</span>
+    </h1>
+    <p class="max-w-2xl mx-auto leading-relaxed" style="color:rgba(255,255,255,.6);font-size:clamp(.9rem,1.5vw,1.05rem);">Everything you need to know about our freight services, coverage areas, and how Augustus Corp works.</p>
+  </div>
+</section>
+
+<!-- FAQ Accordion -->
+<section class="faq-body py-20 relative">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="space-y-3" id="faq-list">
+      {% for item in faq_items %}
+      <div class="faq-item">
+        <button class="faq-toggle w-full text-left px-6 py-5 flex items-start justify-between gap-5"
+                aria-expanded="false">
+          <div class="flex items-start gap-4 flex-1 min-w-0">
+            <span class="faq-num">{{ forloop.counter|stringformat:"02d" }}</span>
+            <span class="faq-q-text">{{ item.question }}</span>
+          </div>
+          <span class="faq-chevron-pill">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div>
+            <div class="px-6 pb-6" style="padding-left:calc(1.5rem + 1.75rem + 1rem);">
+              <div class="faq-divider"></div>
+              <p class="faq-answer-text">{{ item.answer }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="faq-cta py-20 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[.04]" style="background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50px);"></div>
+  <div class="max-w-2xl mx-auto px-6 text-center relative z-10">
+    <div class="faq-cta-icon-wrap inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6">
+      <svg class="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+      </svg>
+    </div>
+    <h2 class="font-bold text-white mb-3" style="font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-.025em;">Still have questions?</h2>
+    <p class="mb-8 text-blue-200/60" style="font-size:.95rem;line-height:1.7;">
+      Can't find what you're looking for? Our freight experts are available 24/7 and typically respond within the hour.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="{% url 'contact' %}"
+         class="faq-cta-btn-primary inline-flex items-center gap-2.5 font-bold px-8 py-3.5 rounded-lg text-sm uppercase tracking-wider transition-all duration-200">
+        Contact Our Team
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+      <a href="{% url 'support' %}"
+         class="faq-cta-btn-outline inline-flex items-center gap-2.5 font-bold px-8 py-3.5 rounded-lg text-sm uppercase tracking-wider transition-all duration-200">
+        Support Centre
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('is-open');
+      el.querySelector('.faq-answer').classList.remove('is-open');
+      el.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+      el.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+    });
+
+    if (!isOpen) {
+      item.classList.add('is-open');
+      answer.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      answer.setAttribute('aria-hidden', 'false');
+    }
+  });
+});
+</script>
+{% endblock %}

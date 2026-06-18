@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Request a Quote — Augustus Corp{% endblock %}
+{% block content %}
+<section class="relative py-28 overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 20%,rgba(26,110,235,.12) 0%,transparent 65%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="font-bold uppercase tracking-[.25em]" style="font-size:.625rem;color:#E8A22A;">Free Estimate</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white leading-[1.05] mb-5" style="font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.02em;">
+      Request a<br>
+      <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Freight Quote</span>
+    </h1>
+    <p class="max-w-xl mx-auto leading-relaxed" style="color:rgba(255,255,255,.6);font-size:clamp(.9rem,1.5vw,1.05rem);">Competitive freight rates across the US, Canada, and international corridors — response within 24 hours</p>
+  </div>
+</section>
+
+<section class="py-16" style="background:#F0F8FF">
+  <div class="max-w-3xl mx-auto px-4">
+    {% if success %}
+    <div class="bg-white rounded-sm shadow-sm p-12 text-center">
+      <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h2 class="text-2xl font-bold text-navy-800 mb-3">Quote Request Received!</h2>
+      <p class="text-gray-500 mb-2">We'll contact you with a competitive rate within 24 hours.</p>
+      <p class="text-primary-600 font-bold text-lg mb-8">Reference: {{ ref }}</p>
+      <a href="{% url 'quote' %}" class="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 uppercase text-sm tracking-wide transition-colors inline-flex">
+        Submit Another Quote
+      </a>
+    </div>
+    {% else %}
+    <div class="bg-white rounded-sm shadow-sm p-8">
+      <h2 class="text-2xl font-bold text-navy-800 mb-8">Shipment Details</h2>
+      <form method="POST" class="space-y-5">
+        {% csrf_token %}
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+            {{ form.name }}
+            {% if form.name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+            {{ form.email }}
+            {% if form.email.errors %}<p class="text-red-500 text-xs mt-1">{{ form.email.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+            {% include "partials/phone_input_field.html" with id="id_phone" value=form.phone.value only %}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Company</label>
+            {{ form.company }}
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Shipping Service *</label>
+            {{ form.service_type }}
+            {% if form.service_type.errors %}<p class="text-red-500 text-xs mt-1">{{ form.service_type.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Origin Port / City *</label>
+            {{ form.origin }}
+            {% if form.origin.errors %}<p class="text-red-500 text-xs mt-1">{{ form.origin.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Destination Port / City *</label>
+            {{ form.destination }}
+            {% if form.destination.errors %}<p class="text-red-500 text-xs mt-1">{{ form.destination.errors.0 }}</p>{% endif %}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Cargo Weight</label>
+            {{ form.weight }}
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Container Type / Dimensions</label>
+            {{ form.dimensions }}
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Additional Requirements</label>
+            {{ form.message }}
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 uppercase text-sm tracking-wide transition-colors">
+          Submit Quote Request →
+        </button>
+      </form>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mt-6">
+      {% for label in trust_labels %}
+      <div class="bg-white border border-blue-100 rounded-sm p-4 text-center shadow-sm">
+        <svg class="w-5 h-5 text-primary-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <p class="text-gray-600 text-xs font-medium">{{ label }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

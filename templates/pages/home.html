@@ -1,0 +1,794 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Augustus Corporation — Global Logistics & Transport Group{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Higher specificity than base.html <style> — prevents light flash behind dark hero */
+  html body { background: #030913 !important; }
+  #hero-section { height: calc(100vh - 64px); min-height: 500px; max-height: 920px; }
+  @media (min-width: 768px) { #hero-section { height: calc(100vh - 92px); } }
+
+  /* Hero animations */
+  .hero-fade { opacity:0; transform:translateY(20px); animation:heroUp .8s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes heroUp { to { opacity:1; transform:translateY(0); } }
+
+  /* Scroll cue animation */
+  @keyframes scrollLine {
+    0%   { transform:translateY(-100%); }
+    50%  { transform:translateY(0); }
+    100% { transform:translateY(100%); }
+  }
+
+  /* Animated gradient border on company cards */
+  @keyframes borderGlow {
+    0%,100% { opacity:.4; }
+    50%      { opacity:.9; }
+  }
+
+  /* Number counter fade */
+  @keyframes countUp {
+    from { opacity:0; transform:translateY(10px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .stat-num { animation: countUp .6s ease both; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ══════════════════════════════════════════════════════════ HERO -->
+<section class="relative overflow-hidden" id="hero-section" style="background:#030913;">
+
+  <!-- Video -->
+  <video autoplay loop muted playsinline
+         {% if site.hero_poster %}poster="{{ site.hero_poster.url }}"{% endif %}
+         class="absolute inset-0 w-full h-full object-cover"
+         style="transform:scale(1.06);filter:brightness(.75)saturate(1.1);">
+    <source src="{% static 'videos/banner-video.mp4' %}" type="video/mp4">
+  </video>
+
+  <!-- Multi-layer overlay for depth -->
+  <div class="absolute inset-0" style="background:linear-gradient(110deg,rgba(3,9,19,.97) 0%,rgba(3,9,19,.8) 42%,rgba(10,28,60,.35) 100%);z-index:1;"></div>
+  <div class="absolute inset-0" style="background:linear-gradient(0deg,rgba(3,9,19,.9) 0%,transparent 40%);z-index:1;"></div>
+
+  <!-- Left gold accent bar -->
+  <div class="absolute left-0 top-0 bottom-0 w-[3px] z-10" style="background:linear-gradient(to bottom,transparent 0%,#E8A22A 25%,#1A6EEB 75%,transparent 100%);"></div>
+
+  <!-- Content -->
+  <div class="absolute inset-0 flex flex-col justify-end" style="z-index:20;">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 w-full pb-14 md:pb-20">
+
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-3 mb-5 hero-fade" style="animation-delay:.05s">
+        <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+        <span class="text-[10px] font-bold uppercase tracking-[.25em]" style="color:#E8A22A;">Global Logistics Group &nbsp;·&nbsp; United States &nbsp;·&nbsp; UAE</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-bold text-white leading-[1.0] mb-6 hero-fade"
+          style="font-size:clamp(2.6rem,6vw,5.2rem);letter-spacing:-.025em;animation-delay:.12s;max-width:36rem;text-shadow:0 2px 32px rgba(0,0,0,.5);">
+        Moving the World.<br>
+        <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Built to Deliver.</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p class="leading-relaxed mb-8 hero-fade" style="color:rgba(255,255,255,.65);font-size:clamp(.9rem,1.5vw,1.05rem);max-width:28rem;animation-delay:.22s;">
+        Three specialist companies. Two continents. One commitment — your freight handled with precision, from first mile to final destination.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 mb-12 hero-fade" style="animation-delay:.32s">
+        <a href="{% url 'quote' %}"
+           class="inline-flex items-center gap-2.5 text-white font-bold uppercase text-[11px] tracking-[.15em] px-8 py-4 transition-all"
+           style="background:linear-gradient(135deg,#1A6EEB,#1458C0);box-shadow:0 4px 24px rgba(26,110,235,.5);">
+          Request a Quote
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="{% url 'services' %}"
+           class="inline-flex items-center gap-2.5 font-medium uppercase text-[11px] tracking-[.15em] px-8 py-4 transition-all hover:bg-white/10"
+           style="border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);">
+          Explore Services
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="border-t pt-8 flex flex-wrap gap-x-10 gap-y-6 hero-fade" style="border-color:rgba(255,255,255,.08);animation-delay:.42s;">
+        {% for val, lbl in hero_stats %}
+        <div class="stat-num">
+          <p class="text-white font-bold leading-none mb-1" style="font-size:clamp(1.6rem,3.2vw,2.4rem);letter-spacing:-.02em;">{{ val }}</p>
+          <p class="uppercase tracking-[.18em]" style="font-size:.6rem;color:rgba(255,255,255,.4);">{{ lbl }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-10 right-8 z-10 hidden lg:flex flex-col items-center gap-3">
+    <div class="overflow-hidden" style="height:3.5rem;width:1px;background:rgba(255,255,255,.1);">
+      <div class="w-full" style="height:50%;background:#1A6EEB;animation:scrollLine 1.8s ease-in-out infinite;"></div>
+    </div>
+    <span style="color:rgba(255,255,255,.25);font-size:.58rem;letter-spacing:.2em;writing-mode:vertical-rl;font-weight:600;text-transform:uppercase;">Scroll</span>
+  </div>
+
+  <!-- Wave to companies section -->
+  <div class="absolute bottom-0 left-0 right-0 z-10 leading-none">
+    <svg viewBox="0 0 1440 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%" preserveAspectRatio="none">
+      <path d="M0 52L1440 52L1440 26C1200 0 960 48 720 26C480 4 240 50 0 26L0 52Z" fill="#04091A"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ OUR COMPANIES -->
+<section class="relative pt-16 pb-10 overflow-hidden" style="background:linear-gradient(150deg,#04091A 0%,#091628 40%,#112040 70%,#070F1E 100%);">
+  <!-- Radial glow -->
+  <div class="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none" style="background:radial-gradient(circle at 70% 20%,rgba(26,110,235,.1) 0%,transparent 65%);"></div>
+  <div class="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none" style="background:radial-gradient(circle at 20% 80%,rgba(232,162,42,.05) 0%,transparent 60%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div class="max-w-xl">
+        <p class="font-bold text-[11px] uppercase tracking-[.22em] mb-4 flex items-center gap-3" style="color:#E8A22A;">
+          <span class="block w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,transparent);"></span>Our Operating Companies
+        </p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white leading-[1.07] mb-4">
+          Three Companies.<br>
+          <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">One Connected World.</span>
+        </h2>
+        <p style="color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7;max-width:36rem;">
+          Purpose-built specialists — from US highways to Dubai's global ports — delivering freight solutions with precision, speed, and scale.
+        </p>
+      </div>
+      <a href="{% url 'companies' %}" class="shrink-0 self-start md:self-end inline-flex items-center gap-2 font-semibold uppercase text-[11px] tracking-[.18em] px-7 py-3.5 transition-all" style="border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.65);">
+        View All →
+      </a>
+    </div>
+
+    <!-- Company cards -->
+    <div class="grid sm:grid-cols-2 xl:grid-cols-{% if companies|length > 2 %}3{% else %}2{% endif %} gap-6">
+      {% for co in companies %}
+      <div class="group overflow-hidden transition-all duration-400 hover:-translate-y-2"
+           style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,.3);"
+           onmouseover="this.style.boxShadow='0 24px 64px rgba(26,110,235,.22)';this.style.borderColor='rgba(26,110,235,.4)';"
+           onmouseout="this.style.boxShadow='0 4px 24px rgba(0,0,0,.3)';this.style.borderColor='rgba(255,255,255,.09)';">
+
+        <!-- Image header -->
+        <div class="relative overflow-hidden" style="height:200px;background:linear-gradient(135deg,#06122A 0%,#112244 100%);">
+          {% if co.image %}
+          <img src="{{ co.image.url }}" alt="{{ co.name }}" class="absolute inset-0 w-full h-full object-cover transition-all duration-700" style="opacity:.3;" onmouseover="this.style.opacity='.5';" onmouseout="this.style.opacity='.3';" loading="lazy"/>
+          {% endif %}
+          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(4,9,26,.98) 0%,rgba(4,9,26,.1) 100%);"></div>
+          <!-- Card number -->
+          <div class="absolute top-4 right-5 font-mono text-[11px] font-bold" style="color:rgba(255,255,255,.2);letter-spacing:.1em;">{{ forloop.counter|stringformat:"02d" }}</div>
+          <!-- Company name block -->
+          <div class="absolute bottom-0 left-0 right-0 p-5">
+            <div class="flex items-center gap-3 mb-1">
+              {% if co.logo %}
+              <img src="{{ co.logo.url }}" alt="{{ co.name }} logo" class="w-10 h-10 shrink-0 rounded object-contain" style="background:rgba(255,255,255,.08);padding:4px;"/>
+              {% else %}
+              <div class="w-8 h-8 shrink-0 rounded flex items-center justify-center" style="background:linear-gradient(135deg,#1A6EEB,#1458C0);">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 16.5H5a2 2 0 01-2-2v-8l9-4 9 4v8a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              {% endif %}
+              <div>
+                <h3 class="text-white font-bold text-base leading-tight">{{ co.name }}</h3>
+                <p class="font-semibold uppercase text-[9px] tracking-wider mt-0.5" style="color:#60A5FA;">{{ co.tagline }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card body — always readable -->
+        <div class="bg-white p-6">
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-3">{{ co.description|truncatewords:28 }}</p>
+          <div class="grid grid-cols-3 gap-2 mb-5">
+            {% for lbl, val in co.stat_pairs %}
+            <div class="text-center py-3 rounded" style="background:#F0F5FF;border:1px solid #DBEAFE;">
+              <p class="font-bold text-sm leading-none mb-1" style="color:#0E1F3B;">{{ val }}</p>
+              <p class="uppercase text-[8px] tracking-wider" style="color:#94A3B8;">{{ lbl }}</p>
+            </div>
+            {% endfor %}
+          </div>
+          <a href="{% url 'companies' %}" class="inline-flex items-center gap-2 font-semibold text-xs uppercase tracking-wide transition-all group/link" style="color:#1A6EEB;">
+            Explore {{ co.name }}
+            <svg class="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Stats ribbon -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4" style="border:1px solid rgba(255,255,255,.07);border-radius:4px;overflow:hidden;">
+      {% for val, lbl in hero_stats %}
+      <div class="text-center py-7 px-4 relative" style="background:rgba(255,255,255,.025);">
+        {% if not forloop.last %}<div class="absolute right-0 top-1/4 bottom-1/4 w-px" style="background:rgba(255,255,255,.07);"></div>{% endif %}
+        <p class="font-bold mb-1" style="font-size:1.75rem;color:#60A5FA;letter-spacing:-.01em;">{{ val }}</p>
+        <p class="uppercase tracking-widest" style="font-size:.62rem;color:rgba(255,255,255,.45);">{{ lbl }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ OUR SERVICES -->
+<section class="py-24 relative overflow-hidden home-services-section" style="background:linear-gradient(160deg,#030913 0%,#06112A 50%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.022]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(232,162,42,.5),transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+      <div class="max-w-xl">
+        <p class="font-bold text-[11px] uppercase tracking-[.22em] mb-4 flex items-center gap-3" style="color:#E8A22A;">
+          <span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>Our Services
+        </p>
+        <h2 class="font-black leading-tight mb-4" style="font-size:clamp(2rem,4.5vw,3rem);color:#ffffff;">
+          Whatever Your Industry,<br><span class="gradient-text">We Move It.</span>
+        </h2>
+        <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,.48);">
+          From pharmaceutical cold chains to heavy-haul energy equipment — our team brings deep sector expertise and dedicated capacity to every vertical we serve.
+        </p>
+      </div>
+      <div class="shrink-0">
+        <a href="{% url 'services' %}" class="inline-flex items-center gap-2.5 font-bold uppercase text-xs tracking-[.14em] px-6 py-3 transition-all rounded-sm"
+           style="background:rgba(26,110,235,.15);border:1.5px solid rgba(26,110,235,.4);color:#60A5FA;"
+           onmouseover="this.style.background='rgba(26,110,235,.28)';" onmouseout="this.style.background='rgba(26,110,235,.15)';">
+          View All Services
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Service cards: 4 × 2 grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 home-services-grid">
+      {% for ind in industries %}
+      <a href="{% url 'services' %}"
+         class="group flex flex-col p-7 transition-all duration-300 relative overflow-hidden home-service-card"
+         style="min-height:260px;">
+
+        <!-- hover top-bar sweep -->
+        <div class="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+             style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);"></div>
+
+        <!-- Icon -->
+        <div class="mb-5 shrink-0">
+          {% if ind.logo %}
+          <img src="{{ ind.logo.url }}" alt="{{ ind.name }}"
+               class="w-[52px] h-[52px] rounded object-contain"
+               style="background:rgba(26,110,235,.12);padding:10px;border:1px solid rgba(26,110,235,.25);"/>
+          {% else %}
+          <div class="w-[52px] h-[52px] rounded flex items-center justify-center"
+               style="background:rgba(26,110,235,.12);border:1px solid rgba(26,110,235,.25);">
+            {% if ind.icon_name == 'car' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h10l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2h-2"/>
+              <circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/>
+            </svg>
+            {% elif ind.icon_name == 'chip' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <rect x="7" y="7" width="10" height="10" rx="1"/>
+              <path stroke-linecap="round" d="M9 7V4M12 7V4M15 7V4M9 20v-3M12 20v-3M15 20v-3M4 9h3M4 12h3M4 15h3M17 9h3M17 12h3M17 15h3"/>
+            </svg>
+            {% elif ind.icon_name == 'cross' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M12 9v6"/>
+            </svg>
+            {% elif ind.icon_name == 'gear' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <circle cx="12" cy="12" r="3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+            </svg>
+            {% elif ind.icon_name == 'bag' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <path stroke-linecap="round" d="M3 6h18"/>
+              <path stroke-linecap="round" d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            {% elif ind.icon_name == 'plane' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+            {% elif ind.icon_name == 'bolt' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            {% elif ind.icon_name == 'snowflake' %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+            {% else %}
+            <svg class="w-[22px] h-[22px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
+              <path stroke-linecap="round" d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/>
+            </svg>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Name -->
+        <h3 class="font-bold mb-3 leading-snug" style="font-size:1rem;color:#ffffff;">{{ ind.name }}</h3>
+
+        <!-- Description -->
+        {% if ind.description %}
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,.5);">{{ ind.description }}</p>
+        {% endif %}
+
+        <!-- EXPLORE link -->
+        <div class="mt-5 pt-4 flex items-center gap-2 font-bold uppercase tracking-[.14em] transition-all duration-200"
+             style="font-size:.7rem;color:#60A5FA;border-top:1px solid rgba(255,255,255,.07);">
+          EXPLORE
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Bottom CTA strip -->
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-sm"
+         style="background:rgba(26,110,235,.08);border:1px solid rgba(26,110,235,.2);">
+      <p class="text-sm font-semibold" style="color:rgba(255,255,255,.7);">
+        Don't see your industry? <span style="color:#60A5FA;">We move it anyway.</span>
+      </p>
+      <a href="{% url 'contact' %}" class="shrink-0 inline-flex items-center gap-2 font-bold uppercase text-xs tracking-[.14em] px-6 py-2.5 rounded-sm transition-all"
+         style="background:linear-gradient(135deg,#1A6EEB,#1458C0);color:#fff;box-shadow:0 4px 20px rgba(26,110,235,.35);"
+         onmouseover="this.style.boxShadow='0 6px 28px rgba(26,110,235,.5)';" onmouseout="this.style.boxShadow='0 4px 20px rgba(26,110,235,.35)';">
+        Talk to an Expert →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════ STATS -->
+<section class="py-24 relative overflow-hidden" style="background:linear-gradient(135deg,#030913 0%,#0B1A30 50%,#030913 100%);">
+  <div class="absolute inset-0 opacity-[.04]" style="background-image:repeating-linear-gradient(45deg,#1A6EEB 0,#1A6EEB 1px,transparent 0,transparent 50px);"></div>
+  <!-- Gold top rule -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A,transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+    <div class="text-center mb-16">
+      <p class="font-bold text-[11px] uppercase tracking-[.22em] mb-3 flex items-center justify-center gap-3" style="color:#E8A22A;">
+        <span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>Augustus by the Numbers<span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>
+      </p>
+      <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight">The Scale Behind<br>Every Shipment</h2>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-px" style="background:rgba(255,255,255,.06);">
+      {% for val, lbl in hero_stats %}
+      <div class="text-center py-12 px-6 group" style="background:#030913;">
+        <div class="text-white font-bold leading-none mb-4 group-hover:text-primary-400 transition-colors" style="font-size:clamp(2.8rem,6vw,4.5rem);letter-spacing:-.03em;">{{ val }}</div>
+        <div class="w-8 h-px mx-auto mb-3" style="background:linear-gradient(90deg,transparent,#1A6EEB,transparent);transition:width .3s;"></div>
+        <p class="uppercase tracking-widest font-semibold" style="font-size:.65rem;color:rgba(255,255,255,.45);">{{ lbl }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════ ABOUT -->
+<section class="py-24 relative section-light" style="background:linear-gradient(150deg,#F8FAFF 0%,#EEF3FF 50%,#F4F8FF 100%);">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Image collage -->
+      <div class="relative">
+        <div class="rounded overflow-hidden shadow-2xl">
+          {% if site.about_image %}<img src="{{ site.about_image.url }}" alt="Augustus Corporation operations" class="w-full object-cover" style="height:500px;"/>{% endif %}
+        </div>
+        <!-- Gold metric badge -->
+        <div class="absolute -bottom-5 -right-4 text-white p-6 rounded shadow-xl text-center" style="background:linear-gradient(135deg,#1A6EEB,#1458C0);">
+          <div class="text-4xl font-bold leading-none">3</div>
+          <div class="text-xs font-bold uppercase tracking-wider mt-2 opacity-80">Countries</div>
+        </div>
+        <!-- Floating small image -->
+        <div class="absolute -left-5 bottom-24 hidden lg:block bg-white p-2 rounded shadow-xl">
+          {% if site.about_image_2 %}<img src="{{ site.about_image_2.url }}" alt="" class="w-36 h-28 object-cover rounded"/>{% endif %}
+        </div>
+        <!-- Gold accent line -->
+        <div class="absolute -left-2 top-0 bottom-0 w-0.5" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#E8A22A 70%,transparent);opacity:.6;"></div>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <p class="text-primary-600 font-bold text-[11px] uppercase tracking-[.22em] mb-4 flex items-center gap-3">
+          <span class="w-8 h-px bg-primary-600 inline-block"></span>Our Story
+        </p>
+        <h2 class="text-3xl md:text-5xl font-bold text-navy-800 mb-6 leading-[1.1]">
+          One Vision.<br>
+          <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Two Continents.</span><br>
+          Built to Last.
+        </h2>
+        <p class="text-gray-500 leading-relaxed mb-5" style="font-size:.95rem;">
+          Augustus Corporation is more than a logistics provider — we are the strategic backbone of businesses that operate at scale. Headquartered across the United States and the UAE, our family of companies delivers end-to-end supply chain solutions with reach, expertise, and accountability that few can match.
+        </p>
+        <p class="text-gray-500 leading-relaxed mb-8" style="font-size:.95rem;">
+          Our mission is straightforward: connect your business to the world, reliably and efficiently. Each subsidiary brings deep domain expertise in its home market, unified by our core values of integrity, precision, and relentless commitment to our clients.
+        </p>
+
+        <!-- Highlights checklist -->
+        <div class="grid sm:grid-cols-2 gap-3 mb-8">
+          {% for item in about_highlights %}
+          <div class="flex items-center gap-3">
+            <div class="w-5 h-5 rounded-full shrink-0 flex items-center justify-center" style="background:linear-gradient(135deg,#1A6EEB,#60A5FA);">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <span class="text-gray-600 text-sm">{{ item }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="{% url 'about' %}" class="inline-flex items-center gap-2.5 text-white font-bold uppercase text-[11px] tracking-[.14em] px-8 py-3.5 rounded-sm transition-all" style="background:linear-gradient(135deg,#1A6EEB,#1458C0);box-shadow:0 4px 20px rgba(26,110,235,.4);">
+          Our Full Story →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ WHY CHOOSE US -->
+<section class="py-28 relative overflow-hidden why-us-section" style="background:linear-gradient(160deg,#04091A 0%,#081428 50%,#0C1F3E 100%);">
+  <!-- Background dot grid -->
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:32px 32px;"></div>
+  <!-- Gold top rule -->
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <!-- Glow orbs -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 10%,rgba(26,110,235,.12) 0%,transparent 60%);"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none" style="background:radial-gradient(circle at 10% 90%,rgba(232,162,42,.07) 0%,transparent 60%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+    <!-- Section header — centered, full width -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <p class="font-bold text-[11px] uppercase tracking-[.28em] mb-4 flex items-center justify-center gap-3" style="color:#E8A22A;">
+        <span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>The Augustus Edge<span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>
+      </p>
+      <h2 class="font-bold text-white leading-[1.07] mb-5" style="font-size:clamp(2rem,4.5vw,3.2rem);">
+        Why Industry Leaders<br>
+        <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Choose Augustus</span>
+      </h2>
+      <p class="leading-relaxed" style="color:rgba(255,255,255,.5);font-size:.95rem;">
+        When it comes to critical freight, there is no room for error. Infrastructure, expertise, and reliability — delivered across every lane, load, and border.
+      </p>
+    </div>
+
+    <!-- Feature cards grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {% for feat in why_us_features %}
+      <div class="group relative overflow-hidden rounded-lg p-7 transition-all duration-300 cursor-default why-us-card">
+
+        <!-- Top accent line that sweeps in on hover -->
+        <div class="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left"
+             style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);"></div>
+
+        <!-- Icon -->
+        <div class="mb-5 w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+             style="background:linear-gradient(135deg,rgba(26,110,235,.2),rgba(96,165,250,.15));border:1px solid rgba(26,110,235,.3);">
+          <svg class="w-6 h-6" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+            {% if feat.icon == 'truck' %}
+              <path stroke-linecap="round" stroke-linejoin="round" d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            {% elif feat.icon == 'bar-chart' %}
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 20V10M18 20V4M6 20v-4"/>
+            {% elif feat.icon == 'clock' %}
+              <circle cx="12" cy="12" r="10"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
+            {% elif feat.icon == 'headphones' %}
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0118 0v6"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
+            {% elif feat.icon == 'globe' %}
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+              <circle cx="12" cy="12" r="9"/>
+            {% elif feat.icon == 'shield' %}
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/>
+            {% else %}
+              <circle cx="12" cy="12" r="10"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/>
+            {% endif %}
+          </svg>
+        </div>
+
+        <!-- Text -->
+        <h4 class="font-bold text-white mb-2 leading-snug" style="font-size:.95rem;">{{ feat.title }}</h4>
+        <p class="leading-relaxed" style="color:rgba(255,255,255,.45);font-size:.82rem;">{{ feat.desc }}</p>
+
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Bottom trust strip -->
+    <div class="mt-12 flex flex-wrap items-center justify-center gap-8">
+      {% for val, lbl in hero_stats %}
+      <div class="text-center">
+        <div class="font-bold text-white leading-none mb-1" style="font-size:1.6rem;letter-spacing:-.02em;">{{ val }}</div>
+        <div class="uppercase tracking-widest" style="font-size:.6rem;color:rgba(255,255,255,.35);">{{ lbl }}</div>
+      </div>
+      {% if not forloop.last %}<div class="w-px h-8 hidden sm:block" style="background:rgba(255,255,255,.1);"></div>{% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ TESTIMONIALS -->
+<section class="py-28 overflow-hidden relative" style="background:linear-gradient(160deg,#030913 0%,#06112A 50%,#0B1A30 100%);">
+  <!-- Dot grid -->
+  <div class="absolute inset-0 opacity-[.025]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <!-- Glow -->
+  <div class="absolute top-0 right-0 w-[700px] h-[500px] pointer-events-none" style="background:radial-gradient(circle at 80% 0%,rgba(26,110,235,.1) 0%,transparent 60%);"></div>
+  <!-- Gold top rule -->
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#1A6EEB 30%,#E8A22A 70%,transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <p class="font-bold text-[11px] uppercase tracking-[.28em] mb-4 flex items-center justify-center gap-3" style="color:#E8A22A;">
+        <span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>Client Stories<span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>
+      </p>
+      <h2 class="font-bold text-white leading-tight mb-4" style="font-size:clamp(2rem,4.5vw,3.2rem);">
+        Trusted by Businesses<br>
+        <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">That Move the World</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-sm leading-relaxed" style="color:rgba(255,255,255,.45);">From freight brokers to Fortune 500 shippers — hear how Augustus Corporation has transformed logistics for businesses that demand nothing less than excellence.</p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="relative" id="tCarousel">
+
+      <!-- Track -->
+      <div class="overflow-hidden rounded-lg shadow-2xl">
+        <div id="tTrack" class="flex transition-transform duration-500 ease-in-out">
+
+          {% for t in testimonials %}
+          <div class="tSlide flex-none w-full">
+            <div class="relative overflow-hidden rounded-xl flex flex-col justify-between p-10 md:p-16"
+                 style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);min-height:320px;">
+
+              <!-- Subtle inner glow -->
+              <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 0%,rgba(26,110,235,.12) 0%,transparent 60%);"></div>
+
+              <!-- Large decorative quote mark -->
+              <div class="absolute top-6 left-8 font-serif select-none pointer-events-none" style="font-size:8rem;color:rgba(26,110,235,.1);line-height:1;">&ldquo;</div>
+
+              <!-- Company badge / logo -->
+              <div class="relative z-10 mb-8 flex items-center justify-between">
+                {% if t.logo %}
+                <img src="{{ t.logo.url }}" alt="{{ t.company }}" class="h-8 object-contain" style="filter:brightness(0) invert(1);opacity:.7;"/>
+                {% else %}
+                <span class="inline-block font-bold uppercase tracking-[.18em] px-3 py-1.5 rounded text-[10px]"
+                      style="color:#60A5FA;background:rgba(26,110,235,.15);border:1px solid rgba(26,110,235,.3);">{{ t.company }}</span>
+                {% endif %}
+                <!-- Stars top-right -->
+                <div class="flex gap-0.5">
+                  {% for i in t.stars %}<span style="color:#E8A22A;font-size:.8rem;">★</span>{% endfor %}
+                  {% for i in t.empty_stars %}<span style="color:rgba(255,255,255,.15);font-size:.8rem;">★</span>{% endfor %}
+                </div>
+              </div>
+
+              <!-- Quote body -->
+              <div class="relative z-10 max-w-3xl mx-auto w-full text-center flex-1 flex items-center justify-center">
+                <p class="text-white leading-relaxed italic" style="font-size:clamp(1rem,1.5vw,1.15rem);">{{ t.review|truncatewords:50 }}</p>
+              </div>
+
+              <!-- Attribution -->
+              <div class="relative z-10 mt-10 pt-6 max-w-3xl mx-auto w-full flex items-center gap-4"
+                   style="border-top:1px solid rgba(255,255,255,.1);">
+                {% if t.avatar %}
+                <img src="{{ t.avatar.url }}" alt="{{ t.name }}" class="w-11 h-11 rounded-full object-cover shrink-0" style="border:2px solid rgba(26,110,235,.5);"/>
+                {% else %}
+                <div class="w-11 h-11 rounded-full shrink-0 flex items-center justify-center font-bold text-base text-white" style="background:linear-gradient(135deg,#1A6EEB,#60A5FA);">{{ t.name|first }}</div>
+                {% endif %}
+                <div>
+                  <p class="font-bold text-white text-sm">{{ t.name }}</p>
+                  {% if t.position %}<p class="text-xs mt-0.5" style="color:rgba(255,255,255,.4);">{{ t.position }}</p>{% endif %}
+                </div>
+              </div>
+
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <!-- Controls row -->
+      <div class="flex items-center justify-center gap-6 mt-8">
+
+        <!-- Prev -->
+        <button id="tPrev" aria-label="Previous testimonial"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                style="border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);"
+                onmouseover="this.style.background='#1A6EEB';this.style.borderColor='#1A6EEB';this.style.color='#fff';"
+                onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)';">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <!-- Dots -->
+        <div id="tDots" class="flex gap-2">
+          {% for t in testimonials %}
+          <button class="tDot h-2 rounded-full transition-all duration-300" data-idx="{{ forloop.counter0 }}"
+                  style="width:.5rem;background:rgba(255,255,255,.2);"></button>
+          {% endfor %}
+        </div>
+
+        <!-- Next -->
+        <button id="tNext" aria-label="Next testimonial"
+                class="w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                style="border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);background:rgba(255,255,255,.05);"
+                onmouseover="this.style.background='#1A6EEB';this.style.borderColor='#1A6EEB';this.style.color='#fff';"
+                onmouseout="this.style.background='rgba(255,255,255,.05)';this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)';">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ CTA -->
+<section class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0">
+    {% if site.cta_bg %}<img src="{{ site.cta_bg.url }}" alt="" class="w-full h-full object-cover"/>{% endif %}
+    <div class="absolute inset-0" style="background:linear-gradient(120deg,rgba(4,9,26,.97) 0%,rgba(4,9,26,.88) 50%,rgba(10,28,60,.85) 100%);"></div>
+  </div>
+  <!-- Gold top line -->
+  <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent 0%,#E8A22A 30%,#1A6EEB 70%,transparent 100%);"></div>
+  <!-- Glow -->
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px]" style="background:radial-gradient(ellipse,rgba(26,110,235,.15) 0%,transparent 70%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="font-bold text-[11px] uppercase tracking-[.22em] mb-5 flex items-center gap-3" style="color:#E8A22A;">
+          <span class="block w-8 h-px" style="background:#E8A22A;"></span>Start Today
+        </p>
+        <h2 class="text-4xl md:text-6xl font-bold text-white leading-[1.05] mb-6">
+          Your Cargo.<br>
+          <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Our Commitment.</span>
+        </h2>
+        <p class="leading-relaxed mb-8" style="color:rgba(255,255,255,.65);font-size:.95rem;max-width:30rem;">
+          Whether you need a dedicated flatbed running US highways or a consolidated sea freight consignment through Dubai's global hub — Augustus Corporation has the network, speed, and expertise to deliver results. Reach out today for your tailored logistics solution.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="{% url 'quote' %}" class="inline-flex items-center gap-2.5 text-white font-bold uppercase text-[11px] tracking-[.14em] px-8 py-4 transition-all" style="background:linear-gradient(135deg,#1A6EEB,#1458C0);box-shadow:0 4px 24px rgba(26,110,235,.45);border-radius:3px;">
+            Get a Free Quote →
+          </a>
+          <a href="tel:{{ site.phone }}" class="inline-flex items-center gap-2.5 text-white font-medium uppercase text-[11px] tracking-[.14em] px-8 py-4 transition-all hover:bg-white/10" style="border:1.5px solid rgba(255,255,255,.25);border-radius:3px;">
+            Call Now
+          </a>
+        </div>
+        <!-- Trust labels -->
+        <div class="flex flex-wrap gap-6 mt-8">
+          {% for label in trust_labels %}
+          <div class="flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 shrink-0" style="color:#E8A22A;" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span style="color:rgba(255,255,255,.55);font-size:.78rem;">{{ label }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- CTA stats -->
+      <div class="grid grid-cols-2 gap-4">
+        {% for val, lbl in cta_stats %}
+        <div class="text-center p-7 rounded transition-all" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);">
+          <div class="font-bold mb-2" style="font-size:2rem;color:#60A5FA;letter-spacing:-.01em;">{{ val }}</div>
+          <div style="color:rgba(255,255,255,.45);font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;">{{ lbl }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ LATEST NEWS -->
+<section class="py-24 section-light" style="background:linear-gradient(180deg,#F4F8FF 0%,#FFFFFF 100%);">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+      <div>
+        <p class="text-primary-600 font-bold text-[11px] uppercase tracking-[.22em] mb-3 flex items-center gap-3">
+          <span class="w-8 h-px bg-primary-600 inline-block"></span>Industry Intelligence
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-navy-800">From the Augustus Desk</h2>
+      </div>
+      <a href="{% url 'blog' %}" class="shrink-0 font-bold uppercase text-[11px] tracking-[.14em] px-6 py-3 transition-all" style="border:1.5px solid #1A6EEB;color:#1A6EEB;border-radius:3px;">
+        All Articles →
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {% for post in posts %}
+      <article class="group bg-white rounded overflow-hidden transition-all duration-300 hover:-translate-y-1.5" style="border:1px solid #E8EFFF;box-shadow:0 2px 16px rgba(26,110,235,.05);"
+               onmouseover="this.style.boxShadow='0 16px 48px rgba(26,110,235,.12)';"
+               onmouseout="this.style.boxShadow='0 2px 16px rgba(26,110,235,.05)';">
+        <div class="overflow-hidden relative" style="height:200px;background:#EBF2FF;">
+          {% if post.image %}<img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" loading="lazy"/>{% endif %}
+          <div class="absolute top-4 left-4">
+            <span class="text-[10px] font-bold px-3 py-1.5 rounded uppercase tracking-wider" style="background:rgba(26,110,235,.9);color:#fff;">{{ post.category }}</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-4 text-xs text-gray-400 mb-3">
+            <span>{{ post.published_at|date:"M d, Y" }}</span>
+            <span style="color:#DBEAFE;">·</span>
+            <span>{{ post.author }}</span>
+          </div>
+          <h3 class="font-bold text-navy-800 text-base mb-3 leading-snug group-hover:text-primary-600 transition-colors line-clamp-2">{{ post.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{{ post.excerpt }}</p>
+          <a href="{% url 'blog' %}" class="inline-flex items-center gap-1.5 text-primary-600 font-semibold text-sm group-hover:gap-3 transition-all">Read More <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.querySelectorAll('[data-count]').forEach(el => {
+  const target = +el.dataset.count;
+  let n = 0;
+  const step = () => { n = Math.min(n + Math.ceil(target/60), target); el.textContent = n; if (n < target) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+});
+
+// Testimonial carousel
+(function () {
+  const track = document.getElementById('tTrack');
+  if (!track) return;
+  const slides = track.querySelectorAll('.tSlide');
+  const dots   = document.querySelectorAll('.tDot');
+  const total  = slides.length;
+  let cur = 0, autoTimer;
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => {
+      if (i === cur) {
+        d.style.background = '#1A6EEB';
+        d.style.width = '1.5rem';
+      } else {
+        d.style.background = 'rgba(255,255,255,.2)';
+        d.style.width = '.5rem';
+      }
+    });
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(cur + 1), 5000);
+  }
+
+  document.getElementById('tPrev').addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
+  document.getElementById('tNext').addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
+  dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.idx); resetAuto(); }));
+
+  // Touch/swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { goTo(dx < 0 ? cur + 1 : cur - 1); resetAuto(); }
+  }, {passive:true});
+
+  goTo(0);
+  resetAuto();
+})();
+</script>
+{% endblock %}

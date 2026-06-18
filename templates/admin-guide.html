@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Augustus Corp — Website Admin Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1a1a2e;
+    background: #fff;
+  }
+
+  /* ── Cover Page ── */
+  .cover {
+    height: 100vh;
+    min-height: 700px;
+    background: linear-gradient(135deg, #0d1a2e 0%, #1A3D5C 60%, #2a6090 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+  .cover-logo {
+    width: 80px; height: 80px;
+    background: #E84231;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 36px; font-weight: 900; color: #fff;
+  }
+  .cover h1 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .cover h2 { font-size: 20px; font-weight: 400; color: rgba(255,255,255,.7); margin-bottom: 40px; }
+  .cover-divider { width: 60px; height: 3px; background: #E84231; margin: 0 auto 40px; }
+  .cover-meta { color: rgba(255,255,255,.5); font-size: 12px; }
+  .cover-meta span { color: #4A99CC; }
+
+  /* ── Page Layout ── */
+  .page { padding: 48px 52px; max-width: 900px; margin: 0 auto; }
+
+  /* ── Typography ── */
+  h1.section-title {
+    font-size: 22px; font-weight: 800; color: #1A3D5C;
+    border-left: 4px solid #E84231; padding-left: 14px;
+    margin-bottom: 24px; margin-top: 40px;
+  }
+  h2.subsection { font-size: 16px; font-weight: 700; color: #1A3D5C; margin: 28px 0 10px; }
+  h3.item-title { font-size: 13px; font-weight: 700; color: #1A3D5C; margin: 16px 0 6px; }
+  p { color: #444; margin-bottom: 10px; }
+  strong { color: #1A3D5C; }
+
+  /* ── TOC ── */
+  .toc { background: #f0f6ff; border: 1px solid #c8dcf5; border-radius: 8px; padding: 28px 32px; margin-bottom: 40px; }
+  .toc h2 { font-size: 16px; font-weight: 800; color: #1A3D5C; margin-bottom: 18px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; color: #2a6090; font-weight: 600; font-size: 13px; }
+  .toc li span { color: #777; font-weight: 400; font-size: 12px; margin-left: 6px; }
+
+  /* ── Callout boxes ── */
+  .callout {
+    border-radius: 6px; padding: 14px 18px; margin: 16px 0;
+    border-left: 4px solid;
+  }
+  .callout-info { background: #ebf5fc; border-color: #4A99CC; }
+  .callout-warn { background: #fff8e6; border-color: #f59e0b; }
+  .callout-tip  { background: #ecfdf5; border-color: #22c55e; }
+  .callout-red  { background: #fff0ee; border-color: #E84231; }
+  .callout p { margin: 0; font-size: 12.5px; }
+  .callout strong { display: block; margin-bottom: 3px; font-size: 13px; }
+
+  /* ── Steps ── */
+  .steps { counter-reset: step; }
+  .step {
+    display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start;
+  }
+  .step-num {
+    counter-increment: step;
+    min-width: 26px; height: 26px;
+    background: #1A3D5C; color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px;
+  }
+  .step p { margin: 0; }
+
+  /* ── Field table ── */
+  .field-table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; }
+  .field-table th {
+    background: #1A3D5C; color: #fff;
+    padding: 9px 12px; text-align: left; font-size: 11px;
+    font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  }
+  .field-table td { padding: 9px 12px; border-bottom: 1px solid #e8f0fc; vertical-align: top; font-size: 12.5px; }
+  .field-table tr:nth-child(even) td { background: #f5faff; }
+  .field-table .field-name { font-weight: 700; color: #1A3D5C; white-space: nowrap; }
+  .field-table .required { color: #E84231; font-size: 10px; font-weight: 700; }
+
+  /* ── Navigation path ── */
+  .nav-path {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #1A3D5C; color: #fff; border-radius: 4px;
+    padding: 5px 12px; font-size: 11.5px; font-weight: 600;
+    margin: 8px 0 14px; letter-spacing: .02em;
+  }
+  .nav-path span { opacity: .5; }
+
+  /* ── Code / URL ── */
+  code {
+    background: #f0f4f8; border: 1px solid #dce6f0; border-radius: 4px;
+    padding: 2px 7px; font-family: 'Courier New', monospace; font-size: 12px; color: #c0392b;
+  }
+
+  /* ── Badge ── */
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 20px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  }
+  .badge-red   { background: #fde8e4; color: #c0392b; }
+  .badge-blue  { background: #e0eeff; color: #1A3D5C; }
+  .badge-green { background: #e0faf0; color: #166534; }
+
+  /* ── Section divider ── */
+  .divider { border: none; border-top: 2px solid #e8f0fc; margin: 32px 0; }
+
+  /* ── Print ── */
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .callout { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .field-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .nav-path { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .step-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h1.section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ COVER -->
+<div class="cover">
+  <div class="cover-logo">A</div>
+  <h1>Augustus Corp</h1>
+  <h2>Website Administration Guide</h2>
+  <div class="cover-divider"></div>
+  <p style="color:rgba(255,255,255,.6);font-size:14px;max-width:440px;line-height:1.7">
+    A complete guide for managing and updating the Augustus Corp website through the Django Admin panel — no coding required.
+  </p>
+  <div style="margin-top:48px">
+    <div class="cover-meta">Website: <span>augustustransport.com</span> &nbsp;|&nbsp; Admin: <span>/admin/</span></div>
+    <div class="cover-meta" style="margin-top:6px">Confidential — For Internal Use Only</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ PAGE 1 — TABLE OF CONTENTS -->
+<div class="page">
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li>Getting Started &amp; Admin Access <span>— Login, URL, first steps</span></li>
+      <li>Site Settings — Branding &amp; Contact <span>— Logo, colors, phone, email, hours</span></li>
+      <li>Services Management <span>— Add, edit, reorder services</span></li>
+      <li>Freight Cost Calculator <span>— Vessel sizes, cargo types, port cities, rates</span></li>
+      <li>FAQ Management <span>— Add/edit/reorder FAQ questions</span></li>
+      <li>Blog / News Management <span>— Publish articles and news</span></li>
+      <li>Career &amp; Jobs Management <span>— Post and manage job openings</span></li>
+      <li>Team Members <span>— Add/edit leadership profiles</span></li>
+      <li>Partner Companies <span>— Update company information</span></li>
+      <li>About Page Content <span>— Commitments, highlights, industries</span></li>
+      <li>Leads &amp; Enquiries <span>— Quote requests and contact messages</span></li>
+      <li>Shipment Tracking <span>— Add and update shipment records</span></li>
+      <li>Running the Website Locally <span>— Developer startup commands</span></li>
+    </ol>
+  </div>
+
+  <div class="callout callout-info">
+    <strong>About This Guide</strong>
+    <p>All website content — text, images, prices, contact details, services — is managed through the Admin Panel at <code>/admin/</code>. You do not need to edit any code files to update the website.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 1 -->
+<div class="page">
+  <h1 class="section-title">1 — Getting Started &amp; Admin Access</h1>
+
+  <h2 class="subsection">Accessing the Admin Panel</h2>
+  <p>The Admin Panel is where all website content is managed. It is only accessible to authorised users.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><p>Open your browser and go to: <code>http://127.0.0.1:8000/admin/</code> (local) or <code>https://yourdomain.com/admin/</code> (live site)</p></div>
+    <div class="step"><div class="step-num">2</div><p>Enter your <strong>Username</strong> and <strong>Password</strong></p></div>
+    <div class="step"><div class="step-num">3</div><p>Click <strong>Log In</strong> — you will see the Management Dashboard</p></div>
+  </div>
+
+  <h2 class="subsection">Creating a New Admin User</h2>
+  <p>Run this command in the terminal from the project folder:</p>
+  <div class="callout callout-info">
+    <p><code>python manage.py createsuperuser</code></p>
+    <p style="margin-top:6px">You will be prompted to enter a username, email address, and password.</p>
+  </div>
+
+  <h2 class="subsection">Resetting a Forgotten Password</h2>
+  <div class="callout callout-warn">
+    <strong>If you forgot your admin password:</strong>
+    <p>Run: <code>python manage.py changepassword &lt;your_username&gt;</code></p>
+    <p style="margin-top:4px">To see all admin users: <code>python manage.py shell -c "from django.contrib.auth.models import User; print([u.username for u in User.objects.filter(is_superuser=True)])"</code></p>
+  </div>
+
+  <h2 class="subsection">Admin Dashboard Overview</h2>
+  <p>After logging in, you will see sections grouped by category. Each section corresponds to a part of the website. Click any item to add, edit, or delete records.</p>
+
+  <table class="field-table">
+    <thead><tr><th>Admin Section</th><th>What It Controls</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Site Settings</td><td>Logo, favicon, brand colors, phone, email, address, hours, tagline</td></tr>
+      <tr><td class="field-name">Services</td><td>Service cards on the homepage and Services page</td></tr>
+      <tr><td class="field-name">Vessel Sizes</td><td>Truck types for the cost calculator — rates per mile, minimum charges</td></tr>
+      <tr><td class="field-name">Cargo Types</td><td>Material types for the calculator — cost multipliers</td></tr>
+      <tr><td class="field-name">Port Cities</td><td>All cities available in the calculator origin/destination search</td></tr>
+      <tr><td class="field-name">FAQ Items</td><td>Questions and answers shown on the FAQ page</td></tr>
+      <tr><td class="field-name">Blog Posts</td><td>News articles and industry updates</td></tr>
+      <tr><td class="field-name">Jobs</td><td>Career page job listings</td></tr>
+      <tr><td class="field-name">Team Members</td><td>Leadership team profiles on the About page</td></tr>
+      <tr><td class="field-name">Companies</td><td>Partner company details on the Companies page</td></tr>
+      <tr><td class="field-name">Quotes</td><td>Quote requests submitted by visitors</td></tr>
+      <tr><td class="field-name">Contacts</td><td>Contact form submissions</td></tr>
+      <tr><td class="field-name">Shipments</td><td>Tracking records for shipments</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 2 -->
+<div class="page">
+  <h1 class="section-title">2 — Site Settings: Branding &amp; Contact</h1>
+
+  <p>Site Settings is the most important section — it controls the global branding, contact details, and colors that appear on every page of the website.</p>
+
+  <div class="nav-path">Admin → Site Settings → Click the existing record to edit</div>
+
+  <div class="callout callout-warn">
+    <strong>Important:</strong>
+    <p>There is only ONE Site Settings record. Do not create a new one — click the existing record to edit it.</p>
+  </div>
+
+  <h2 class="subsection">Logo &amp; Identity</h2>
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Logo <span class="badge badge-blue">Light Mode</span></td><td>Upload your logo for light/white backgrounds. PNG or SVG recommended. Leave blank to use the default SVG logo.</td></tr>
+      <tr><td class="field-name">Logo Dark <span class="badge badge-blue">Dark Mode</span></td><td>Upload a separate version of your logo for dark backgrounds (e.g., white logo on transparent). If not uploaded, the light logo is used in both modes.</td></tr>
+      <tr><td class="field-name">Logo Alt Text</td><td>Text description of the logo (used by screen readers and if the image fails to load)</td></tr>
+      <tr><td class="field-name">Favicon</td><td>The small icon shown in the browser tab. Upload a square PNG — minimum 32×32px, recommended 512×512px. After uploading, clear your browser cache to see the change.</td></tr>
+      <tr><td class="field-name">Company Name</td><td>The company name used in the browser title bar and footer copyright notice.</td></tr>
+      <tr><td class="field-name">Tagline</td><td>Short slogan shown in the browser tab title and meta description. Keep under 80 characters.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection">Wordmark (Styled Name Beside Logo)</h2>
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Wordmark Main</td><td>The first part of the brand name shown in navy next to the logo icon. Example: <strong>AUGUST</strong></td></tr>
+      <tr><td class="field-name">Wordmark Accent</td><td>The second part shown in the accent (red) color. Example: <strong>US</strong></td></tr>
+      <tr><td class="field-name">Wordmark Sub</td><td>Optional small text shown below (e.g. CORP or BROKERAGE). Leave blank to hide.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection">Brand Colors</h2>
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Primary Color</td><td>The main blue used for buttons, links, and accents. Default: <code>#4A99CC</code>. Enter a hex color code.</td></tr>
+      <tr><td class="field-name">Navy Color</td><td>The dark navy used for headers, footer, and navigation. Default: <code>#1A3D5C</code></td></tr>
+      <tr><td class="field-name">Accent Color</td><td>The highlight/red color used for the "US" wordmark and key accents. Default: <code>#E84231</code></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-tip">
+    <strong>How to change colors:</strong>
+    <p>Enter a hex color code (e.g. <code>#FF5733</code>) in the color fields. Changes apply site-wide instantly after saving. Use a free tool like <strong>coolors.co</strong> to pick colors.</p>
+  </div>
+
+  <h2 class="subsection">Contact Information</h2>
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Where It Appears</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Phone</td><td>Top header bar, footer, contact page, chatbot responses, and the "Need help?" link in the header</td></tr>
+      <tr><td class="field-name">Email</td><td>Top header bar, footer, contact page, chatbot, and the job application email links on the Careers page</td></tr>
+      <tr><td class="field-name">Address</td><td>Footer address line and contact page</td></tr>
+      <tr><td class="field-name">Website</td><td>Footer copyright line (e.g. augustustransport.com)</td></tr>
+      <tr><td class="field-name">Hours Weekday</td><td>Top header bar, footer hours table, chatbot</td></tr>
+      <tr><td class="field-name">Hours Saturday</td><td>Footer hours table</td></tr>
+      <tr><td class="field-name">Footer Blurb</td><td>The short paragraph under the logo in the footer</td></tr>
+      <tr><td class="field-name">Meta Description</td><td>The text shown in Google search results under the page title</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection">Integrations</h2>
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Google Maps API Key</td><td>Optional. Enables accurate road distance calculation in the Freight Cost Calculator using Google Maps. Without this, the calculator uses OSRM (free routing). Get a key from <strong>console.cloud.google.com</strong> — enable "Distance Matrix API" and "Maps JavaScript API".</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 3 -->
+<div class="page">
+  <h1 class="section-title">3 — Services Management</h1>
+
+  <p>Services appear on the homepage service cards and the full Services page with detailed descriptions.</p>
+
+  <div class="nav-path">Admin → Services → Add Service / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name <span class="required">REQUIRED</span></td><td>Service name shown as the card title (e.g. "OTR Transportation")</td></tr>
+      <tr><td class="field-name">Slug <span class="required">REQUIRED</span></td><td>URL identifier — auto-generated from name. Only lowercase letters and hyphens. Used for anchor links (e.g. <code>/services/#otr</code>)</td></tr>
+      <tr><td class="field-name">Description</td><td>Full description shown on the Services page. Be descriptive — 2–4 sentences work best.</td></tr>
+      <tr><td class="field-name">Icon Name</td><td>Icon identifier for the card icon (e.g. <code>truck</code>, <code>anchor</code>, <code>box</code>, <code>shield</code>, <code>globe</code>)</td></tr>
+      <tr><td class="field-name">Features</td><td>Bullet point list (JSON format). Example: <code>["Feature 1", "Feature 2", "Feature 3"]</code></td></tr>
+      <tr><td class="field-name">Image URL</td><td>URL of the service image. Use an Unsplash URL or upload your own image elsewhere and paste the link.</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order — lower numbers appear first. Use: 1, 2, 3…</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-tip">
+    <strong>Reordering services:</strong>
+    <p>In the Services list view, change the "Order" number for each service and click Save. Services with lower numbers appear first on the page.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <h1 class="section-title">4 — Freight Cost Calculator</h1>
+
+  <p>The trucking cost calculator on the homepage is entirely admin-controlled. No code changes are needed to update rates, add vessel sizes, or manage cargo types.</p>
+
+  <h2 class="subsection">4.1 — Vessel Sizes (Truck Types)</h2>
+  <p>Controls the truck type dropdown in the calculator and the per-mile rate used in cost calculations.</p>
+
+  <div class="nav-path">Admin → Vessel Sizes → Add Vessel Size / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name <span class="required">REQUIRED</span></td><td>Displayed in the dropdown (e.g. "Dry Van 53'")</td></tr>
+      <tr><td class="field-name">Key <span class="required">REQUIRED</span></td><td>Unique identifier — lowercase, hyphens only (e.g. <code>dry-van</code>). Used internally.</td></tr>
+      <tr><td class="field-name">Description</td><td>Short description shown to users</td></tr>
+      <tr><td class="field-name">Capacity</td><td>Load capacity info (e.g. "44,000 lbs / 2,700 cu ft")</td></tr>
+      <tr><td class="field-name">Rate Per Mile <span class="required">REQUIRED</span></td><td>Base cost in USD per mile (e.g. <code>2.80</code>). This is the primary pricing variable.</td></tr>
+      <tr><td class="field-name">Min Charge <span class="required">REQUIRED</span></td><td>Minimum job cost in USD regardless of distance (e.g. <code>600</code>)</td></tr>
+      <tr><td class="field-name">Fuel Surcharge %</td><td>Fuel surcharge percentage added on top of base rate (e.g. <code>25</code> = 25%). Default: 25.</td></tr>
+      <tr><td class="field-name">Is Active</td><td>Uncheck to hide this option from the calculator without deleting it</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order in the dropdown</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <strong>How the cost formula works:</strong>
+    <p><strong>Base Rate</strong> = max(Min Charge, Rate Per Mile × Distance Miles)<br/>
+    <strong>Fuel Surcharge</strong> = Base Rate × Fuel %<br/>
+    <strong>Cargo Adjustment</strong> = Base Rate × (Cargo Multiplier − 1)<br/>
+    <strong>Total</strong> = Base Rate + Fuel Surcharge + Cargo Adjustment (shown as ±10% range)</p>
+  </div>
+
+  <h2 class="subsection">4.2 — Cargo Types</h2>
+  <p>Controls the material/cargo type dropdown and applies a multiplier to the base rate.</p>
+
+  <div class="nav-path">Admin → Cargo Types → Add Cargo Type / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name <span class="required">REQUIRED</span></td><td>Displayed in the dropdown (e.g. "Hazardous Materials")</td></tr>
+      <tr><td class="field-name">Key <span class="required">REQUIRED</span></td><td>Unique identifier (e.g. <code>hazmat</code>)</td></tr>
+      <tr><td class="field-name">Description</td><td>Brief description of this cargo type</td></tr>
+      <tr><td class="field-name">Multiplier <span class="required">REQUIRED</span></td><td>Cost multiplier. <code>1.00</code> = no surcharge. <code>1.50</code> = 50% surcharge. <code>2.00</code> = double the base rate.</td></tr>
+      <tr><td class="field-name">Is Active</td><td>Uncheck to hide from the calculator</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order in the dropdown</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-warn">
+    <strong>Multiplier examples:</strong>
+    <p>General Freight = 1.00 (no change) &nbsp;|&nbsp; Hazmat = 1.50 (+50%) &nbsp;|&nbsp; Oversized = 1.80 (+80%)</p>
+  </div>
+
+  <h2 class="subsection">4.3 — Port Cities</h2>
+  <p>The list of cities available in the calculator's origin/destination search. Users type a city name and select from this list.</p>
+
+  <div class="nav-path">Admin → Port Cities → Add Port / City / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name <span class="required">REQUIRED</span></td><td>City name as it appears in the search (e.g. "Los Angeles")</td></tr>
+      <tr><td class="field-name">Country <span class="required">REQUIRED</span></td><td>Country name (e.g. "USA", "Canada", "UK"). Shown alongside the city name.</td></tr>
+      <tr><td class="field-name">Zone</td><td>Geographic zone used for routing. Select the nearest zone from the list.</td></tr>
+      <tr><td class="field-name">Lat</td><td>Latitude coordinate (e.g. <code>34.052</code>). Required for distance calculation.</td></tr>
+      <tr><td class="field-name">Lng</td><td>Longitude coordinate (e.g. <code>-118.244</code>). Required for distance calculation. Negative = West.</td></tr>
+      <tr><td class="field-name">Is Active</td><td>Uncheck to hide from the calculator without deleting</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-tip">
+    <strong>Finding coordinates:</strong>
+    <p>Go to <strong>maps.google.com</strong>, right-click on any city, and click the coordinates shown at the top of the menu. Copy the two numbers — the first is latitude, the second is longitude.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 5-6 -->
+<div class="page">
+  <h1 class="section-title">5 — FAQ Management</h1>
+
+  <p>The FAQ page and the quick FAQ section on the Support page are both controlled from here.</p>
+
+  <div class="nav-path">Admin → FAQ Items → Add FAQ Item / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Question <span class="required">REQUIRED</span></td><td>The question text shown as the accordion header</td></tr>
+      <tr><td class="field-name">Answer <span class="required">REQUIRED</span></td><td>The answer text shown when the question is expanded</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order — lower numbers appear first</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-tip">
+    <strong>Tip:</strong>
+    <p>The first 5 FAQ items also appear on the Support page. Keep your most common questions in positions 1–5.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <h1 class="section-title">6 — Blog / News Management</h1>
+
+  <p>Blog posts appear on the News page and the three most recent appear on the homepage.</p>
+
+  <div class="nav-path">Admin → Blog Posts → Add Blog Post / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Title <span class="required">REQUIRED</span></td><td>Article headline. Keep under 80 characters for best display.</td></tr>
+      <tr><td class="field-name">Slug <span class="required">REQUIRED</span></td><td>URL-friendly version of the title — auto-generated. Only lowercase and hyphens.</td></tr>
+      <tr><td class="field-name">Excerpt <span class="required">REQUIRED</span></td><td>Short summary shown on the blog list page and homepage (2–3 sentences)</td></tr>
+      <tr><td class="field-name">Content</td><td>Full article body text</td></tr>
+      <tr><td class="field-name">Author</td><td>Author name shown on the article (e.g. "Augustus Corp")</td></tr>
+      <tr><td class="field-name">Category</td><td>Category label shown as a badge (e.g. "Industry Insights", "Operations")</td></tr>
+      <tr><td class="field-name">Image URL</td><td>URL of the article cover image. Use a relevant trucking/freight image from Unsplash.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <strong>Useful free image sources:</strong>
+    <p>
+      <strong>Unsplash</strong> — unsplash.com (free, high quality, commercial use allowed)<br/>
+      <strong>Pexels</strong> — pexels.com (free, commercial use)<br/>
+      Search for: <em>semi truck, shipping containers, cargo ship, freight terminal, warehouse</em>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 7-8 -->
+<div class="page">
+  <h1 class="section-title">7 — Career &amp; Jobs Management</h1>
+
+  <p>All job listings on the Careers page are managed here. Jobs can be activated/deactivated without deleting them.</p>
+
+  <div class="nav-path">Admin → Jobs → Add Job / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Title <span class="required">REQUIRED</span></td><td>Job title (e.g. "OTR Truck Driver (CDL-A)")</td></tr>
+      <tr><td class="field-name">Company Name</td><td>Which company is hiring (e.g. "Augustus Corp")</td></tr>
+      <tr><td class="field-name">Location</td><td>Where the role is based (e.g. "Los Angeles, CA" or "USA (Remote)")</td></tr>
+      <tr><td class="field-name">Job Type</td><td>Full-Time, Contract, etc.</td></tr>
+      <tr><td class="field-name">Department</td><td>Used for the "Filter by Department" dropdown (e.g. "Operations", "Fleet Operations")</td></tr>
+      <tr><td class="field-name">Description</td><td>Full job description shown when the listing is expanded</td></tr>
+      <tr><td class="field-name">Is Active</td><td><strong>Check</strong> = visible on site. <strong>Uncheck</strong> = hidden (closed/filled position)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-tip">
+    <strong>To close a job posting:</strong>
+    <p>Click the job → uncheck "Is Active" → Save. The listing disappears from the website but remains in your records for reference.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <h1 class="section-title">8 — Team Members</h1>
+
+  <p>Team member profiles appear in the grid on the About page.</p>
+
+  <div class="nav-path">Admin → Team Members → Add Team Member / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name <span class="required">REQUIRED</span></td><td>Full name of the team member</td></tr>
+      <tr><td class="field-name">Position <span class="required">REQUIRED</span></td><td>Job title shown under the name</td></tr>
+      <tr><td class="field-name">Bio</td><td>Short biography (2–3 sentences). Shown on the team card.</td></tr>
+      <tr><td class="field-name">Image URL</td><td>URL to a professional headshot photo. Recommended size: 400×400px square. Leave blank to show a placeholder avatar.</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order in the team grid</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <strong>Uploading team photos:</strong>
+    <p>Upload your photo to a free image hosting service (e.g. <strong>imgbb.com</strong> or <strong>cloudinary.com</strong>), then copy the image URL and paste it into the Image URL field.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 9-10 -->
+<div class="page">
+  <h1 class="section-title">9 — Partner Companies</h1>
+
+  <p>The Companies page and the company cards on the homepage are controlled here.</p>
+
+  <div class="nav-path">Admin → Companies → Click the company to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name</td><td>Company name shown as the card title</td></tr>
+      <tr><td class="field-name">Tagline</td><td>Short descriptor shown under the company name</td></tr>
+      <tr><td class="field-name">Description</td><td>Full company description shown on the Companies page</td></tr>
+      <tr><td class="field-name">Founded</td><td>Year founded (shown in the stats strip)</td></tr>
+      <tr><td class="field-name">Fleet</td><td>Fleet size description (e.g. "Vetted carrier network")</td></tr>
+      <tr><td class="field-name">Countries</td><td>Coverage area (e.g. "US &amp; Canada")</td></tr>
+      <tr><td class="field-name">Employees</td><td>Staff count (e.g. "150+")</td></tr>
+      <tr><td class="field-name">Image URL</td><td>Company hero image shown on the Companies page</td></tr>
+      <tr><td class="field-name">Highlights</td><td>Bullet point list of key capabilities (JSON format). Example: <code>["OTR Coverage", "Drayage Services"]</code></td></tr>
+      <tr><td class="field-name">Order</td><td>Display order — Company 1 appears first</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider"/>
+
+  <h1 class="section-title">10 — About Page Content</h1>
+
+  <p>These sections control the bullet points and commitment statements on the About page.</p>
+
+  <h2 class="subsection">Commitments</h2>
+  <div class="nav-path">Admin → Commitments → Add/Edit</div>
+  <p>These are the "Our Commitment" checkmark items shown on the About page. Each record is one bullet point.</p>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Text</td><td>The commitment statement (e.g. "On-time pickups and deliveries")</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection">About Highlights</h2>
+  <div class="nav-path">Admin → About Highlights → Add/Edit</div>
+  <p>The capability checklist shown in the About section on both the homepage and About page.</p>
+
+  <h2 class="subsection">Industries</h2>
+  <div class="nav-path">Admin → Industries → Add/Edit</div>
+  <p>The industries grid shown at the bottom of the About page (e.g. "Retail &amp; E-commerce", "Manufacturing &amp; Industrial").</p>
+
+  <h2 class="subsection">Why Us Features</h2>
+  <div class="nav-path">Admin → Why Us Features → Add/Edit</div>
+  <p>The six feature cards in the "Why Ship with Augustus Corp" section on the homepage.</p>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Icon</td><td>Icon name for the card (e.g. <code>truck</code>, <code>globe</code>, <code>shield</code>, <code>clock</code>, <code>headphones</code>)</td></tr>
+      <tr><td class="field-name">Title</td><td>Feature heading</td></tr>
+      <tr><td class="field-name">Desc</td><td>Feature description (2–3 sentences)</td></tr>
+      <tr><td class="field-name">Order</td><td>Display order in the grid</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 11-12 -->
+<div class="page">
+  <h1 class="section-title">11 — Leads &amp; Enquiries</h1>
+
+  <p>All quote requests and contact form submissions are stored here. You can view them and mark them as read or responded to.</p>
+
+  <h2 class="subsection">Quote Requests</h2>
+  <div class="nav-path">Admin → Quotes → Click any record to view details</div>
+
+  <p>Every time a visitor fills in the "Request a Quote" form, a record is created here.</p>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name / Email / Phone</td><td>Customer contact details</td></tr>
+      <tr><td class="field-name">Company</td><td>Customer company name (if provided)</td></tr>
+      <tr><td class="field-name">Service Type</td><td>Which service they are enquiring about</td></tr>
+      <tr><td class="field-name">Origin / Destination</td><td>Pickup and delivery locations</td></tr>
+      <tr><td class="field-name">Weight / Dimensions</td><td>Cargo specifications</td></tr>
+      <tr><td class="field-name">Message</td><td>Additional notes from the customer</td></tr>
+      <tr><td class="field-name">Status</td><td>Set to: <strong>pending</strong> (new), <strong>responded</strong>, or <strong>closed</strong>. Change this to track your follow-ups.</td></tr>
+      <tr><td class="field-name">Submitted At</td><td>Date and time of submission</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection">Contact Messages</h2>
+  <div class="nav-path">Admin → Contacts → Click any record to view</div>
+
+  <p>Contact form submissions from the Contact page and Support page.</p>
+
+  <table class="field-table">
+    <thead><tr><th width="180">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Name / Email / Phone</td><td>Sender's contact details</td></tr>
+      <tr><td class="field-name">Subject</td><td>Subject of the enquiry</td></tr>
+      <tr><td class="field-name">Message</td><td>Full message content</td></tr>
+      <tr><td class="field-name">Is Read</td><td>Check this box after you have read and actioned the message. Unread messages show at the top.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-warn">
+    <strong>Email notifications are not automatic.</strong>
+    <p>The website stores enquiries in the admin panel, but does not send email notifications automatically. Check the admin panel regularly to review new quotes and messages.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <h1 class="section-title">12 — Shipment Tracking</h1>
+
+  <p>The tracking page allows customers to look up their shipment by tracking number. Records are managed here.</p>
+
+  <div class="nav-path">Admin → Shipments → Add Shipment / Click to edit</div>
+
+  <table class="field-table">
+    <thead><tr><th width="200">Field</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="field-name">Tracking Number <span class="required">REQUIRED</span></td><td>Unique reference number the customer uses to track. Format: <code>AUGS-YYYY-001</code></td></tr>
+      <tr><td class="field-name">Status</td><td>Current shipment status: Cargo Received, In Transit, At Customs, At Destination, Delivered</td></tr>
+      <tr><td class="field-name">Origin / Destination</td><td>Pickup and delivery city/location names</td></tr>
+      <tr><td class="field-name">Service Type</td><td>Type of service (e.g. "OTR — Dry Van")</td></tr>
+      <tr><td class="field-name">Weight</td><td>Cargo weight (e.g. "42,000 lbs")</td></tr>
+      <tr><td class="field-name">Estimated Delivery</td><td>Expected delivery date</td></tr>
+      <tr><td class="field-name">Sender / Receiver Name</td><td>Names of the shipper and consignee</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <strong>Adding tracking events:</strong>
+    <p>When editing a shipment, scroll down to the <strong>Tracking Events</strong> section. Click "Add another Tracking Event" to log each checkpoint (pickup, in transit, delivered, etc.). Each event shows on the customer's tracking page.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ SECTION 13 -->
+<div class="page">
+  <h1 class="section-title">13 — Running the Website Locally</h1>
+
+  <p>Use these commands to start the website on your computer for development and testing.</p>
+
+  <h2 class="subsection">Starting the Server</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <p>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <p>Navigate to the project folder:<br/><code>cd /Users/supriyayadav/seaways-django</code></p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <p>Activate the virtual environment:<br/><code>source venv/bin/activate</code></p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <p>Start the server:<br/><code>python manage.py runserver</code></p>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <p>Open browser and go to: <code>http://127.0.0.1:8000/</code></p>
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <strong>Port already in use?</strong>
+    <p>If you see "Error: That port is already in use", run:<br/>
+    <code>kill -9 $(lsof -t -i:8000)</code> &nbsp; then &nbsp; <code>python manage.py runserver</code></p>
+  </div>
+
+  <h2 class="subsection">Common Commands Reference</h2>
+
+  <table class="field-table">
+    <thead><tr><th width="320">Command</th><th>What It Does</th></tr></thead>
+    <tbody>
+      <tr><td><code>python manage.py runserver</code></td><td>Starts the development web server</td></tr>
+      <tr><td><code>python manage.py seed</code></td><td>Resets and repopulates the database with default data <span class="badge badge-red">Warning: overwrites existing data</span></td></tr>
+      <tr><td><code>python manage.py createsuperuser</code></td><td>Creates a new admin user</td></tr>
+      <tr><td><code>python manage.py changepassword &lt;username&gt;</code></td><td>Resets an admin user's password</td></tr>
+      <tr><td><code>python manage.py makemigrations</code></td><td>Prepares database schema changes (for developers)</td></tr>
+      <tr><td><code>python manage.py migrate</code></td><td>Applies database schema changes (for developers)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-red">
+    <strong>⚠ Warning about <code>python manage.py seed</code>:</strong>
+    <p>Running the seed command will <strong>delete and recreate</strong> all services, blog posts, team members, companies, and jobs with the default data. It will NOT delete quotes, contact messages, or custom data you have entered through the admin. Only run this to reset demo content.</p>
+  </div>
+
+  <h2 class="subsection">Project Folder Structure</h2>
+  <table class="field-table">
+    <thead><tr><th width="240">Folder / File</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>templates/pages/</code></td><td>HTML template files for each page</td></tr>
+      <tr><td><code>templates/base.html</code></td><td>Master layout — header, footer, navigation</td></tr>
+      <tr><td><code>core/models.py</code></td><td>Database structure definitions</td></tr>
+      <tr><td><code>core/views.py</code></td><td>Page logic and the cost calculator API</td></tr>
+      <tr><td><code>core/admin.py</code></td><td>Admin panel configuration</td></tr>
+      <tr><td><code>augustuscorp/settings.py</code></td><td>Main Django settings (database, static files, etc.)</td></tr>
+      <tr><td><code>static/css/custom.css</code></td><td>Custom CSS styles</td></tr>
+      <tr><td><code>static/images/logo.svg</code></td><td>Default logo (fallback when no logo uploaded in admin)</td></tr>
+      <tr><td><code>media/branding/</code></td><td>Uploaded logos and favicons (from admin)</td></tr>
+      <tr><td><code>db.sqlite3</code></td><td>The database file — back this up regularly</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider"/>
+
+  <h2 class="subsection">Quick Reference — Admin URLs</h2>
+  <table class="field-table">
+    <thead><tr><th width="280">URL</th><th>Page</th></tr></thead>
+    <tbody>
+      <tr><td><code>/admin/</code></td><td>Admin dashboard (login required)</td></tr>
+      <tr><td><code>/admin/core/sitesettings/</code></td><td>Site Settings — branding, contact, colors</td></tr>
+      <tr><td><code>/admin/core/service/</code></td><td>Services management</td></tr>
+      <tr><td><code>/admin/core/trucktype/</code></td><td>Vessel Sizes / calculator rates</td></tr>
+      <tr><td><code>/admin/core/cargotype/</code></td><td>Cargo Types / multipliers</td></tr>
+      <tr><td><code>/admin/core/portcity/</code></td><td>Port Cities / calculator locations</td></tr>
+      <tr><td><code>/admin/core/faqitem/</code></td><td>FAQ Questions</td></tr>
+      <tr><td><code>/admin/core/blogpost/</code></td><td>Blog / News articles</td></tr>
+      <tr><td><code>/admin/core/job/</code></td><td>Job listings</td></tr>
+      <tr><td><code>/admin/core/quote/</code></td><td>Quote requests from visitors</td></tr>
+      <tr><td><code>/admin/core/contact/</code></td><td>Contact form submissions</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:48px;padding:24px;background:#0d1a2e;border-radius:8px;text-align:center;">
+    <p style="color:rgba(255,255,255,.5);font-size:11px;margin:0">
+      Augustus Corp — Website Administration Guide &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; For internal use only<br/>
+      <span style="color:#4A99CC">augustustransport.com</span>
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>

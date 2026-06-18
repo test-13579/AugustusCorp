@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Track Your Cargo — Augustus Corp{% endblock %}
+{% block content %}
+<section class="relative py-28 overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 20%,rgba(26,110,235,.12) 0%,transparent 65%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-6" style="background:rgba(26,110,235,.15);border:1px solid rgba(26,110,235,.3);">
+      <svg class="w-6 h-6" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 16.5H5a2 2 0 01-2-2v-8l9-4 9 4v8a2 2 0 01-2 2z"/></svg>
+    </div>
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="font-bold uppercase tracking-[.25em]" style="font-size:.625rem;color:#E8A22A;">Real-Time Updates</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white leading-[1.05] mb-5" style="font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.02em;">
+      Track Your<br>
+      <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Cargo</span>
+    </h1>
+    <p class="max-w-xl mx-auto leading-relaxed" style="color:rgba(255,255,255,.6);font-size:clamp(.9rem,1.5vw,1.05rem);">Real-time shipment status and delivery updates for every Augustus Corp load</p>
+  </div>
+</section>
+
+<section class="py-16 relative" style="background:linear-gradient(135deg,#1A3D5C 0%,#1E4D72 100%)">
+  <div class="max-w-3xl mx-auto px-4">
+    <form action="{% url 'track' %}" method="GET" class="flex flex-col sm:flex-row gap-3 mb-4">
+      <div class="relative flex-1">
+        <svg class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Enter tracking number (e.g. AUGS-2025-001)"
+               class="w-full pl-11 pr-4 py-4 bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-sm text-sm focus:outline-none focus:border-blue-400"/>
+      </div>
+      <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-sm text-sm transition-colors whitespace-nowrap">Track Now</button>
+    </form>
+
+    {% if error %}
+    <div class="bg-red-500/20 border border-red-400/30 text-red-300 px-4 py-3 rounded-sm text-sm mb-6">{{ error }}</div>
+    {% endif %}
+
+    {% if result %}
+    <div class="bg-white rounded-sm overflow-hidden shadow-2xl mt-6">
+      <!-- Status header -->
+      <div class="{{ result.get_status_display_class }} text-white p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <p class="text-white/60 text-xs uppercase tracking-widest mb-1">Tracking Number</p>
+            <p class="font-bold text-xl">{{ result.tracking_number }}</p>
+            <p class="text-white/70 text-sm mt-1">{{ result.service_type }}</p>
+          </div>
+          <div class="bg-white/20 px-4 py-2 rounded-sm font-semibold text-sm">{{ result.get_status_display }}</div>
+        </div>
+      </div>
+      <!-- Details -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 bg-blue-50 border-b border-blue-100">
+        {% for lbl, val in result_details %}
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">{{ lbl }}</p>
+          <p class="font-semibold text-navy-800 text-sm">{{ val }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Timeline -->
+      <div class="p-6">
+        <h4 class="font-bold text-navy-800 mb-5 text-xs uppercase tracking-widest">Voyage Timeline</h4>
+        <div class="relative">
+          <div class="absolute left-4 top-0 bottom-0 w-px bg-blue-100"></div>
+          <div class="space-y-5">
+            {% for evt in result.events.all %}
+            <div class="relative pl-12 {% if forloop.first %}opacity-100{% else %}opacity-60{% endif %}">
+              <div class="absolute left-0 w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                <p class="font-semibold text-navy-800 text-sm">{{ evt.description }}</p>
+                <p class="text-xs text-gray-400 shrink-0">{{ evt.event_time|date:"M d, Y H:i" }}</p>
+              </div>
+              <p class="text-xs text-gray-500 mt-0.5">📍 {{ evt.location }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <p class="text-center text-white/25 text-xs mt-5">Demo: AUGS-2025-001 · AUGS-2025-002 · AUGS-2025-003</p>
+  </div>
+</section>
+
+<!-- Status Guide -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-navy-800 text-center mb-12">Understanding Your Cargo Status</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      {% for color, title, desc in status_guide %}
+      <div class="text-center p-5 border border-blue-100 rounded-sm shadow-sm hover:shadow-md transition-shadow">
+        <div class="w-12 h-12 {{ color }} rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        </div>
+        <h3 class="font-bold text-navy-800 text-sm mb-2">{{ title }}</h3>
+        <p class="text-gray-500 text-xs leading-relaxed">{{ desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

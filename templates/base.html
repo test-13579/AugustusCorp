@@ -1,0 +1,533 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="{{ site.meta_description }}"/>
+  <!-- Anti-flash: apply saved theme before page renders -->
+  <script>(function(){var t=localStorage.getItem('theme'),d=window.matchMedia('(prefers-color-scheme:dark)').matches;if(t==='dark'||(t===null&&d))document.documentElement.classList.add('dark');})()</script>
+  <title>{% block title %}{{ site.company_name }} — {{ site.tagline }}{% endblock %}</title>
+  {% if site.favicon %}
+  <link rel="icon"             href="{{ site.favicon.url }}?v=2" type="image/png"/>
+  <link rel="shortcut icon"    href="{{ site.favicon.url }}?v=2" type="image/png"/>
+  <link rel="apple-touch-icon" href="{{ site.favicon.url }}?v=2"/>
+  {% else %}
+  <link rel="icon"          href="{% static 'images/logo.svg' %}?v=2" type="image/svg+xml"/>
+  <link rel="shortcut icon" href="{% static 'images/logo.svg' %}?v=2"/>
+  {% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT:'#1A6EEB',
+              50:'#EBF2FF', 100:'#BFDBFE', 300:'#93C5FD', 400:'#6EAEFF',
+              500:'#4B93F5', 600:'#1A6EEB', 700:'#1458C0', 800:'#0F48A8'
+            },
+            navy: {
+              DEFAULT:'#0E1F3B',
+              700:'#1A3457', 800:'#0E1F3B', 900:'#060C1A'
+            },
+            ocean: {
+              DEFAULT:'#60A5FA', light:'#D4E8FC', mid:'#93C5FD',
+              pale:'#EBF2FF', deep:'#1A6EEB'
+            },
+          },
+          fontFamily: { sans: ['Poppins','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}?v=13"/>
+  {% block extra_head %}{% endblock %}
+  <style>
+  /* ── Theme variables (switch with html.dark class) ────────── */
+  :root {
+    --c-bg:       #F4F8FF;
+    --c-card:     #ffffff;
+    --c-surface:  #EBF2FF;
+    --c-surface2: #F0F5FF;
+    --c-surface3: #F8FAFF;
+    --c-text-h:   #0E1F3B;
+    --c-text:     #334155;
+    --c-muted:    #64748B;
+    --c-faint:    #94A3B8;
+    --c-border:   #BFDBFE;
+    --c-border2:  #DBEAFE;
+    --accent:     #E8A22A;
+  }
+  html.dark {
+    --c-bg:       #0A1628;
+    --c-card:     #162032;
+    --c-surface:  #1A2D4A;
+    --c-surface2: #111C2D;
+    --c-surface3: #1A2D4A;
+    --c-text-h:   #E8EFFD;
+    --c-text:     #CBD5E1;
+    --c-muted:    #94A3B8;
+    --c-faint:    #64748B;
+    --c-border:   #1E3050;
+    --c-border2:  #1E3050;
+  }
+
+  /* ── Body ─────────────────────────────────────────────────── */
+  body { background: var(--c-bg) !important; color: var(--c-text); transition: background 0.2s, color 0.2s; }
+
+  /* ── White / light backgrounds → theme variable ───────────── */
+  .bg-white           { background-color: var(--c-card)    !important; }
+  .bg-gray-50         { background-color: var(--c-surface2)!important; }
+  .bg-gray-100        { background-color: var(--c-card)    !important; }
+  .bg-ocean-pale      { background-color: var(--c-surface) !important; }
+  .bg-ocean-light     { background-color: var(--c-surface) !important; }
+  .bg-blue-50         { background-color: var(--c-surface) !important; }
+  .bg-emerald-50      { background-color: var(--c-surface2)!important; }
+  .bg-primary-50      { background-color: var(--c-surface) !important; }
+  .bg-green-50        { background-color: var(--c-surface2)!important; }
+
+  /* ── Inline-style section backgrounds (dark mode only) ───── */
+  html.dark [style*="background:#EBF5FC"]  { background: var(--c-surface)  !important; }
+  html.dark [style*="background:#F0F8FF"]  { background: var(--c-surface2) !important; }
+  html.dark [style*="background:#FBF9FF"]  { background: var(--c-surface3) !important; }
+  html.dark [style*="background:linear-gradient(135deg,#EBF5FC"] { background: linear-gradient(135deg,#1a2744 0%,#0f172a 100%) !important; }
+  html.dark [style*="background:linear-gradient(180deg,#F0F8FF"] { background: linear-gradient(180deg,#162032 0%,#1a2744 100%) !important; }
+
+  /* ── Navy hero sections (deeper in dark) ─────────────────── */
+  html.dark .bg-navy-900 { background-color: #080f1e !important; }
+  html.dark .bg-navy-800 { background-color: #0d1a2e !important; }
+
+  /* ── Text colors → theme variable ────────────────────────── */
+  .text-navy-800 { color: var(--c-text-h)  !important; }
+  .text-navy-700 { color: var(--c-text-h)  !important; }
+  .text-gray-700 { color: var(--c-text)    !important; }
+  .text-gray-600 { color: var(--c-muted)   !important; }
+  .text-gray-500 { color: var(--c-muted)   !important; }
+  .text-gray-400 { color: var(--c-faint)   !important; }
+
+  /* ── Borders → theme variable ─────────────────────────────── */
+  .border-blue-100   { border-color: var(--c-border)  !important; }
+  .border-blue-200   { border-color: var(--c-border2) !important; }
+  .border-ocean-light{ border-color: var(--c-border)  !important; }
+  .border-gray-100,
+  .border-gray-200   { border-color: var(--c-border)  !important; }
+  html.dark .border-green-200 { border-color: #1e4a30 !important; }
+
+  /* ── Form inputs ─────────────────────────────────────────── */
+  input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+  select, textarea {
+    background-color: var(--c-card)   !important;
+    color:            var(--c-text-h) !important;
+    border-color:     var(--c-border) !important;
+  }
+  input::placeholder, textarea::placeholder { color: var(--c-faint) !important; }
+  select option { background-color: var(--c-card); color: var(--c-text-h); }
+
+  /* ── Hover states in dark mode ────────────────────────────── */
+  html.dark .hover\:bg-ocean-pale:hover { background-color: var(--c-surface) !important; }
+
+  /* ── Shadows (dark mode) ─────────────────────────────────── */
+  html.dark .shadow-sm  { box-shadow: 0 1px 3px  rgba(0,0,0,.55) !important; }
+  html.dark .shadow-md  { box-shadow: 0 4px 12px rgba(0,0,0,.55) !important; }
+  html.dark .shadow-lg  { box-shadow: 0 8px 24px rgba(0,0,0,.65) !important; }
+  html.dark .shadow-xl  { box-shadow: 0 16px 40px rgba(0,0,0,.75) !important; }
+  html.dark .shadow-2xl { box-shadow: 0 24px 50px rgba(0,0,0,.85) !important; }
+
+  /* ── Theme toggle button ─────────────────────────────────── */
+  .theme-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 9999px;
+    background: var(--c-surface); border: 1px solid var(--c-border);
+    cursor: pointer; flex-shrink: 0; transition: background .2s;
+  }
+  .theme-toggle:hover { background: var(--c-border); }
+
+  /* ── Scrollbar ───────────────────────────────────────────── */
+  ::-webkit-scrollbar-track { background: var(--c-surface); }
+
+  /* ── Theme-aware logo switching ──────────────────────────── */
+  .logo-light { display: inline-block; }
+  .logo-dark  { display: none; }
+  html.dark .logo-light { display: none; }
+  html.dark .logo-dark  { display: inline-block; }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- ══ HEADER ══════════════════════════════════════════════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 shadow-md" id="site-header">
+
+  <!-- Contact bar: always dark, desktop only -->
+  <div class="bg-navy-900 text-white hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 py-1.5 flex justify-between items-center text-xs">
+      <div class="flex items-center gap-5 text-white/60">
+        <a href="tel:{{ site.phone }}" class="flex items-center gap-1.5 hover:text-primary-400 transition-colors">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.38 2.33.58 3.58.58a1 1 0 011 1V20a1 1 0 01-1 1C10.44 21 3 13.56 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.58 3.58a1 1 0 01-.25 1.01l-2.21 2.2z"/></svg>
+          {{ site.phone }}
+        </a>
+        <a href="mailto:{{ site.email }}" class="flex items-center gap-1.5 hover:text-primary-400 transition-colors pl-4 border-l border-white/10">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          {{ site.email }}
+        </a>
+        <span class="pl-4 border-l border-white/10 text-white/35">Mon–Fri · {{ site.hours_weekday }}</span>
+      </div>
+      <div class="flex items-center gap-3 text-white/40">
+        {% if site.social_facebook %}
+        <a href="{{ site.social_facebook }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors" aria-label="Facebook">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        {% endif %}
+        {% if site.social_linkedin %}
+        <a href="{{ site.social_linkedin }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors" aria-label="LinkedIn">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        {% endif %}
+        {% if site.social_twitter %}
+        <a href="{{ site.social_twitter }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors" aria-label="Twitter / X">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+        {% endif %}
+        {% if site.social_reddit %}
+        <a href="{{ site.social_reddit }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors" aria-label="Reddit">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+        </a>
+        {% endif %}
+        {% if site.social_instagram %}
+        <a href="{{ site.social_instagram }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors" aria-label="Instagram">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        {% endif %}
+        {% if site.social_youtube %}
+        <a href="{{ site.social_youtube }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition-colors" aria-label="YouTube">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Merged nav bar: bg-white in light / dark card in dark mode ── -->
+  <div class="bg-white border-b border-blue-100">
+    <div class="max-w-7xl mx-auto px-4 flex items-stretch" style="height:64px;">
+
+      <!-- Logo + wordmark -->
+      <a href="{% url 'home' %}" class="shrink-0 flex items-center gap-2.5 mr-6">
+        {% if site.logo_dark %}
+        <img src="{{ site.logo.url }}"      alt="{{ site.logo_alt|default:site.company_name }}" class="logo-light h-10 w-auto object-contain"/>
+        <img src="{{ site.logo_dark.url }}" alt="{{ site.logo_alt|default:site.company_name }}" class="logo-dark  h-10 w-auto object-contain"/>
+        {% elif site.logo %}
+        <img src="{{ site.logo.url }}" alt="{{ site.logo_alt|default:site.company_name }}" class="h-10 w-auto object-contain"/>
+        {% else %}
+        <img src="{% static 'images/logo.svg' %}" alt="{{ site.company_name }}" class="h-10 w-auto object-contain"/>
+        {% endif %}
+        <div class="hidden lg:flex flex-col justify-center leading-none select-none pl-3 border-l border-blue-100 ml-1">
+          <div>
+            <span class="text-xl font-black uppercase tracking-[.1em]" style="color:var(--c-text-h);">{{ site.wordmark_main }}</span><span class="text-xl font-black uppercase tracking-[.1em]" style="color:#DC2626;">{{ site.wordmark_accent }}</span>
+          </div>
+          {% if site.wordmark_sub %}
+          <span class="font-bold uppercase tracking-[.28em] mt-0.5" style="font-size:.6rem;color:var(--c-muted);">{{ site.wordmark_sub }}</span>
+          {% endif %}
+        </div>
+      </a>
+
+      <!-- Desktop nav links (stretch full height so active border-bottom sits at bar edge) -->
+      <nav class="hidden md:flex flex-1 overflow-x-auto">
+        {% url 'home'      as url_home %}
+        {% url 'about'     as url_about %}
+        {% url 'services'  as url_services %}
+        {% url 'companies' as url_companies %}
+        {% url 'track'     as url_track %}
+        {% url 'career'    as url_career %}
+        {% url 'blog'      as url_blog %}
+        {% url 'contact'   as url_contact %}
+        {% for label, url in tab_links %}
+        <a href="{{ url }}" class="tab-link {% if request.path == url %}active{% endif %}">{{ label }}</a>
+        {% endfor %}
+      </nav>
+
+      <!-- Desktop: CTA + dark mode toggle -->
+      <div class="hidden md:flex items-center gap-3 shrink-0 ml-2">
+        <a href="{% url 'quote' %}"
+           class="bg-primary-600 hover:bg-primary-700 text-white font-bold uppercase text-[11px] tracking-[.12em] px-5 py-2.5 rounded-sm transition-all whitespace-nowrap"
+           style="box-shadow:0 2px 12px rgba(26,110,235,.3);">
+          Get a Quote
+        </a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <svg id="icon-moon" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="icon-sun" class="w-4 h-4 text-yellow-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile: dark toggle + hamburger -->
+      <div class="flex items-center gap-2 md:hidden ml-auto">
+        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
+          <svg id="icon-moon-mobile" class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="icon-sun-mobile" class="w-4 h-4 text-yellow-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
+        <button id="mobile-btn" class="text-gray-600 p-1" aria-label="Toggle menu">
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (same bg — auto-switches with theme) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-blue-100 px-4 py-3">
+      {% for label, url in tab_links %}
+      <a href="{{ url }}"
+         class="block py-2.5 px-3 rounded font-semibold text-sm mb-1 transition-colors
+                {% if request.path == url %}text-primary-600 bg-primary-50{% else %}text-gray-600 hover:text-navy-800 hover:bg-primary-50{% endif %}">
+        {{ label }}
+      </a>
+      {% endfor %}
+      <a href="{% url 'quote' %}" class="mt-3 block w-full text-center bg-primary-600 hover:bg-primary-700 text-white py-3 font-bold text-sm uppercase tracking-wide rounded-sm transition-colors">
+        Get a Quote
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Tab links context processor fallback via template tag -->
+{% block tab_links_data %}{% endblock %}
+
+<!-- ══ MAIN CONTENT ══════════════════════════════════════════ -->
+<main class="pt-[64px] md:pt-[92px]">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════ -->
+<footer class="bg-navy-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 pt-14 pb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Brand -->
+      <div>
+        <a href="{% url 'home' %}" class="inline-block mb-5 bg-white rounded-sm p-2">
+          {% if site.logo_dark %}
+          <img src="{{ site.logo.url }}" alt="{{ site.logo_alt|default:site.company_name }}" class="logo-light h-12 w-auto object-contain"/>
+          <img src="{{ site.logo_dark.url }}" alt="{{ site.logo_alt|default:site.company_name }}" class="logo-dark h-12 w-auto object-contain"/>
+          {% elif site.logo %}
+          <img src="{{ site.logo.url }}" alt="{{ site.logo_alt|default:site.company_name }}" class="h-12 w-auto object-contain"/>
+          {% else %}
+          <img src="{% static 'images/logo.svg' %}" alt="{{ site.company_name }}" class="h-12 w-auto object-contain"/>
+          {% endif %}
+        </a>
+        <p class="text-white/50 text-sm leading-relaxed mb-5">{{ site.footer_blurb }}</p>
+        <div class="space-y-2 text-sm">
+          <a href="tel:{{ site.phone }}" class="flex items-center gap-2 text-white/60 hover:text-blue-300 transition-colors">
+            <svg class="w-3.5 h-3.5 text-primary-600" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.38 2.33.58 3.58.58a1 1 0 011 1V20a1 1 0 01-1 1C10.44 21 3 13.56 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.58 3.58a1 1 0 01-.25 1.01l-2.21 2.2z"/></svg>
+            {{ site.phone }}
+          </a>
+          <a href="mailto:{{ site.email }}" class="flex items-center gap-2 text-white/60 hover:text-blue-300 transition-colors">
+            <svg class="w-3.5 h-3.5 text-primary-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            {{ site.email }}
+          </a>
+          <div class="flex items-start gap-2 text-white/60 text-sm">
+            <svg class="w-3.5 h-3.5 text-primary-600 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            {{ site.address }}
+          </div>
+        </div>
+        {% if site.social_facebook or site.social_linkedin or site.social_twitter or site.social_reddit or site.social_instagram or site.social_youtube %}
+        <div class="flex items-center gap-3 mt-5">
+          {% if site.social_facebook %}
+          <a href="{{ site.social_facebook }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Facebook">
+            <svg class="w-3.5 h-3.5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social_linkedin %}
+          <a href="{{ site.social_linkedin }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="LinkedIn">
+            <svg class="w-3.5 h-3.5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social_twitter %}
+          <a href="{{ site.social_twitter }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Twitter / X">
+            <svg class="w-3.5 h-3.5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social_reddit %}
+          <a href="{{ site.social_reddit }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Reddit">
+            <svg class="w-3.5 h-3.5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social_instagram %}
+          <a href="{{ site.social_instagram }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="Instagram">
+            <svg class="w-3.5 h-3.5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social_youtube %}
+          <a href="{{ site.social_youtube }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-primary-600 flex items-center justify-center transition-colors" aria-label="YouTube">
+            <svg class="w-3.5 h-3.5 text-white/60 hover:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Our Services</h4>
+        <ul class="space-y-2.5">
+          {% for svc in footer_services %}
+          <li><a href="{% url 'services' %}#{{ svc.slug }}" class="text-white/55 hover:text-blue-300 transition-colors text-sm flex items-center gap-2">
+            <span class="w-1 h-1 rounded-full bg-primary-600 inline-block"></span>{{ svc.name }}
+          </a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Quick Links</h4>
+        <ul class="space-y-2.5">
+          {% for label, url in tab_links %}
+          <li><a href="{{ url }}" class="text-white/55 hover:text-blue-300 transition-colors text-sm flex items-center gap-2">
+            <span class="w-1 h-1 rounded-full bg-primary-600 inline-block"></span>{{ label }}
+          </a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Newsletter + Hours -->
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Newsletter</h4>
+        <p class="text-white/50 text-sm mb-4">Subscribe for freight market updates and {{ site.company_name }} news.</p>
+        <form class="flex gap-2" onsubmit="this.innerHTML='<p class=\'text-blue-300 text-sm\'>Thank you!</p>';return false;">
+          <input type="email" placeholder="Your email" required
+                 class="flex-1 bg-white/10 border border-white/10 text-white placeholder-white/30 rounded-sm px-3 py-2 text-sm focus:outline-none focus:border-primary-600 min-w-0"/>
+          <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-3 py-2 rounded-sm transition-colors shrink-0 text-sm font-bold">→</button>
+        </form>
+        <div class="mt-7">
+          <h5 class="text-xs font-semibold uppercase tracking-wider mb-3 text-white/60">Operations Hours</h5>
+          <div class="space-y-1.5 text-xs text-white/50">
+            <div class="flex justify-between"><span>Mon – Fri:</span><span class="text-white/75">{{ site.hours_weekday }}</span></div>
+            <div class="flex justify-between"><span>Saturday:</span><span class="text-white/75">{{ site.hours_saturday }}</span></div>
+            <div class="flex justify-between"><span>Dispatch:</span><span class="text-blue-400">24/7 Operations</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/35">
+      <p>© {% now "Y" %} {{ site.company_name }}. All rights reserved. | <a href="http://{{ site.website }}" class="hover:text-white/60">{{ site.website }}</a></p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-white/60">Privacy Policy</a>
+        <a href="#" class="hover:text-white/60">Terms of Service</a>
+        <a href="/admin/" class="hover:text-blue-400">Admin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+  // ── Mobile menu ────────────────────────────────────────────
+  const btn  = document.getElementById('mobile-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn) btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+  // ── Header shadow on scroll ────────────────────────────────
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('shadow-2xl', window.scrollY > 40);
+  });
+
+  // ── Dark / Light mode toggle ───────────────────────────────
+  function syncThemeIcons() {
+    const dark = document.documentElement.classList.contains('dark');
+    // Desktop icons
+    const moon = document.getElementById('icon-moon');
+    const sun  = document.getElementById('icon-sun');
+    if (moon) moon.classList.toggle('hidden', dark);
+    if (sun)  sun.classList.toggle('hidden', !dark);
+    // Mobile icons
+    const moonM = document.getElementById('icon-moon-mobile');
+    const sunM  = document.getElementById('icon-sun-mobile');
+    if (moonM) moonM.classList.toggle('hidden', dark);
+    if (sunM)  sunM.classList.toggle('hidden', !dark);
+  }
+
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', !isDark);
+    localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+    syncThemeIcons();
+  }
+
+  // Sync icons on page load
+  syncThemeIcons();
+
+  // Wire up both toggles
+  const toggleDesktop = document.getElementById('theme-toggle');
+  const toggleMobile  = document.getElementById('theme-toggle-mobile');
+  if (toggleDesktop) toggleDesktop.addEventListener('click', toggleTheme);
+  if (toggleMobile)  toggleMobile.addEventListener('click', toggleTheme);
+</script>
+{% block extra_js %}{% endblock %}
+<script>
+// ── Phone country-code pickers ──────────────────────────────
+(function () {
+  function initPhoneWrapper(wrapper) {
+    var sel = wrapper.querySelector('.phone-cc-select');
+    var inp = wrapper.querySelector('.phone-number-input');
+    if (!sel || !inp) return;
+
+    // If initial value already has a dial code, split it into select + input.
+    var raw = (inp.value || '').trim();
+    if (raw.startsWith('+')) {
+      // Sort by dial-code length descending so +380 is tried before +3.
+      var opts = Array.from(sel.options)
+        .filter(function (o) { return !o.disabled && o.value; })
+        .sort(function (a, b) { return b.value.length - a.value.length; });
+      for (var i = 0; i < opts.length; i++) {
+        if (raw.startsWith(opts[i].value)) {
+          sel.value = opts[i].value;
+          inp.value = raw.slice(opts[i].value.length).trim();
+          break;
+        }
+      }
+    }
+
+    // Prevent wheel scroll from propagating to the page; navigate options manually.
+    sel.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      var dir = e.deltaY > 0 ? 1 : -1;
+      var idx = sel.selectedIndex + dir;
+      while (idx >= 0 && idx < sel.options.length && sel.options[idx].disabled) {
+        idx += dir;
+      }
+      if (idx >= 0 && idx < sel.options.length) {
+        sel.selectedIndex = idx;
+      }
+    }, { passive: false });
+
+    // On submit, prepend the selected dial code to the number.
+    var form = wrapper.closest('form');
+    if (!form) return;
+    form.addEventListener('submit', function () {
+      var cc  = sel.value;
+      var num = inp.value.trim();
+      if (num && !num.startsWith('+')) {
+        inp.value = cc + ' ' + num;
+      }
+    });
+  }
+
+  document.querySelectorAll('.phone-input-wrapper').forEach(initPhoneWrapper);
+})();
+</script>
+{% include 'partials/chatbot.html' %}
+</body>
+</html>

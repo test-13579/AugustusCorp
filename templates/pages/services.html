@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+{% block title %}Our Services — Augustus Corp{% endblock %}
+
+{% block content %}
+
+<!-- ══════════════════════════════════════════════════════ HERO -->
+<section class="relative py-28 overflow-hidden" style="background:linear-gradient(120deg,#030913 0%,#06112A 60%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.03]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle at 80% 20%,rgba(26,110,235,.12) 0%,transparent 65%);"></div>
+  <div class="absolute left-0 top-0 bottom-0 w-[3px]" style="background:linear-gradient(to bottom,transparent,#E8A22A 30%,#1A6EEB 70%,transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10 text-center">
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#E8A22A,#1A6EEB);"></span>
+      <span class="text-[10px] font-bold uppercase tracking-[.25em]" style="color:#E8A22A;">What We Do &nbsp;·&nbsp; Sectors &amp; Capabilities</span>
+      <span class="w-10 h-px" style="background:linear-gradient(90deg,#1A6EEB,#E8A22A);"></span>
+    </div>
+    <h1 class="font-bold text-white leading-[1.05] mb-5 mx-auto" style="font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.02em;">
+      Logistics Built for<br>
+      <span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Your Industry.</span>
+    </h1>
+    <p class="leading-relaxed mb-8 mx-auto" style="color:rgba(255,255,255,.6);font-size:clamp(.9rem,1.5vw,1.05rem);max-width:36rem;">
+      OTR, Drayage, Intermodal, FTL &amp; LTL — across the US, Canada, and internationally. Deep sector expertise, dedicated capacity, and a vetted carrier network that performs when it matters most.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="{% url 'quote' %}"
+         class="inline-flex items-center gap-2.5 text-white font-bold uppercase text-[11px] tracking-[.15em] px-8 py-4 transition-all"
+         style="background:linear-gradient(135deg,#1A6EEB,#1458C0);box-shadow:0 4px 24px rgba(26,110,235,.5);">
+        Request a Quote
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="{% url 'contact' %}"
+         class="inline-flex items-center gap-2.5 font-medium uppercase text-[11px] tracking-[.15em] px-8 py-4 transition-all hover:bg-white/10"
+         style="border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);">
+        Talk to an Expert
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ INDUSTRIES WE SERVE -->
+<section class="py-24 relative overflow-hidden industries-section" style="background:linear-gradient(160deg,#030913 0%,#06112A 50%,#0B1A30 100%);">
+  <div class="absolute inset-0 opacity-[.022]" style="background-image:radial-gradient(#60A5FA 1px,transparent 1px);background-size:36px 36px;"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(232,162,42,.4),transparent);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      <div class="max-w-2xl">
+        <p class="font-bold text-[11px] uppercase tracking-[.22em] mb-4 flex items-center gap-3" style="color:#E8A22A;">
+          <span class="w-8 h-px inline-block" style="background:#E8A22A;"></span>Industries We Serve
+        </p>
+        <h2 class="font-black leading-tight mb-4" style="font-size:clamp(1.8rem,4vw,2.8rem);color:#ffffff;">
+          Sector Expertise Across<br><span style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Every Vertical We Touch</span>
+        </h2>
+        <p class="leading-relaxed" style="color:rgba(255,255,255,.5);font-size:.95rem;max-width:36rem;">
+          From pharmaceutical cold chains to heavy-haul energy equipment — we bring deep domain knowledge, purpose-built capacity, and dedicated account teams to every sector we serve. Each vertical demands a different approach; we deliver the right one.
+        </p>
+      </div>
+      <div class="shrink-0">
+        <a href="{% url 'quote' %}" class="inline-flex items-center gap-2.5 font-bold uppercase text-xs tracking-[.14em] px-6 py-3.5 transition-all rounded-sm"
+           style="background:linear-gradient(135deg,#1A6EEB,#1458C0);color:#fff;box-shadow:0 4px 20px rgba(26,110,235,.4);">
+          Get a Quote
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Industry cards: expanded 2-column grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for ind in industries %}
+      <div class="group relative overflow-hidden flex flex-col transition-all duration-300 industry-card">
+
+        <!-- Animated top accent bar -->
+        <div class="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+             style="background:linear-gradient(90deg,#1A6EEB,#60A5FA);"></div>
+
+        <!-- Card header: icon + name -->
+        <div class="flex items-start gap-5 p-7 pb-5">
+
+          <!-- Icon -->
+          <div class="shrink-0">
+            {% if ind.logo %}
+            <img src="{{ ind.logo.url }}" alt="{{ ind.name }}"
+                 class="w-[68px] h-[68px] rounded-lg object-contain"
+                 style="background:rgba(26,110,235,.12);padding:14px;border:1px solid rgba(26,110,235,.3);"/>
+            {% else %}
+            <div class="w-[68px] h-[68px] rounded-lg flex items-center justify-center"
+                 style="background:rgba(26,110,235,.12);border:1px solid rgba(26,110,235,.3);">
+              {% if ind.icon_name == 'car' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h10l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2h-2"/>
+                <circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/>
+              </svg>
+              {% elif ind.icon_name == 'chip' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <rect x="7" y="7" width="10" height="10" rx="1"/>
+                <path stroke-linecap="round" d="M9 7V4M12 7V4M15 7V4M9 20v-3M12 20v-3M15 20v-3M4 9h3M4 12h3M4 15h3M17 9h3M17 12h3M17 15h3"/>
+              </svg>
+              {% elif ind.icon_name == 'cross' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6M12 9v6"/>
+              </svg>
+              {% elif ind.icon_name == 'gear' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <circle cx="12" cy="12" r="3"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+              </svg>
+              {% elif ind.icon_name == 'bag' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <path stroke-linecap="round" d="M3 6h18"/>
+                <path stroke-linecap="round" d="M16 10a4 4 0 01-8 0"/>
+              </svg>
+              {% elif ind.icon_name == 'plane' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+              </svg>
+              {% elif ind.icon_name == 'bolt' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              {% elif ind.icon_name == 'snowflake' %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+              {% else %}
+              <svg class="w-[30px] h-[30px]" style="color:#60A5FA;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
+                <path stroke-linecap="round" d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/>
+              </svg>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+
+          <!-- Name + label -->
+          <div class="pt-1">
+            <p class="font-bold text-[10px] uppercase tracking-[.2em] mb-1.5" style="color:#60A5FA;">Specialized Logistics</p>
+            <h3 class="font-bold leading-snug text-white" style="font-size:1.2rem;">{{ ind.name }}</h3>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="mx-7" style="height:1px;background:rgba(255,255,255,.07);"></div>
+
+        <!-- Full description -->
+        <div class="px-7 py-5 flex-1">
+          {% if ind.description %}
+          <p class="leading-relaxed mb-5" style="color:rgba(255,255,255,.6);font-size:.9rem;">{{ ind.description }}</p>
+          {% endif %}
+
+          <!-- Contextual capability bullets -->
+          <ul class="space-y-2.5">
+            {% if ind.icon_name == 'car' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">New vehicle &amp; fleet transport across 48 states</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Enclosed &amp; open-deck auto hauling options</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">OEM parts distribution &amp; cross-border auto logistics</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Dealer-to-dealer &amp; factory-to-lot delivery programs</span></li>
+            {% elif ind.icon_name == 'chip' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">High-value cargo security with real-time GPS tracking</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Climate-controlled transport for sensitive electronics</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">White-glove &amp; just-in-time fulfillment programs</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Export packing &amp; international air/ocean freight</span></li>
+            {% elif ind.icon_name == 'cross' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">FDA-compliant cold chain &amp; temperature monitoring</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Regulatory documentation &amp; chain-of-custody tracking</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Medical device &amp; pharmaceutical-grade handling</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Urgent specimen &amp; critical supply delivery</span></li>
+            {% elif ind.icon_name == 'gear' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Heavy machinery &amp; oversized load transport</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Oversize &amp; overweight permit coordination</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Rigging, loading &amp; plant-to-plant logistics</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Flatbed, step-deck &amp; lowboy fleet options</span></li>
+            {% elif ind.icon_name == 'bag' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">High-volume FTL &amp; LTL for retail supply chains</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">DC-to-store &amp; cross-dock distribution</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Peak-season surge capacity &amp; returns management</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">E-commerce fulfilment &amp; last-mile delivery programs</span></li>
+            {% elif ind.icon_name == 'plane' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Same-day, next-day &amp; deferred air freight options</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Airport-to-door &amp; door-to-airport services</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">International air cargo &amp; customs brokerage</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Perishable &amp; time-critical air freight handling</span></li>
+            {% elif ind.icon_name == 'bolt' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Oilfield equipment &amp; pipe/tubing transport</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Wind turbine component &amp; solar panel moves</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Hazmat-certified drivers &amp; FMCSA compliance</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Remote-site &amp; rig-to-refinery dedicated lanes</span></li>
+            {% elif ind.icon_name == 'snowflake' %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Continuous temperature monitoring &amp; reporting</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Pharmaceutical-grade reefer &amp; cryogenic shipping</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Fresh, frozen &amp; blast-frozen food transport</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">FDA cold-chain compliance &amp; HACCP documentation</span></li>
+            {% else %}
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Dedicated capacity &amp; flexible routing options</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Real-time shipment tracking &amp; proactive updates</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Cross-border &amp; international freight solutions</span></li>
+            <li class="flex items-start gap-2.5"><span class="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style="background:#1A6EEB;"></span><span class="text-sm" style="color:rgba(255,255,255,.5);">Vetted carrier network with 98%+ on-time delivery</span></li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <!-- Card footer CTA -->
+        <div class="px-7 pb-7 pt-4">
+          <div class="pt-4" style="border-top:1px solid rgba(255,255,255,.07);">
+            <a href="{% url 'quote' %}"
+               class="inline-flex items-center gap-2 font-bold uppercase tracking-[.14em] transition-all duration-200 group-hover:gap-3"
+               style="font-size:.72rem;color:#60A5FA;">
+              Get a Quote for {{ ind.name }}
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Bottom CTA strip -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-sm"
+         style="background:rgba(26,110,235,.08);border:1px solid rgba(26,110,235,.2);">
+      <p class="text-sm font-semibold" style="color:rgba(255,255,255,.7);">
+        Don't see your industry? <span style="color:#60A5FA;">We move it anyway.</span>
+      </p>
+      <a href="{% url 'contact' %}" class="shrink-0 inline-flex items-center gap-2 font-bold uppercase text-xs tracking-[.14em] px-6 py-2.5 rounded-sm transition-all"
+         style="background:linear-gradient(135deg,#1A6EEB,#1458C0);color:#fff;box-shadow:0 4px 20px rgba(26,110,235,.35);">
+        Talk to an Expert →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

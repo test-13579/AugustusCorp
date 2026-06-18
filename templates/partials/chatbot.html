@@ -1,0 +1,756 @@
+{% load static %}
+
+<!-- ═══════════════════════════════════ CHATBOT WIDGET ══════ -->
+
+<!-- Auto-greeting bubble -->
+<div id="cb-bubble"
+     style="position:fixed;bottom:6.2rem;right:1.5rem;z-index:9997;
+            background:#0d1a2e;color:#fff;border-radius:.75rem;
+            padding:.7rem 1rem .7rem .9rem;font-size:.78rem;line-height:1.45;
+            box-shadow:0 6px 24px rgba(0,0,0,.4);max-width:13.5rem;cursor:pointer;
+            opacity:0;pointer-events:none;transition:opacity .35s ease;display:none;">
+  <span>👋 Hi! Need help with shipping or a quote?</span>
+  <button id="cb-bubble-close"
+          style="position:absolute;top:-.4rem;right:-.4rem;background:#1A3D5C;border:none;
+                 cursor:pointer;width:1.2rem;height:1.2rem;border-radius:9999px;
+                 display:flex;align-items:center;justify-content:center;
+                 color:#fff;font-size:.6rem;line-height:1;">✕</button>
+  <div style="position:absolute;bottom:-.45rem;right:1.2rem;width:.9rem;height:.5rem;overflow:hidden;">
+    <div style="width:.9rem;height:.9rem;background:#0d1a2e;transform:rotate(45deg);margin-top:-.45rem;"></div>
+  </div>
+</div>
+
+<!-- Floating toggle button -->
+<button id="chatbot-btn" aria-label="Open chat"
+        style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;
+               width:3.5rem;height:3.5rem;border-radius:9999px;background:#1A3D5C;
+               border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,.35);
+               display:flex;align-items:center;justify-content:center;
+               transition:transform .2s,box-shadow .2s;">
+  <svg id="chatbot-icon-chat" style="width:1.6rem;height:1.6rem;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+  </svg>
+  <svg id="chatbot-icon-close" style="width:1.4rem;height:1.4rem;color:#fff;display:none" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+  </svg>
+  <span id="chatbot-dot" style="position:absolute;top:.35rem;right:.35rem;
+        width:.65rem;height:.65rem;border-radius:9999px;
+        background:#E84231;border:2px solid #1A3D5C;"></span>
+</button>
+
+<!-- Chat window -->
+<div id="chatbot-window"
+     style="position:fixed;bottom:6rem;right:1.5rem;z-index:9998;
+            width:22rem;max-width:calc(100vw - 2rem);
+            height:560px;max-height:calc(100vh - 8rem);
+            border-radius:.75rem;overflow:hidden;
+            box-shadow:0 24px 60px rgba(0,0,0,.35);
+            display:flex;flex-direction:column;
+            transform:translateY(20px) scale(.97);
+            opacity:0;pointer-events:none;
+            transition:transform .3s ease,opacity .3s ease;">
+
+  <!-- Header -->
+  <div style="background:#0d1a2e;padding:.85rem 1rem;flex-shrink:0;
+               display:flex;align-items:center;gap:.75rem;">
+    <div style="width:2.5rem;height:2.5rem;border-radius:9999px;flex-shrink:0;
+                background:linear-gradient(135deg,#1A3D5C,#4A99CC);
+                display:flex;align-items:center;justify-content:center;">
+      <svg style="width:1.2rem;height:1.2rem;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+      </svg>
+    </div>
+    <div style="flex:1;min-width:0;">
+      <p style="color:#fff;font-weight:700;font-size:.85rem;line-height:1.2;margin:0">Augustus Assistant</p>
+      <p style="color:#4A99CC;font-size:.7rem;margin:0;display:flex;align-items:center;gap:.3rem">
+        <span style="width:.45rem;height:.45rem;border-radius:9999px;background:#22c55e;display:inline-block;"></span>Online now
+      </p>
+    </div>
+    <div style="display:flex;gap:.4rem;">
+      <button id="cb-clear-btn" title="Clear conversation"
+              style="background:rgba(255,255,255,.1);border:none;cursor:pointer;
+                     width:1.8rem;height:1.8rem;border-radius:9999px;
+                     display:flex;align-items:center;justify-content:center;">
+        <svg style="width:.85rem;height:.85rem;color:#9ab" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+        </svg>
+      </button>
+      <button onclick="closeChatbot()"
+              style="background:rgba(255,255,255,.1);border:none;cursor:pointer;
+                     width:1.8rem;height:1.8rem;border-radius:9999px;
+                     display:flex;align-items:center;justify-content:center;">
+        <svg style="width:.9rem;height:.9rem;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="chatbot-msgs"
+       style="flex:1;overflow-y:auto;padding:.85rem;
+              display:flex;flex-direction:column;gap:.65rem;
+              background:var(--c-bg);scroll-behavior:smooth;"></div>
+
+  <!-- Quick chips -->
+  <div id="chatbot-chips"
+       style="padding:.5rem .85rem;display:flex;flex-wrap:wrap;gap:.4rem;
+              background:var(--c-card);border-top:1px solid var(--c-border);"></div>
+
+  <!-- Input row -->
+  <div style="padding:.6rem .85rem;background:var(--c-card);
+              border-top:1px solid var(--c-border);display:flex;gap:.5rem;flex-shrink:0;">
+    <input id="chatbot-input" placeholder="Type a message…"
+           autocomplete="off" maxlength="300"
+           style="flex:1;border:1px solid var(--c-border);border-radius:.5rem;
+                  padding:.5rem .75rem;font-size:.8rem;outline:none;
+                  background:var(--c-surface);color:var(--c-text-h);
+                  font-family:inherit;min-width:0;transition:border-color .2s;"/>
+    <button id="chatbot-send"
+            style="background:#1A3D5C;border:none;cursor:pointer;flex-shrink:0;
+                   width:2.2rem;height:2.2rem;border-radius:.5rem;
+                   display:flex;align-items:center;justify-content:center;
+                   transition:opacity .2s;">
+      <svg style="width:1rem;height:1rem;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Live data pulled from Django / DB ──────────────────────
+  const D = {
+    company:  '{{ site.company_name|escapejs }}',
+    tagline:  '{{ site.tagline|escapejs }}',
+    phone:    '{{ site.phone|escapejs }}',
+    email:    '{{ site.email|escapejs }}',
+    address:  '{{ site.address|escapejs }}',
+    hours:    '{{ site.hours_weekday|escapejs }}',
+    satHours: '{{ site.hours_saturday|escapejs }}',
+    jobsCount: {{ cb_jobs_count|default:0 }},
+
+    services: [{% for s in cb_services %}
+      { name:'{{ s.name|escapejs }}', slug:'{{ s.slug|escapejs }}', desc:'{{ s.description|truncatechars:130|escapejs }}' }{% if not forloop.last %},{% endif %}{% endfor %}
+    ],
+
+    faqs: [{% for f in cb_faqs %}
+      { q:'{{ f.question|escapejs }}', a:'{{ f.answer|truncatechars:350|escapejs }}' }{% if not forloop.last %},{% endif %}{% endfor %}
+    ],
+
+    offices: [{% for o in cb_offices %}
+      { city:'{{ o.city|escapejs }}', address:'{{ o.address|escapejs }}', phone:'{{ o.phone|escapejs }}', email:'{{ o.email|escapejs }}' }{% if not forloop.last %},{% endif %}{% endfor %}
+    ],
+
+    whyUs: [{% for w in cb_why_us %}
+      { title:'{{ w.title|escapejs }}', desc:'{{ w.desc|truncatechars:100|escapejs }}' }{% if not forloop.last %},{% endif %}{% endfor %}
+    ],
+  };
+
+  // ── Rules (phrases score 3, words score 1 — highest wins) ──
+  const RULES = [
+    {
+      id: 'hello',
+      phrases: ['good morning','good afternoon','good evening','how are you','nice to meet'],
+      words: ['hi','hello','hey','howdy','sup','help','start','begin','yo'],
+      text: () =>
+        `Hi there! 👋 I'm the <strong>${D.company}</strong> assistant.<br><br>` +
+        `I can help with services, quotes, coverage, tracking, transit times, and more.<br>` +
+        `What would you like to know?`,
+      chips: ['Our Services','Get a Quote','Coverage Area','Track Shipment'],
+    },
+    {
+      id: 'services',
+      phrases: ['what services','what do you offer','types of freight','shipping options','freight solutions','what can you ship'],
+      words: ['service','offer','provide','transport','cargo','load','ship'],
+      text: () => {
+        const list = D.services.length
+          ? D.services.map(s => `• <a href="/services/${s.slug}/" style="color:#4A99CC;font-weight:700">${s.name}</a>${s.desc ? ' — ' + s.desc : ''}`).join('<br>')
+          : '• Full-service freight brokerage';
+        return `We offer a full range of freight solutions:<br><br>${list}<br><br>Need a rate estimate or details on any service?`;
+      },
+      chips: ['Get a Quote','LTL vs FTL','Coverage Area'],
+    },
+    {
+      id: 'ltl_ftl',
+      phrases: ['difference between ltl and ftl','ltl vs ftl','full truckload','less than truckload','partial load','how much space do i need'],
+      words: ['ltl','ftl','truckload','pallet','pallets','partial','full truck'],
+      text: () =>
+        `<strong>LTL vs FTL — which do you need?</strong><br><br>` +
+        `📦 <strong>LTL (Less-Than-Truckload)</strong><br>` +
+        `• 1–12 pallets or under ~15,000 lbs<br>` +
+        `• Share truck space — lower cost for smaller loads<br><br>` +
+        `🚛 <strong>FTL (Full Truckload)</strong><br>` +
+        `• Dedicated truck, faster &amp; more secure<br>` +
+        `• Best for 24+ pallets or 45,000+ lbs<br><br>` +
+        `Not sure which fits? <a href="/quote/" style="color:#4A99CC;font-weight:700">→ Get a Quote</a> and we'll recommend the right option.`,
+      chips: ['Get a Quote','Transit Times','Our Services'],
+    },
+    {
+      id: 'coverage',
+      phrases: ['where do you ship','what states do you cover','do you ship to','areas you cover','do you cover','do you go to'],
+      words: ['cover','state','area','location','where','canada','route','region','nationwide','territory','port','hub'],
+      text: () =>
+        `📍 <strong>Coverage Area:</strong><br><br>` +
+        `• All <strong>48 contiguous U.S. states</strong><br>` +
+        `• Full coverage across <strong>Canada</strong><br>` +
+        `• Cross-border US–Canada freight<br>` +
+        `• Major ports, rail ramps &amp; distribution hubs<br><br>` +
+        `From West Coast ports to East Coast hubs — we've got you covered.`,
+      chips: ['Our Services','Get a Quote','Contact Us'],
+    },
+    {
+      id: 'transit',
+      phrases: ['how long does shipping take','how many days','delivery time','transit time','when will it arrive','estimated arrival','expected delivery'],
+      words: ['transit','arrival','eta','days','long','fast','quick','speed','schedule','estimated','deliver'],
+      text: () =>
+        `🕐 <strong>Typical Transit Times:</strong><br><br>` +
+        `• <strong>Zone 1–2 (nearby states):</strong> 1–2 business days<br>` +
+        `• <strong>Zone 3–4 (mid-range):</strong> 3–5 business days<br>` +
+        `• <strong>Zone 5–6 (cross-country):</strong> 5–8 business days<br>` +
+        `• <strong>US–Canada cross-border:</strong> 3–6 business days<br><br>` +
+        `LTL may have longer transit than FTL due to hub stops. <a href="/quote/" style="color:#4A99CC;font-weight:700">→ Get an exact estimate</a>`,
+      chips: ['LTL vs FTL','Get a Quote','Coverage Area'],
+    },
+    {
+      id: 'quote',
+      phrases: ['get a quote','request a quote','need a quote','how much does it cost','how much to ship','price for shipping','freight cost','what does it cost'],
+      words: ['quote','price','cost','rate','estimate','pricing','charge','fee','much','expensive','cheap'],
+      text: () =>
+        `💰 <strong>Get a Rate Estimate:</strong><br><br>` +
+        `🔢 <strong>Instant estimate</strong> — use our <a href="/#calculator" style="color:#4A99CC;font-weight:700">Freight Calculator</a> on the homepage<br><br>` +
+        `📋 <strong>Custom firm quote</strong> — response within 24 hours:<br>` +
+        `<a href="/quote/" style="color:#4A99CC;font-weight:700">→ Request a Quote</a><br><br>` +
+        `We'll need: origin &amp; destination ZIP, weight, dimensions, and commodity type.`,
+      chips: ['Transit Times','LTL vs FTL','Contact Us'],
+    },
+    {
+      id: 'track',
+      phrases: ['track my shipment','where is my shipment','where is my freight','shipment status','where is my order','find my load'],
+      words: ['track','tracking','locate','find','arrived','lost','delayed','missing'],
+      text: () =>
+        `🔍 <strong>Track Your Shipment:</strong><br><br>` +
+        `Use your tracking number (format: <strong>AUGS-YYYY-XXX</strong>):<br>` +
+        `<a href="/track/" style="color:#4A99CC;font-weight:700">→ Go to Tracking Page</a><br><br>` +
+        `📞 Shipment delayed or need immediate help?<br>` +
+        `Call dispatch 24/7: <a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a>`,
+      chips: ['Contact Us','Get a Quote'],
+    },
+    {
+      id: 'hazmat',
+      phrases: ['dangerous goods','hazardous materials','hazmat freight','can you ship chemicals','flammable goods','regulated cargo'],
+      words: ['hazmat','hazardous','dangerous','chemical','flammable','explosive','corrosive','toxic','regulated','dg'],
+      text: () =>
+        `⚠️ <strong>Hazmat / Dangerous Goods:</strong><br><br>` +
+        `Yes — we handle regulated freight with full compliance:<br><br>` +
+        `• DOT-compliant packaging &amp; labeling<br>` +
+        `• Classes 1–9 (subject to carrier availability)<br>` +
+        `• Certified drivers with hazmat endorsements<br>` +
+        `• Proper documentation (SDS, hazmat declaration)<br><br>` +
+        `Advance notice required. <a href="/contact/" style="color:#4A99CC;font-weight:700">Contact us →</a> to confirm availability for your commodity.`,
+      chips: ['Get a Quote','Contact Us','Our Services'],
+    },
+    {
+      id: 'reefer',
+      phrases: ['temperature controlled','refrigerated freight','frozen cargo','cold chain','perishable goods','reefer truck'],
+      words: ['reefer','refrigerated','temperature','frozen','cold','perishable','fresh','produce','pharmaceutical','food'],
+      text: () =>
+        `🌡️ <strong>Temperature-Controlled Freight:</strong><br><br>` +
+        `• Fresh &amp; frozen food products<br>` +
+        `• Pharmaceuticals &amp; healthcare supplies<br>` +
+        `• Floral &amp; produce shipments<br><br>` +
+        `<strong>Capabilities:</strong> -20°F to +65°F · Continuous monitoring · FSMA compliant<br><br>` +
+        `<a href="/quote/" style="color:#4A99CC;font-weight:700">→ Request a Reefer Quote</a>`,
+      chips: ['Get a Quote','Transit Times','Contact Us'],
+    },
+    {
+      id: 'insurance',
+      phrases: ['cargo insurance','shipment insurance','freight coverage','liability coverage','what if my cargo is damaged','what if cargo is lost'],
+      words: ['insurance','liability','coverage','damage','damaged','claim','protect','protection'],
+      text: () =>
+        `🛡️ <strong>Cargo Insurance &amp; Liability:</strong><br><br>` +
+        `• Standard carrier liability included on all shipments<br>` +
+        `• Additional cargo insurance available for high-value loads<br>` +
+        `• Declared value coverage can be arranged<br><br>` +
+        `📋 <strong>Damage or loss?</strong> Document at delivery, keep all paperwork, notify us within 5 business days.<br><br>` +
+        `Call <a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a> or <a href="/contact/" style="color:#4A99CC;font-weight:700">open a claim →</a>`,
+      chips: ['Contact Us','Get a Quote'],
+    },
+    {
+      id: 'customs',
+      phrases: ['cross border','customs clearance','import export','shipping to canada','canada customs','border crossing','customs broker'],
+      words: ['customs','border','import','export','clearance','broker','duty','duties','tariff','cross-border'],
+      text: () =>
+        `🌐 <strong>Cross-Border &amp; Customs:</strong><br><br>` +
+        `• ACE/ACI customs filing support<br>` +
+        `• Licensed customs broker connections<br>` +
+        `• FAST lane certified carriers<br>` +
+        `• Full documentation: commercial invoices, packing lists, certificates of origin<br><br>` +
+        `<a href="/contact/" style="color:#4A99CC;font-weight:700">Talk to our cross-border team →</a>`,
+      chips: ['Coverage Area','Get a Quote','Contact Us'],
+    },
+    {
+      id: 'urgent',
+      phrases: ['need it today','urgent shipment','emergency freight','rush delivery','same day','need it fast','asap'],
+      words: ['urgent','emergency','rush','expedited','asap','overnight','critical','immediate'],
+      text: () =>
+        `🚨 <strong>Urgent / Expedited Freight:</strong><br><br>` +
+        `• Expedited FTL — dedicated truck, direct route<br>` +
+        `• Team drivers for coast-to-coast in under 48 hours<br>` +
+        `• Hotshot for smaller urgent loads<br><br>` +
+        `📞 For urgent loads, call our 24/7 dispatch <strong>now</strong>:<br>` +
+        `<a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a>`,
+      chips: ['Get a Quote','Contact Us'],
+    },
+    {
+      id: 'why_us',
+      phrases: ['why choose you','why should i use you','what makes you different','why augustus','what sets you apart'],
+      words: ['why','choose','different','better','advantage','benefit','trust','reliable','reputation'],
+      text: () => {
+        const list = D.whyUs.length
+          ? D.whyUs.map(w => `• <strong>${w.title}</strong> — ${w.desc}`).join('<br>')
+          : '• Vetted carrier network &amp; 24/7 dispatch support';
+        return `🏆 <strong>Why ${D.company}?</strong><br><br>${list}<br><br><a href="/about/" style="color:#4A99CC;font-weight:700">→ Learn more about us</a>`;
+      },
+      chips: ['Our Services','Get a Quote','Contact Us'],
+    },
+    {
+      id: 'about',
+      phrases: ['tell me about','who are you','what is augustus','about your company','company history','your mission'],
+      words: ['about','company','history','background','founded','mission','team','staff','who'],
+      text: () =>
+        `🏢 <strong>${D.company}</strong> is a customer-focused freight brokerage &amp; logistics company` +
+        (D.tagline ? ` — <em>"${D.tagline}"</em>` : '') +
+        `<br><br>We operate with a strong vetted carrier network, committed to service quality, compliance, and full transparency across the U.S. and Canada.<br><br>` +
+        `<a href="/about/" style="color:#4A99CC;font-weight:700">→ Learn More About Us</a>`,
+      chips: ['Our Services','Contact Us','Get a Quote'],
+    },
+    {
+      id: 'career',
+      phrases: ['looking for a job','work for you','join your team','how to apply','open positions','job openings'],
+      words: ['job','career','hiring','work','position','apply','vacancy','driver','dispatcher','opening','employment'],
+      text: () =>
+        `🚚 <strong>We're ${D.jobsCount > 0 ? 'hiring' : 'always looking for talent'}!</strong>` +
+        (D.jobsCount > 0 ? ` <strong>${D.jobsCount}</strong> active opening${D.jobsCount !== 1 ? 's' : ''} right now.` : '') +
+        `<br><br>Roles typically include OTR Drivers (CDL-A), Freight Coordinators, Dispatchers, and more.<br><br>` +
+        `<a href="/career/" style="color:#4A99CC;font-weight:700">→ View All Positions</a>`,
+      chips: ['About Us','Contact Us'],
+    },
+    {
+      id: 'contact',
+      phrases: ['how do i contact','how can i reach','get in touch','speak to someone','talk to a person','call your office'],
+      words: ['contact','phone','email','call','reach','talk','speak','number','address','office','human','person','agent'],
+      text: () => {
+        let out =
+          `📞 <strong>Contact ${D.company}:</strong><br><br>` +
+          `• Phone: <a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a><br>` +
+          `• Email: <a href="mailto:${D.email}" style="color:#4A99CC;font-weight:700">${D.email}</a><br>` +
+          `• Hours: Mon–Fri ${D.hours}` +
+          (D.satHours ? `<br>• Saturday: ${D.satHours}` : '') +
+          `<br>• Dispatch: <strong>24/7</strong> for urgent loads`;
+        if (D.offices.length) {
+          out += `<br><br><strong>Offices:</strong><br>` +
+            D.offices.map(o => `📍 <strong>${o.city}</strong> — ${o.address}`).join('<br>');
+        }
+        out += `<br><br><a href="/contact/" style="color:#4A99CC;font-weight:700">→ Contact Form</a>`;
+        return out;
+      },
+      chips: ['Get a Quote','Our Services'],
+    },
+    {
+      id: 'hours',
+      phrases: ['what are your hours','when are you open','business hours','are you open on saturday','are you open on weekends'],
+      words: ['hour','open','close','schedule','timing','weekend','saturday','sunday','available'],
+      text: () =>
+        `🕐 <strong>Business Hours:</strong><br><br>` +
+        `• Mon – Fri: <strong>${D.hours}</strong><br>` +
+        (D.satHours ? `• Saturday: <strong>${D.satHours}</strong><br>` : '') +
+        `• Dispatch: <strong>24/7</strong> for urgent loads<br><br>` +
+        `Call <a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a> anytime for urgent freight.`,
+      chips: ['Contact Us','Get a Quote'],
+    },
+    {
+      id: 'faq',
+      phrases: ['frequently asked questions','common questions','do you have a faq','where are your faqs'],
+      words: ['faq','question','common','frequently','ask'],
+      text: () => {
+        let out = `❓ <strong>Frequently Asked Questions:</strong><br><br>`;
+        if (D.faqs.length) {
+          out += D.faqs.slice(0,3).map(f => `<strong>Q: ${f.q}</strong><br>${f.a}`).join('<br><br>');
+          out += `<br><br><a href="/faq/" style="color:#4A99CC;font-weight:700">→ See all FAQs</a>`;
+        } else {
+          out += `Visit our <a href="/faq/" style="color:#4A99CC;font-weight:700">FAQ page</a> for answers to common questions.`;
+        }
+        return out;
+      },
+      chips: ['Our Services','Get a Quote','Contact Us'],
+    },
+    {
+      id: 'complaint',
+      phrases: ['not happy','i have a complaint','bad experience','shipment was late','my freight was damaged','issue with my shipment'],
+      words: ['complaint','complain','problem','issue','wrong','unhappy','unsatisfied','late','damaged','missing','broken','disappointed'],
+      text: () =>
+        `😔 I'm sorry to hear that — we take every issue seriously and want to make this right.<br><br>` +
+        `Please reach our team directly:<br>` +
+        `• 📞 <a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a><br>` +
+        `• ✉️ <a href="mailto:${D.email}" style="color:#4A99CC;font-weight:700">${D.email}</a><br>` +
+        `• <a href="/contact/" style="color:#4A99CC;font-weight:700">→ Submit a concern online</a><br><br>` +
+        `Please have your tracking number ready and we'll resolve it promptly.`,
+      chips: ['Track Shipment','Contact Us'],
+    },
+    {
+      id: 'thanks',
+      phrases: ['thank you so much','you are very helpful','that was helpful','really appreciate'],
+      words: ['thank','thanks','great','awesome','perfect','good','helpful','appreciate','wonderful'],
+      text: () => `😊 Happy to help! Is there anything else I can assist you with today?`,
+      chips: ['Our Services','Get a Quote','Coverage Area','Contact Us'],
+    },
+  ];
+
+  const DEFAULT_CHIPS = ['Our Services','Get a Quote','Coverage Area','Contact Us'];
+  const CHIP_QUERIES  = {
+    'Our Services':  'What services do you offer?',
+    'Get a Quote':   'How do I get a quote?',
+    'Coverage Area': 'What areas do you cover?',
+    'Contact Us':    'How can I contact you?',
+    'Track Shipment':'How do I track my shipment?',
+    'LTL vs FTL':    'What is the difference between LTL and FTL?',
+    'Transit Times': 'How long does shipping take?',
+    'About Us':      'Tell me about the company',
+  };
+
+  const STORAGE_KEY = 'cb_hist_v3';
+  const MAX_STORED  = 36;
+
+  // ── DOM ───────────────────────────────────────────────────
+  const win      = document.getElementById('chatbot-window');
+  const btn      = document.getElementById('chatbot-btn');
+  const msgsEl   = document.getElementById('chatbot-msgs');
+  const inp      = document.getElementById('chatbot-input');
+  const sendBtn  = document.getElementById('chatbot-send');
+  const chipsEl  = document.getElementById('chatbot-chips');
+  const dot      = document.getElementById('chatbot-dot');
+  const iconChat  = document.getElementById('chatbot-icon-chat');
+  const iconClose = document.getElementById('chatbot-icon-close');
+  const clearBtn  = document.getElementById('cb-clear-btn');
+  const bubble    = document.getElementById('cb-bubble');
+  const bubClose  = document.getElementById('cb-bubble-close');
+
+  let isOpen = false, greeted = false, busy = false;
+  let fallbackStreak = 0;
+  let bubbleTimer = null;
+
+  // ── Score-based matching (phrases=3pts, words=1pt) ────────
+  function scoreRule(rule, lower) {
+    let s = 0;
+    (rule.phrases || []).forEach(p => { if (lower.includes(p)) s += 3; });
+    (rule.words   || []).forEach(w => { if (lower.includes(w)) s += 1; });
+    return s;
+  }
+
+  // ── FAQ fuzzy match — checks actual DB FAQ items ──────────
+  function matchFaq(lower) {
+    let best = null, bestPct = 0;
+    for (const faq of D.faqs) {
+      const words = faq.q.toLowerCase().replace(/[?!.,]/g,'').split(/\s+/).filter(w => w.length > 3);
+      if (!words.length) continue;
+      const hits  = words.filter(w => lower.includes(w)).length;
+      const pct   = hits / words.length;
+      if (pct >= 0.4 && pct > bestPct) { bestPct = pct; best = faq; }
+    }
+    return best;
+  }
+
+  // ── Service name match — checks actual DB service names ───
+  function matchService(lower) {
+    for (const svc of D.services) {
+      const n = svc.name.toLowerCase();
+      if (n.length > 3 && lower.includes(n)) return svc;
+      if (n.split(/\s+/).some(w => w.length > 4 && lower.includes(w))) return svc;
+    }
+    return null;
+  }
+
+  function getResponse(lower) {
+    // 1. Rule matching
+    let best = null, bestScore = 0;
+    for (const rule of RULES) {
+      const s = scoreRule(rule, lower);
+      if (s > bestScore) { bestScore = s; best = rule; }
+    }
+    if (bestScore >= 1) return { type: 'rule', rule: best };
+
+    // 2. Specific service name from DB
+    const svc = matchService(lower);
+    if (svc) return { type: 'service', svc };
+
+    // 3. FAQ answer from DB
+    const faq = matchFaq(lower);
+    if (faq) return { type: 'faq', faq };
+
+    return null;
+  }
+
+  // ── Open / close ──────────────────────────────────────────
+  window.closeChatbot = function () {
+    isOpen = false;
+    win.style.opacity     = '0';
+    win.style.transform   = 'translateY(20px) scale(.97)';
+    win.style.pointerEvents = 'none';
+    iconChat.style.display  = 'block';
+    iconClose.style.display = 'none';
+  };
+
+  function openChatbot() {
+    isOpen = true;
+    hideBubble();
+    dot.style.display       = 'none';
+    win.style.opacity       = '1';
+    win.style.transform     = 'translateY(0) scale(1)';
+    win.style.pointerEvents = 'auto';
+    iconChat.style.display  = 'none';
+    iconClose.style.display = 'block';
+    if (!greeted) {
+      greeted = true;
+      const saved = loadHistory();
+      if (saved && saved.length) { restoreHistory(saved); }
+      else { setTimeout(showWelcome, 350); }
+    } else {
+      scrollBottom();
+      inp.focus();
+    }
+  }
+
+  btn.addEventListener('click', () => isOpen ? closeChatbot() : openChatbot());
+  btn.addEventListener('mouseenter', () => { btn.style.transform = 'scale(1.08)'; btn.style.boxShadow = '0 8px 32px rgba(0,0,0,.45)'; });
+  btn.addEventListener('mouseleave', () => { btn.style.transform = 'scale(1)';    btn.style.boxShadow = '0 4px 24px rgba(0,0,0,.35)'; });
+
+  // ── Auto-greeting bubble ──────────────────────────────────
+  function showBubble() {
+    if (isOpen || greeted) return;
+    bubble.style.display = 'block';
+    requestAnimationFrame(() => { bubble.style.opacity = '1'; bubble.style.pointerEvents = 'auto'; });
+  }
+  function hideBubble() {
+    bubble.style.opacity      = '0';
+    bubble.style.pointerEvents = 'none';
+    clearTimeout(bubbleTimer);
+    setTimeout(() => { bubble.style.display = 'none'; }, 380);
+  }
+  bubClose.addEventListener('click', e => { e.stopPropagation(); hideBubble(); });
+  bubble.addEventListener('click',   e => { if (e.target !== bubClose) openChatbot(); });
+  bubbleTimer = setTimeout(showBubble, 10000);
+
+  // ── Mobile full-screen ────────────────────────────────────
+  function applyLayout() {
+    if (window.innerWidth < 640) {
+      Object.assign(win.style, { bottom:'0', right:'0', left:'0', top:'0', width:'100%', maxWidth:'100%', height:'100%', maxHeight:'100%', borderRadius:'0' });
+    } else {
+      Object.assign(win.style, { bottom:'6rem', right:'1.5rem', left:'', top:'', width:'22rem', maxWidth:'calc(100vw - 2rem)', height:'560px', maxHeight:'calc(100vh - 8rem)', borderRadius:'.75rem' });
+    }
+  }
+  applyLayout();
+  window.addEventListener('resize', applyLayout);
+
+  // ── Welcome ───────────────────────────────────────────────
+  function showWelcome() {
+    setBusy(true);
+    setTimeout(() => {
+      setBusy(false);
+      addBotMsg(
+        `Hello! 👋 Welcome to <strong>${D.company}</strong>.<br><br>` +
+        `I can help with freight services, quotes, coverage, tracking, transit times, and more.<br>` +
+        `What can I help you with today?`,
+        false
+      );
+      setChips(DEFAULT_CHIPS);
+      inp.focus();
+    }, 1100);
+  }
+
+  // ── Timestamps ────────────────────────────────────────────
+  function nowStr() {
+    const d = new Date();
+    let h = d.getHours(), m = d.getMinutes(), ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return `${h}:${String(m).padStart(2,'0')} ${ap}`;
+  }
+
+  // ── Render ────────────────────────────────────────────────
+  function mkEl(tag, css) { const e = document.createElement(tag); if (css) e.style.cssText = css; return e; }
+  const BOT_AV = `<svg style="width:.85rem;height:.85rem;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>`;
+
+  function addBotMsg(html, save = true) {
+    const t   = nowStr();
+    const row = mkEl('div','display:flex;align-items:flex-end;gap:.5rem;');
+    const av  = mkEl('div','width:1.7rem;height:1.7rem;border-radius:9999px;flex-shrink:0;background:linear-gradient(135deg,#1A3D5C,#4A99CC);display:flex;align-items:center;justify-content:center;');
+    av.innerHTML = BOT_AV;
+    const col = mkEl('div','display:flex;flex-direction:column;gap:.18rem;max-width:86%;');
+    const bub = mkEl('div','background:var(--c-surface);color:var(--c-text-h);padding:.55rem .75rem;border-radius:.75rem .75rem .75rem .1rem;font-size:.78rem;line-height:1.6;');
+    bub.innerHTML = html;
+    const ts = mkEl('span','font-size:.62rem;color:var(--c-muted);padding-left:.2rem;');
+    ts.textContent = t;
+    col.append(bub, ts); row.append(av, col);
+    msgsEl.appendChild(row); scrollBottom();
+    if (save) storeMsg({ type:'bot', html, time:t });
+  }
+
+  function addUserMsg(text, save = true) {
+    const t   = nowStr();
+    const row = mkEl('div','display:flex;justify-content:flex-end;');
+    const col = mkEl('div','display:flex;flex-direction:column;align-items:flex-end;gap:.18rem;max-width:86%;');
+    const bub = mkEl('div','background:#1A3D5C;color:#fff;padding:.55rem .75rem;border-radius:.75rem .75rem .1rem .75rem;font-size:.78rem;line-height:1.6;word-break:break-word;');
+    bub.textContent = text;
+    const ts = mkEl('span','font-size:.62rem;color:var(--c-muted);padding-right:.2rem;');
+    ts.textContent = t;
+    col.append(bub, ts); row.appendChild(col);
+    msgsEl.appendChild(row); scrollBottom();
+    if (save) storeMsg({ type:'user', text, time:t });
+  }
+
+  // ── Typing indicator ──────────────────────────────────────
+  function setBusy(on) {
+    busy = on;
+    inp.disabled          = on;
+    sendBtn.style.opacity = on ? '.45' : '1';
+    sendBtn.style.cursor  = on ? 'default' : 'pointer';
+    const ex = document.getElementById('cb-typing');
+    if (on && !ex) {
+      const row = mkEl('div','display:flex;align-items:flex-end;gap:.5rem;');
+      row.id = 'cb-typing';
+      const av = mkEl('div','width:1.7rem;height:1.7rem;border-radius:9999px;flex-shrink:0;background:linear-gradient(135deg,#1A3D5C,#4A99CC);display:flex;align-items:center;justify-content:center;');
+      av.innerHTML = BOT_AV;
+      const bub = mkEl('div','background:var(--c-surface);padding:.5rem .8rem;border-radius:.75rem .75rem .75rem .1rem;display:flex;gap:.3rem;align-items:center;');
+      bub.innerHTML = '<span class="cb-dot"></span><span class="cb-dot"></span><span class="cb-dot"></span>';
+      row.append(av, bub); msgsEl.appendChild(row); scrollBottom();
+    } else if (!on && ex) { ex.remove(); }
+  }
+
+  // ── Chips ─────────────────────────────────────────────────
+  function setChips(labels) {
+    chipsEl.innerHTML = '';
+    labels.forEach(label => {
+      const b = mkEl('button','background:var(--c-surface);color:var(--c-text-h);border:1px solid var(--c-border);border-radius:9999px;padding:.25rem .65rem;font-size:.7rem;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .15s,color .15s,border-color .15s;');
+      b.textContent = label;
+      b.addEventListener('mouseenter', () => { b.style.background='#1A3D5C'; b.style.color='#fff'; b.style.borderColor='#1A3D5C'; });
+      b.addEventListener('mouseleave', () => { b.style.background='var(--c-surface)'; b.style.color='var(--c-text-h)'; b.style.borderColor='var(--c-border)'; });
+      b.addEventListener('click', () => handleSend(CHIP_QUERIES[label] || label));
+      chipsEl.appendChild(b);
+    });
+  }
+
+  // ── Send logic ────────────────────────────────────────────
+  function handleSend(text) {
+    if (busy) return;
+    text = text.trim();
+    if (!text) return;
+    inp.value = '';
+    chipsEl.innerHTML = '';
+    addUserMsg(text);
+    const delay = 700 + Math.random() * 500;
+    setBusy(true);
+    setTimeout(() => {
+      setBusy(false);
+      const lower  = text.toLowerCase().replace(/['"!?,]/g, '');
+      const match  = getResponse(lower);
+
+      if (match) {
+        fallbackStreak = 0;
+        if (match.type === 'rule') {
+          addBotMsg(match.rule.text());
+          setChips(match.rule.chips || DEFAULT_CHIPS);
+        } else if (match.type === 'service') {
+          const s = match.svc;
+          addBotMsg(
+            `<strong>${s.name}</strong><br><br>${s.desc}<br><br>` +
+            `<a href="/services/${s.slug}/" style="color:#4A99CC;font-weight:700">→ Full details</a> &nbsp;|&nbsp; ` +
+            `<a href="/quote/" style="color:#4A99CC;font-weight:700">Get a Quote →</a>`
+          );
+          setChips(['Get a Quote','Our Services','Coverage Area']);
+        } else if (match.type === 'faq') {
+          addBotMsg(
+            `<strong>Q: ${match.faq.q}</strong><br><br>${match.faq.a}<br><br>` +
+            `<a href="/faq/" style="color:#4A99CC;font-weight:700">→ See all FAQs</a>`
+          );
+          setChips(DEFAULT_CHIPS);
+        }
+      } else {
+        fallbackStreak++;
+        if (fallbackStreak >= 2) {
+          fallbackStreak = 0;
+          addBotMsg(
+            `Let me connect you with our team directly — they'll have the answer:<br><br>` +
+            `📞 <a href="tel:${D.phone}" style="color:#4A99CC;font-weight:700">${D.phone}</a> (24/7 dispatch)<br>` +
+            `✉️ <a href="mailto:${D.email}" style="color:#4A99CC;font-weight:700">${D.email}</a><br>` +
+            `<a href="/contact/" style="color:#4A99CC;font-weight:700">→ Contact form</a>`
+          );
+        } else {
+          addBotMsg(
+            `I'm not sure about that one. Try asking about services, rates, coverage, tracking, or transit times — ` +
+            `or <a href="/contact/" style="color:#4A99CC;font-weight:700">contact us directly</a>.`
+          );
+        }
+        setChips(DEFAULT_CHIPS);
+      }
+    }, delay);
+  }
+
+  // ── Events ────────────────────────────────────────────────
+  sendBtn.addEventListener('click', () => handleSend(inp.value));
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !busy) handleSend(inp.value); });
+  inp.addEventListener('focus', () => { if (!busy) inp.style.borderColor = '#4A99CC'; });
+  inp.addEventListener('blur',  () => { inp.style.borderColor = 'var(--c-border)'; });
+
+  clearBtn.addEventListener('mouseenter', () => { clearBtn.style.background = 'rgba(255,255,255,.2)'; });
+  clearBtn.addEventListener('mouseleave', () => { clearBtn.style.background = 'rgba(255,255,255,.1)'; });
+  clearBtn.addEventListener('click', () => {
+    msgsEl.innerHTML = '';
+    chipsEl.innerHTML = '';
+    fallbackStreak = 0;
+    clearHistory();
+    greeted = false;
+    setTimeout(showWelcome, 150);
+  });
+
+  // ── LocalStorage ──────────────────────────────────────────
+  function storeMsg(entry) {
+    try {
+      const h = loadHistory() || [];
+      h.push(entry);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(h.slice(-MAX_STORED)));
+    } catch (_) {}
+  }
+  function loadHistory() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (_) { return null; }
+  }
+  function clearHistory() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
+  }
+  function restoreHistory(entries) {
+    greeted = true;
+    entries.forEach(e => {
+      if (e.type === 'user') addUserMsg(e.text, false);
+      else if (e.type === 'bot') addBotMsg(e.html, false);
+    });
+    setChips(DEFAULT_CHIPS);
+    scrollBottom();
+    inp.focus();
+  }
+
+  function scrollBottom() { setTimeout(() => { msgsEl.scrollTop = msgsEl.scrollHeight; }, 50); }
+
+  // ── CSS ───────────────────────────────────────────────────
+  const s = document.createElement('style');
+  s.textContent = `
+    .cb-dot{width:.45rem;height:.45rem;border-radius:9999px;background:var(--c-muted);display:inline-block;animation:cb-b 1.2s infinite}
+    .cb-dot:nth-child(2){animation-delay:.2s}.cb-dot:nth-child(3){animation-delay:.4s}
+    @keyframes cb-b{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-.4rem)}}
+    #chatbot-msgs a{text-decoration:underline}#chatbot-msgs a:hover{opacity:.8}
+    #chatbot-input:disabled{opacity:.55;cursor:not-allowed}
+  `;
+  document.head.appendChild(s);
+})();
+</script>
