@@ -24,9 +24,6 @@ media/
 *.log
 *.zip
 
-# Static videos (large files — host on Cloudinary/YouTube)
-static/videos/
-
 # IDE
 .vscode/
 .idea/
