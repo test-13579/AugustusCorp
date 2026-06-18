@@ -1,0 +1,6777 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$AIx4wL7QnFkw4F86omoQgX$CiC9jdG2IwN342nlORtSd51Qh19w8c7DiC1sDQ7/UL8=",
+    "last_login": "2026-06-17T09:54:03.080Z",
+    "is_superuser": true,
+    "username": "supriyayadav",
+    "first_name": "",
+    "last_name": "",
+    "email": "supriya.yadav7755@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-16T21:44:33.501Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fehvc03c4eakoks4n31rvrgbr4qygs5c",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBKKTAu3fcMZIYBqRqalHZlvLtt0oVu_3vvv0XAbS1ha2kJE4ur6MXldyOMz1QPwA-s91nGua7LRPJQ5EmbHGdOr9vp_h0UbGWvveHBZ9Y9ZJcVKuDkWKNOymhIZFF1hi247D25SI4QvLMwROryjqz4fAHs_Tfs:1wZmyB:-2fKxRNxwHw-me6PSnGHKn1zEYbqLEfoVOgDmQd9crQ",
+    "expire_date": "2026-07-01T09:54:03.081Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hf2avsrzvur2r6wmcesxfddi5e7esc4j",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-RLJNSc8ZrF3vLg6gWIqTKuLuJFIKaN_MvE1lWJea185zHkldlVWX3w2hvHg6AD1hejRd2rTMI-pD0Sft-t6I37fT_Tuo0Oteg_XEGMWJdyxhYG9McsI0oI1IbqeBvKRoDHngIpxE0JbEnCAGUp8vEVg5jg:1wUTEv:GwVVNNSWsRs1hUzCvoX2QQi14Pq55vEecJ2Gf5QBhFM",
+    "expire_date": "2026-06-16T17:49:21.142Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wi50sj9ovy2z7kq1xr0dnqukovtr11xv",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-RLJNSc8ZrF3vLg6gWIqTKuLuJFIKaN_MvE1lWJea185zHkldlVWX3w2hvHg6AD1hejRd2rTMI-pD0Sft-t6I37fT_Tuo0Oteg_XEGMWJdyxhYG9McsI0oI1IbqeBvKRoDHngIpxE0JbEnCAGUp8vEVg5jg:1wTdar:OyDG7mb6AJ725EsZK5bxmhAS4srMFwPAMHiJ7IUn9KE",
+    "expire_date": "2026-06-14T10:40:33.835Z"
+  }
+},
+{
+  "model": "core.sitesettings",
+  "pk": 1,
+  "fields": {
+    "company_name": "Augustus Corp",
+    "tagline": "Trucking & Brokerage Solutions — Reliable · Scalable · On-Time",
+    "logo": "branding/ChatGPT_Image_Jun_17_2026_at_11_14_14_AM_0OiqAWa.png",
+    "logo_dark": "branding/ChatGPT_Image_Jun_17_2026_at_01_22_36_PM_r9EgJZm.png",
+    "logo_alt": "Augustus Corp",
+    "favicon": "branding/ChatGPT_Image_Jun_17_2026_at_11_14_14_AM_a1OvyrK.png",
+    "wordmark_main": "AUGUST",
+    "wordmark_accent": "US",
+    "wordmark_sub": "CORP",
+    "primary_color": "#4A99CC",
+    "navy_color": "#1A3D5C",
+    "accent_color": "#E84231",
+    "phone": "803-666-8368",
+    "email": "ops@augustusbrokerage.com",
+    "address": "United States & Canada",
+    "website": "augustustransport.com",
+    "hours_weekday": "8am–6pm ET",
+    "hours_saturday": "9am–2pm ET",
+    "footer_blurb": "Nationwide trucking & freight solutions across all 48 U.S. states and Canada. OTR, Drayage, Warehousing & Cross-Border — backed by a vetted carrier network.",
+    "meta_description": "Augustus Corp — End-to-end logistics solutions. Reliable, scalable, on-time freight across the US and Canada. OTR, Drayage, Warehousing & Cross-Border.",
+    "hero_poster": "",
+    "about_image": "site/pexels-hormel-media-1095814.jpg",
+    "about_image_2": "site/pexels-wolfgang-weiser-467045605-23380998.jpg",
+    "cta_bg": "",
+    "career_bg": "",
+    "contact_bg": "",
+    "gallery_1": "site/gallery/istockphoto-1097671330-1024x1024.jpg",
+    "gallery_2": "site/gallery/pexels-kelly-12530458.jpg",
+    "gallery_3": "site/gallery/pexels-petra-nesti-1766376-26569138.jpg",
+    "gallery_4": "site/gallery/pexels-md-sihabul-islam-750002427-28185416.jpg",
+    "google_maps_api_key": "",
+    "social_facebook": "",
+    "social_linkedin": "",
+    "social_twitter": "",
+    "social_reddit": "",
+    "social_instagram": "",
+    "social_youtube": ""
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 41,
+  "fields": {
+    "question": "What areas do you cover?",
+    "answer": "We provide transportation solutions across all 48 contiguous U.S. states and full coverage across Canada, including major ports, rail ramps, and distribution hubs.",
+    "order": 1
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 42,
+  "fields": {
+    "question": "What types of transportation do you specialize in?",
+    "answer": "We specialise in OTR (Dry Van, Reefer & Flatbed), Drayage (ports & rail ramps), Warehousing & Storage, Cross-Border US–Canada, FTL, Reefer, and Heavy-Haul & Specialized freight.",
+    "order": 2
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 43,
+  "fields": {
+    "question": "Do you have your own trucks or are you a broker?",
+    "answer": "We operate as a freight brokerage with a strong vetted carrier network. Every carrier is vetted for safety, compliance, and reliability — giving you consistent, trusted capacity.",
+    "order": 3
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 44,
+  "fields": {
+    "question": "Can you handle time-sensitive or urgent shipments?",
+    "answer": "Yes — we prioritise expedited and time-critical shipments with dedicated carrier capacity and fast response times. Contact our dispatch team directly for urgent loads.",
+    "order": 4
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 45,
+  "fields": {
+    "question": "What makes Augustus Corp different?",
+    "answer": "Our vetted carrier network, competitive transparent pricing, 24/7 operations visibility, and dedicated account support set us apart. We build long-term partnerships, not one-off transactions.",
+    "order": 5
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 46,
+  "fields": {
+    "question": "What shipment types do you handle?",
+    "answer": "We handle Dry Van, Reefer, Flatbed, FTL, Drayage (port & rail), Warehousing, Heavy-Haul (Lowboys, Double Drops, RGNs), Hazmat, and Cross-Border USA–Canada shipments.",
+    "order": 6
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 47,
+  "fields": {
+    "question": "Which ports and rail yards do you serve?",
+    "answer": "We serve major US ports and rail terminals including LA/Long Beach, and key inland intermodal hubs across the country, with full Canada coverage for cross-border moves.",
+    "order": 7
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 48,
+  "fields": {
+    "question": "How do I get a freight quote?",
+    "answer": "Fill out our online quote form or contact us directly at 803-666-8368 or garry@augustusbrokerage.com. Provide your origin, destination, freight type, and weight — we respond within 24 hours.",
+    "order": 8
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 49,
+  "fields": {
+    "question": "Is there a minimum shipment size?",
+    "answer": "No minimum — we handle everything from partial loads to full truckloads. Contact us to discuss your specific freight requirements and we'll find the right solution.",
+    "order": 9
+  }
+},
+{
+  "model": "core.faqitem",
+  "pk": 50,
+  "fields": {
+    "question": "Do you handle hazardous materials?",
+    "answer": "Yes. We ensure fully compliant handling of regulated goods (hazmat) in line with DOT and FMCSA requirements. Please disclose hazmat classification when requesting a quote.",
+    "order": 10
+  }
+},
+{
+  "model": "core.commitment",
+  "pk": 17,
+  "fields": {
+    "text": "On-time pickups and deliveries",
+    "order": 1
+  }
+},
+{
+  "model": "core.commitment",
+  "pk": 18,
+  "fields": {
+    "text": "Proactive communication",
+    "order": 2
+  }
+},
+{
+  "model": "core.commitment",
+  "pk": 19,
+  "fields": {
+    "text": "Flexible capacity solutions",
+    "order": 3
+  }
+},
+{
+  "model": "core.commitment",
+  "pk": 20,
+  "fields": {
+    "text": "Long-term partnership approach",
+    "order": 4
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 21,
+  "fields": {
+    "name": "Automotive",
+    "slug": "automotive",
+    "description": "Precision freight for OEM components, finished vehicles, and production-critical parts. Dedicated flatbeds, enclosed carriers, and just-in-time delivery keep assembly lines running across North America — zero delays, zero excuses.",
+    "icon_name": "car",
+    "logo": "",
+    "order": 1
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 22,
+  "fields": {
+    "name": "Technology & Electronics",
+    "slug": "technology",
+    "description": "Secure, time-critical shipping for semiconductors, high-value electronics, and tech hardware. White-glove handling, real-time tracking, and expedited lanes protect your cargo from factory floor to data center — anywhere in the world.",
+    "icon_name": "chip",
+    "logo": "",
+    "order": 2
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 23,
+  "fields": {
+    "name": "Healthcare & Pharma",
+    "slug": "healthcare",
+    "description": "GDP-compliant cold chain and temperature-controlled logistics for pharmaceuticals, biologics, and medical devices. Validated reefer units, strict chain-of-custody, and 24/7 monitoring ensure product integrity from origin to patient.",
+    "icon_name": "cross",
+    "logo": "",
+    "order": 3
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 24,
+  "fields": {
+    "name": "Industrial & Manufacturing",
+    "slug": "industrial",
+    "description": "Heavy-haul, over-dimensional, and just-in-time freight for industrial machinery, capital equipment, and manufactured goods. Full permit management, specialized rigging, and cross-border expertise keep your production schedules on track.",
+    "icon_name": "gear",
+    "logo": "",
+    "order": 4
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 25,
+  "fields": {
+    "name": "Consumer & Retail",
+    "slug": "consumer",
+    "description": "High-volume transport for consumer goods from production to distribution center to retail shelf. Reliable capacity for seasonal peaks, promotional launches, and everyday replenishment — delivered on time, every time.",
+    "icon_name": "bag",
+    "logo": "",
+    "order": 5
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 26,
+  "fields": {
+    "name": "Aerospace & Defense",
+    "slug": "aerospace",
+    "description": "Security-compliant logistics for aerospace components, defense cargo, and government freight. ITAR-registered carriers, customs clearance expertise, and cleared handling teams move sensitive loads safely across domestic and international corridors.",
+    "icon_name": "plane",
+    "logo": "",
+    "order": 6
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 27,
+  "fields": {
+    "name": "Energy & Oil & Gas",
+    "slug": "energy",
+    "description": "Specialized heavy freight for oilfield equipment, pipe, project cargo, and energy sector supplies. Dedicated permit management and over-dimensional expertise across US shale basins and UAE energy corridors keep your operations running.",
+    "icon_name": "bolt",
+    "logo": "",
+    "order": 7
+  }
+},
+{
+  "model": "core.industry",
+  "pk": 28,
+  "fields": {
+    "name": "Food & Beverage",
+    "slug": "food-beverage",
+    "description": "Temperature-controlled transport for fresh produce, frozen goods, and packaged foods. Multi-temp reefer fleets, FSMA-compliant carriers, and strict cold chain protocols preserve product quality from origin farm to retail shelf.",
+    "icon_name": "snowflake",
+    "logo": "",
+    "order": 8
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 33,
+  "fields": {
+    "text": "Operating across all 48 U.S. states",
+    "order": 1
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 34,
+  "fields": {
+    "text": "Full coverage across Canada",
+    "order": 2
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 35,
+  "fields": {
+    "text": "OTR Transportation — Dry Van, Reefer & Flatbed",
+    "order": 3
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 36,
+  "fields": {
+    "text": "Drayage at major ports & rail ramps",
+    "order": 4
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 37,
+  "fields": {
+    "text": "Warehousing & storage solutions",
+    "order": 5
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 38,
+  "fields": {
+    "text": "Specialized heavy-haul: Lowboys, Double Drops, RGNs",
+    "order": 6
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 39,
+  "fields": {
+    "text": "Hazmat & reefer transportation",
+    "order": 7
+  }
+},
+{
+  "model": "core.abouthighlight",
+  "pk": 40,
+  "fields": {
+    "text": "Strong vetted carrier network",
+    "order": 8
+  }
+},
+{
+  "model": "core.whyusfeature",
+  "pk": 25,
+  "fields": {
+    "icon": "truck",
+    "title": "Vetted & Reliable Carrier Network",
+    "desc": "Every carrier in our network is thoroughly vetted for safety, compliance, and reliability — so your freight moves with providers you can trust.",
+    "order": 1
+  }
+},
+{
+  "model": "core.whyusfeature",
+  "pk": 26,
+  "fields": {
+    "icon": "bar-chart",
+    "title": "Competitive & Transparent Pricing",
+    "desc": "No hidden fees. We offer competitive, market-aligned rates with full transparency from quote to delivery across all service modes.",
+    "order": 2
+  }
+},
+{
+  "model": "core.whyusfeature",
+  "pk": 27,
+  "fields": {
+    "icon": "clock",
+    "title": "24/7 Operations & Visibility",
+    "desc": "Our operations team is available around the clock with real-time shipment visibility — so you always know where your freight is, day or night.",
+    "order": 3
+  }
+},
+{
+  "model": "core.whyusfeature",
+  "pk": 28,
+  "fields": {
+    "icon": "headphones",
+    "title": "Dedicated Account Support",
+    "desc": "You get a dedicated account and operations team who knows your freight requirements and proactively keeps your supply chain running smoothly.",
+    "order": 4
+  }
+},
+{
+  "model": "core.whyusfeature",
+  "pk": 29,
+  "fields": {
+    "icon": "globe",
+    "title": "48 States + Canada Coverage",
+    "desc": "Nationwide OTR coverage across all 48 U.S. states plus full cross-border service to Canada — major ports, rail ramps, and distribution hubs.",
+    "order": 5
+  }
+},
+{
+  "model": "core.whyusfeature",
+  "pk": 30,
+  "fields": {
+    "icon": "shield",
+    "title": "Service Quality & Compliance",
+    "desc": "Committed to the highest standards of service quality, DOT/FMCSA compliance, and transparency — every load, every lane, every time.",
+    "order": 6
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 33,
+  "fields": {
+    "name": "Dry Van (General Freight)",
+    "desc": "Palletized and non-perishable goods",
+    "icon": "box",
+    "order": 1
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 34,
+  "fields": {
+    "name": "Reefer (Temperature-Controlled)",
+    "desc": "Food, beverages, and cold-chain cargo",
+    "icon": "thermometer",
+    "order": 2
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 35,
+  "fields": {
+    "name": "Flatbed",
+    "desc": "Open freight, machinery, and oversized loads",
+    "icon": "truck",
+    "order": 3
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 36,
+  "fields": {
+    "name": "Full Truckload (FTL)",
+    "desc": "Dedicated, faster transit shipments",
+    "icon": "shield",
+    "order": 4
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 37,
+  "fields": {
+    "name": "Drayage (Port & Rail)",
+    "desc": "Container moves from ports and rail ramps",
+    "icon": "anchor",
+    "order": 5
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 38,
+  "fields": {
+    "name": "Warehousing & Storage",
+    "desc": "Short and long-term storage solutions",
+    "icon": "packages",
+    "order": 6
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 39,
+  "fields": {
+    "name": "Heavy-Haul & Specialized",
+    "desc": "Lowboys, Double Drops, RGNs, Multi-Axle Units",
+    "icon": "zap",
+    "order": 7
+  }
+},
+{
+  "model": "core.shipmenttype",
+  "pk": 40,
+  "fields": {
+    "name": "Cross-Border (USA–Canada)",
+    "desc": "Smooth freight coordination across the border",
+    "icon": "globe",
+    "order": 8
+  }
+},
+{
+  "model": "core.supportchannel",
+  "pk": 17,
+  "fields": {
+    "icon": "phone",
+    "title": "Call Us",
+    "detail": "803-666-8368",
+    "sub": "Mon–Fri, standard business hours",
+    "order": 1
+  }
+},
+{
+  "model": "core.supportchannel",
+  "pk": 18,
+  "fields": {
+    "icon": "mail",
+    "title": "Email Support",
+    "detail": "garry@augustusbrokerage.com",
+    "sub": "Response within 24 hours",
+    "order": 2
+  }
+},
+{
+  "model": "core.supportchannel",
+  "pk": 19,
+  "fields": {
+    "icon": "message",
+    "title": "WhatsApp",
+    "detail": "803-666-8368",
+    "sub": "Quick quotes & load updates",
+    "order": 3
+  }
+},
+{
+  "model": "core.supportchannel",
+  "pk": 20,
+  "fields": {
+    "icon": "clock",
+    "title": "24/7 Dispatch",
+    "detail": "803-666-8368",
+    "sub": "Urgent loads always answered",
+    "order": 4
+  }
+},
+{
+  "model": "core.office",
+  "pk": 13,
+  "fields": {
+    "city": "Headquarters (USA)",
+    "address": "United States",
+    "phone": "803-666-8368",
+    "email": "ops@augustusbrokerage.com",
+    "order": 1
+  }
+},
+{
+  "model": "core.office",
+  "pk": 14,
+  "fields": {
+    "city": "West Coast Operations",
+    "address": "LA / Long Beach Port Area",
+    "phone": "803-666-8368",
+    "email": "ops@augustusbrokerage.com",
+    "order": 2
+  }
+},
+{
+  "model": "core.office",
+  "pk": 15,
+  "fields": {
+    "city": "Augustus Logistics UAE",
+    "address": "augustomlogisticsuae.com",
+    "phone": "+971 4 729 2937",
+    "email": "info@augustuslogisticsuae.com",
+    "order": 3
+  }
+},
+{
+  "model": "core.careerperk",
+  "pk": 17,
+  "fields": {
+    "title": "Nationwide Reach",
+    "desc": "Work with freight moving across all 48 U.S. states and Canada — high-volume, high-impact operations.",
+    "order": 1
+  }
+},
+{
+  "model": "core.careerperk",
+  "pk": 18,
+  "fields": {
+    "title": "Vetted Network",
+    "desc": "Join a company built on carrier relationships and compliance — not just brokerage middlemen.",
+    "order": 2
+  }
+},
+{
+  "model": "core.careerperk",
+  "pk": 19,
+  "fields": {
+    "title": "Multi-Modal Scope",
+    "desc": "Gain experience across OTR, drayage, warehousing, and cross-border freight in a single organisation.",
+    "order": 3
+  }
+},
+{
+  "model": "core.careerperk",
+  "pk": 20,
+  "fields": {
+    "title": "Growth Opportunity",
+    "desc": "Be part of a fast-growing freight company built on operational excellence and long-term client partnerships.",
+    "order": 4
+  }
+},
+{
+  "model": "core.service",
+  "pk": 54,
+  "fields": {
+    "name": "OTR Transportation",
+    "slug": "otr",
+    "description": "Long-haul OTR coverage across all 48 U.S. states and Canada. We operate Dry Van, Reefer, and Flatbed equipment — backed by a strong vetted carrier network to guarantee capacity and keep your freight on schedule.",
+    "icon_name": "truck",
+    "features": [
+      "All 48 U.S. states + Canada",
+      "Dry Van, Reefer & Flatbed",
+      "Vetted carrier network",
+      "Consistent transit times",
+      "Full truckload dedicated capacity",
+      "Real-time status updates"
+    ],
+    "image": "services/ChatGPT_Image_Jun_17_2026_at_01_22_36_PM.png",
+    "logo": "",
+    "order": 1
+  }
+},
+{
+  "model": "core.service",
+  "pk": 55,
+  "fields": {
+    "name": "Drayage Services",
+    "slug": "drayage",
+    "description": "Seamless container movement from major ports and rail ramps across the U.S. We handle the short-haul leg between port and warehouse — fast turnaround and reliable chassis management.",
+    "icon_name": "anchor",
+    "features": [
+      "Major ports & rail ramps",
+      "Port & rail yard operations",
+      "20' & 40' container handling",
+      "Chassis supply & management",
+      "Bonded & in-bond moves",
+      "Same-day & next-day availability"
+    ],
+    "image": "",
+    "logo": "",
+    "order": 2
+  }
+},
+{
+  "model": "core.service",
+  "pk": 56,
+  "fields": {
+    "name": "Warehousing & Storage",
+    "slug": "warehousing",
+    "description": "Flexible warehousing and storage solutions to support your supply chain. Short-term overflow or ongoing distribution support — secure, accessible storage integrated with your transportation operations.",
+    "icon_name": "box",
+    "features": [
+      "Flexible short & long-term storage",
+      "Integrated with transportation ops",
+      "Secure facilities",
+      "Inventory management support",
+      "Cross-docking capabilities",
+      "Nationwide locations"
+    ],
+    "image": "",
+    "logo": "",
+    "order": 3
+  }
+},
+{
+  "model": "core.service",
+  "pk": 57,
+  "fields": {
+    "name": "Cross-Border US–Canada",
+    "slug": "cross-border",
+    "description": "Smooth cross-border transportation between the United States and Canada. Our team manages customs documentation, border compliance, and carrier coordination so your freight crosses without delays.",
+    "icon_name": "globe",
+    "features": [
+      "Full US–Canada coverage",
+      "Customs documentation handled",
+      "Border compliance expertise",
+      "Vetted cross-border carriers",
+      "Reefer & hazmat capable",
+      "On-time cross-border delivery"
+    ],
+    "image": "",
+    "logo": "",
+    "order": 4
+  }
+},
+{
+  "model": "core.service",
+  "pk": 58,
+  "fields": {
+    "name": "Full Truckload (FTL)",
+    "slug": "ftl",
+    "description": "Dedicated capacity for your freight — no co-loading, faster transit, and lower risk of damage. Ideal for time-sensitive or high-value shipments where reliability and speed matter most.",
+    "icon_name": "shield",
+    "features": [
+      "Dedicated trailer — no co-loading",
+      "Faster point-to-point transit",
+      "Ideal for time-critical freight",
+      "Temperature-controlled options",
+      "Expedited FTL available",
+      "Competitive rates nationwide"
+    ],
+    "image": "",
+    "logo": "",
+    "order": 5
+  }
+},
+{
+  "model": "core.service",
+  "pk": 59,
+  "fields": {
+    "name": "Reefer (Temperature-Controlled)",
+    "slug": "reefer",
+    "description": "Temperature-controlled trucking for food, beverages, pharmaceuticals, and other sensitive cargo. We maintain precise temperature ranges from origin to destination, ensuring cold chain integrity throughout.",
+    "icon_name": "thermometer",
+    "features": [
+      "Precise temperature control",
+      "Food, pharma & sensitive cargo",
+      "Cold chain integrity guaranteed",
+      "Continuous temp monitoring",
+      "FSMA compliance",
+      "Nationwide reefer capacity"
+    ],
+    "image": "",
+    "logo": "",
+    "order": 6
+  }
+},
+{
+  "model": "core.service",
+  "pk": 60,
+  "fields": {
+    "name": "Heavy-Haul & Specialized",
+    "slug": "heavy-haul",
+    "description": "Specialized heavy-haul and oversized freight transportation. Our fleet includes Lowboys, Double Drops, RGNs, Extendable Flatbeds, and Multi-Axle Units — with full compliance and permitting support.",
+    "icon_name": "zap",
+    "features": [
+      "Lowboys, Double Drops, RGNs",
+      "Extendable Flatbeds & Multi-Axle",
+      "Oversized & overweight loads",
+      "Full permit & escort coordination",
+      "Hazmat transportation capable",
+      "Project cargo specialists"
+    ],
+    "image": "",
+    "logo": "",
+    "order": 7
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 33,
+  "fields": {
+    "name": "David Harrington",
+    "company": "Midwest Manufacturing Co.",
+    "position": "VP of Supply Chain",
+    "review": "Augustus Brokerage handled our OTR moves across 12 states seamlessly. Their vetted carrier network gave us consistent capacity even during peak season when other brokers fell through.",
+    "rating": 5,
+    "avatar": "testimonials/ChatGPT_Image_Jun_18_2026_at_10_57_37_PM.png"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 34,
+  "fields": {
+    "name": "Maria Santos",
+    "company": "Pacific Fresh Foods",
+    "position": "Logistics Director",
+    "review": "The reefer coordination from Augustus is outstanding. Our produce arrives on time and in perfect condition — cold chain integrity is never compromised.",
+    "rating": 5,
+    "avatar": "testimonials/ChatGPT_Image_Jun_18_2026_at_10_56_28_PM.png"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 35,
+  "fields": {
+    "name": "James Whitmore",
+    "company": "Gulf Port Importers",
+    "position": "CEO",
+    "review": "Their drayage team at LA/Long Beach is the most reliable we've worked with. Fast response, no port delays — they've transformed our import operations.",
+    "rating": 5,
+    "avatar": "testimonials/ChatGPT_Image_Jun_18_2026_at_10_53_08_PM.png"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 36,
+  "fields": {
+    "name": "Angela Park",
+    "company": "E-Commerce Direct LLC",
+    "position": "Operations Manager",
+    "review": "We switched to Augustus for our cross-border Canada runs and the difference was immediate — better rates, better transit times, and a team that actually picks up the phone.",
+    "rating": 5,
+    "avatar": "testimonials/ChatGPT_Image_Jun_18_2026_at_10_54_08_PM.png"
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 33,
+  "fields": {
+    "name": "Founder & CEO",
+    "position": "Founder & Chief Executive Officer",
+    "bio": "Leads company operations, transport strategy, and business growth initiatives. Brings deep expertise in nationwide freight operations and carrier network development.",
+    "image": "",
+    "order": 1
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 34,
+  "fields": {
+    "name": "Logistics & Operations Manager",
+    "position": "Logistics & Operations Manager",
+    "bio": "Oversees transport coordination, load planning, and delivery operations across the national network. Ensures every shipment moves on time.",
+    "image": "",
+    "order": 2
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 35,
+  "fields": {
+    "name": "Carrier Relations Manager",
+    "position": "Carrier Relations Manager",
+    "bio": "Builds and maintains relationships with vetted OTR and cross-border carriers. Negotiates rates and manages compliance documentation across the network.",
+    "image": "",
+    "order": 3
+  }
+},
+{
+  "model": "core.teammember",
+  "pk": 36,
+  "fields": {
+    "name": "Client Relations Executive",
+    "position": "Client Relations Executive",
+    "bio": "Ensures smooth communication and customer support throughout the shipping process. Your dedicated point of contact from quote to delivery.",
+    "image": "",
+    "order": 4
+  }
+},
+{
+  "model": "core.blogpost",
+  "pk": 25,
+  "fields": {
+    "title": "OTR vs. Intermodal: Which Mode is Right for Your Freight?",
+    "slug": "otr-vs-intermodal-guide",
+    "excerpt": "Choosing between Over-the-Road trucking and intermodal shipping depends on distance, transit time, and cost priorities. Our experts break down when each mode wins.",
+    "content": "Full article content...Choosing between Over-the-Road trucking and intermodal shipping depends on distance, transit time, and cost priorities. Our experts break down when each mode wins.",
+    "author": "Augustus Corp",
+    "category": "Shipping Guide",
+    "image": "blog/pexels-petra-nesti-1766376-26569138.jpg",
+    "published_at": "2026-06-17T09:05:45.117Z"
+  }
+},
+{
+  "model": "core.blogpost",
+  "pk": 26,
+  "fields": {
+    "title": "Understanding Drayage: How Port & Rail Container Moves Work",
+    "slug": "understanding-drayage-port-rail",
+    "excerpt": "Drayage is the critical short-haul leg that connects ports and rail yards to warehouses. Here's how Augustus keeps your containers moving without port delays.",
+    "content": "Drayage is the critical short-haul leg that connects ports and rail yards to warehouses. Here's how Augustus keeps your containers moving without port delays.",
+    "author": "Augustus Corp",
+    "category": "Industry Insights",
+    "image": "blog/pexels-pixabay-262353.jpg",
+    "published_at": "2026-06-17T09:05:45.118Z"
+  }
+},
+{
+  "model": "core.blogpost",
+  "pk": 27,
+  "fields": {
+    "title": "Cross-Border Freight: What You Need to Know About US–Canada Shipping",
+    "slug": "us-canada-cross-border-shipping",
+    "excerpt": "Cross-border freight between the US and Canada involves customs documentation, compliance, and the right carrier relationships. Here's what shippers need to know.",
+    "content": "Cross-border freight between the US and Canada involves customs documentation, compliance, and the right carrier relationships. Here's what shippers need to know.",
+    "author": "Augustus Corp",
+    "category": "Operations",
+    "image": "blog/pexels-wolfgang-weiser-467045605-23380998.jpg",
+    "published_at": "2026-06-17T09:05:45.118Z"
+  }
+},
+{
+  "model": "core.company",
+  "pk": 25,
+  "fields": {
+    "name": "Augustus Brokerage",
+    "tagline": "Trucking & Brokerage Solutions — Reliable · Scalable · On-Time",
+    "description": "Augustus Brokerage is a customer-focused trucking and brokerage company providing reliable freight transportation across the United States, Canada, and beyond. With a strong vetted carrier network and commitment to service quality, compliance, and transparency, we keep your supply chain moving.",
+    "icon_name": "truck",
+    "bg_class": "bg-blue-50",
+    "icon_class": "text-blue-600",
+    "founded": "2010",
+    "fleet": "Vetted carrier network",
+    "countries": "US & Canada",
+    "employees": "150+",
+    "image": "companies/pexels-diosajandy-34875545.jpg",
+    "logo": "companies/logos/ChatGPT_Image_Jun_17_2026_at_01_22_36_PM_lR38F0B.png",
+    "highlights": [
+      "OTR — Dry Van, Reefer & Flatbed",
+      "Drayage at major ports & rail ramps",
+      "Warehousing & storage solutions",
+      "Cross-border US–Canada transportation",
+      "Vetted and reliable carrier network",
+      "Competitive and transparent pricing"
+    ],
+    "show_calculator": true,
+    "order": 2
+  }
+},
+{
+  "model": "core.company",
+  "pk": 26,
+  "fields": {
+    "name": "Augustus Transport",
+    "tagline": "US Trucking & Drayage Carrier",
+    "description": "Domiciled in Swansea, SC, Augustus Transport is a full-service domestic trucking carrier purpose-built for the demands of modern American commerce. We operate a modern, owner-operated fleet delivering first- and last-mile drayage excellence at two of the East Coast's busiest gateways — the Port of Savannah, GA and the Port of Charleston, SC. From container pickup to inland delivery, our drivers keep supply chains moving reliably and on schedule.",
+    "icon_name": "truck",
+    "bg_class": "bg-blue-50",
+    "icon_class": "text-blue-600",
+    "founded": "2022",
+    "fleet": "Own Fleet",
+    "countries": "US",
+    "employees": "50+",
+    "image": "companies/pexels-md-sihabul-islam-750002427-28185416.jpg",
+    "logo": "companies/logos/ChatGPT_Image_Jun_17_2026_at_01_22_36_PM.png",
+    "highlights": [
+      "Full Truckload (FTL) across the contiguous US",
+      "Less-than-Truckload (LTL) consolidated freight",
+      "Drayage at Port of Savannah, GA",
+      "Drayage at Port of Charleston, SC",
+      "Dedicated contract carriage for high-volume shippers",
+      "Real-time shipment tracking & freight visibility",
+      "Expedited & time-critical delivery solutions",
+      "Owner-operated fleet advantage"
+    ],
+    "show_calculator": true,
+    "order": 1
+  }
+},
+{
+  "model": "core.company",
+  "pk": 27,
+  "fields": {
+    "name": "Augustus Logistics",
+    "tagline": "International 3PL & Freight Forwarding",
+    "description": "Operating from Dubai, UAE, Augustus Logistics is the Group's international arm — providing comprehensive third-party logistics (3PL) services across the Gulf Cooperation Council and beyond. From FCL/LCL sea freight and bonded warehousing to customs clearance, cargo insurance, and last-mile distribution, we orchestrate complex international shipments so your business can move without borders.",
+    "icon_name": "globe",
+    "bg_class": "bg-amber-50",
+    "icon_class": "text-amber-600",
+    "founded": "2024",
+    "fleet": "Asset-Light",
+    "countries": "23+",
+    "employees": "50+",
+    "image": "companies/pexels-quintingellar-2199293.jpg",
+    "logo": "companies/logos/ChatGPT_Image_Jun_17_2026_at_01_22_36_PM_ygFOfl0.png",
+    "highlights": [
+      "Sea Freight — FCL & LCL worldwide",
+      "Bonded & non-bonded warehousing in Dubai",
+      "Customs clearance & compliance advisory",
+      "Jebel Ali (JAFZA) & Dubai World Central drayage",
+      "Temperature-controlled & hazmat storage",
+      "E-commerce fulfillment & last-mile delivery",
+      "Cross-docking for time-sensitive cargo",
+      "US–UAE bilateral trade lane management",
+      "Cargo insurance & risk management",
+      "Real-time cargo tracking, origin to delivery"
+    ],
+    "show_calculator": false,
+    "order": 3
+  }
+},
+{
+  "model": "core.shipment",
+  "pk": 25,
+  "fields": {
+    "tracking_number": "AUGS-2025-001",
+    "status": "in_transit",
+    "origin": "Chicago, IL",
+    "destination": "Los Angeles, CA",
+    "service_type": "OTR — Dry Van",
+    "weight": "42,000 lbs",
+    "estimated_delivery": "2026-06-20",
+    "sender_name": "Midwest Manufacturing Co.",
+    "receiver_name": "Pacific Distribution LLC"
+  }
+},
+{
+  "model": "core.shipment",
+  "pk": 26,
+  "fields": {
+    "tracking_number": "AUGS-2025-002",
+    "status": "delivered",
+    "origin": "Atlanta, GA",
+    "destination": "Dallas, TX",
+    "service_type": "FTL — Reefer",
+    "weight": "38,000 lbs",
+    "estimated_delivery": "2026-06-16",
+    "sender_name": "Southeast Fresh Foods",
+    "receiver_name": "Texas Grocery Chain"
+  }
+},
+{
+  "model": "core.shipment",
+  "pk": 27,
+  "fields": {
+    "tracking_number": "AUGS-2025-003",
+    "status": "at_port",
+    "origin": "Seattle, WA",
+    "destination": "Denver, CO",
+    "service_type": "Drayage + OTR",
+    "weight": "44,000 lbs",
+    "estimated_delivery": "2026-06-19",
+    "sender_name": "Pacific Imports Ltd.",
+    "receiver_name": "Augustus Corp — Denver Warehouse"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 101,
+  "fields": {
+    "shipment": 25,
+    "status": "picked_up",
+    "location": "Chicago, IL",
+    "description": "Freight picked up from shipper warehouse",
+    "event_time": "2026-06-15T09:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 102,
+  "fields": {
+    "shipment": 25,
+    "status": "in_transit",
+    "location": "Indianapolis, IN",
+    "description": "In transit — I-70 West corridor",
+    "event_time": "2026-06-15T21:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 103,
+  "fields": {
+    "shipment": 25,
+    "status": "in_transit",
+    "location": "St. Louis, MO",
+    "description": "Checkpoint — driver hours reset",
+    "event_time": "2026-06-16T13:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 104,
+  "fields": {
+    "shipment": 25,
+    "status": "in_transit",
+    "location": "Oklahoma City, OK",
+    "description": "In transit — I-40 West",
+    "event_time": "2026-06-17T01:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 105,
+  "fields": {
+    "shipment": 26,
+    "status": "picked_up",
+    "location": "Atlanta, GA",
+    "description": "Reefer unit pre-cooled and loaded",
+    "event_time": "2026-06-14T09:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 106,
+  "fields": {
+    "shipment": 26,
+    "status": "in_transit",
+    "location": "Birmingham, AL",
+    "description": "In transit — I-20 West, temp holding at 34°F",
+    "event_time": "2026-06-14T15:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 107,
+  "fields": {
+    "shipment": 26,
+    "status": "in_transit",
+    "location": "Jackson, MS",
+    "description": "Checkpoint — temp confirmed 34°F",
+    "event_time": "2026-06-15T09:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 108,
+  "fields": {
+    "shipment": 26,
+    "status": "in_transit",
+    "location": "Shreveport, LA",
+    "description": "In transit — I-20 West final leg",
+    "event_time": "2026-06-16T01:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 109,
+  "fields": {
+    "shipment": 26,
+    "status": "delivered",
+    "location": "Dallas, TX",
+    "description": "Delivered and signed for by consignee",
+    "event_time": "2026-06-16T13:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 110,
+  "fields": {
+    "shipment": 27,
+    "status": "picked_up",
+    "location": "Port of Seattle",
+    "description": "Container pulled from port terminal",
+    "event_time": "2026-06-15T23:05:45.120Z"
+  }
+},
+{
+  "model": "core.trackingevent",
+  "pk": 111,
+  "fields": {
+    "shipment": 27,
+    "status": "at_port",
+    "location": "Seattle Rail Ramp",
+    "description": "Container transferred to rail ramp",
+    "event_time": "2026-06-17T03:05:45.120Z"
+  }
+},
+{
+  "model": "core.job",
+  "pk": 53,
+  "fields": {
+    "title": "OTR Truck Driver (CDL-A)",
+    "company_name": "Augustus Corp",
+    "location": "Nationwide (USA)",
+    "job_type": "Full-Time",
+    "department": "Fleet Operations",
+    "description": "OTR driver for long-haul dry van routes across all 48 states. Minimum 2 years OTR experience required. Competitive pay, benefits, and home time.",
+    "posted_date": "2026-06-17",
+    "is_active": true
+  }
+},
+{
+  "model": "core.job",
+  "pk": 54,
+  "fields": {
+    "title": "Freight Operations Coordinator",
+    "company_name": "Augustus Corp",
+    "location": "USA (Remote/Hybrid)",
+    "job_type": "Full-Time",
+    "department": "Operations",
+    "description": "Coordinate daily freight movements across OTR, drayage, and cross-border lanes. Track loads, manage carrier communication, and resolve transit issues proactively.",
+    "posted_date": "2026-06-17",
+    "is_active": true
+  }
+},
+{
+  "model": "core.job",
+  "pk": 55,
+  "fields": {
+    "title": "Drayage Dispatcher",
+    "company_name": "Augustus Corp",
+    "location": "Los Angeles, CA",
+    "job_type": "Full-Time",
+    "department": "Operations",
+    "description": "Dispatch drayage moves at LA/Long Beach and surrounding rail terminals. Experience with port operations and container tracking required.",
+    "posted_date": "2026-06-17",
+    "is_active": true
+  }
+},
+{
+  "model": "core.job",
+  "pk": 56,
+  "fields": {
+    "title": "Business Development Representative",
+    "company_name": "Augustus Corp",
+    "location": "USA (Remote)",
+    "job_type": "Full-Time",
+    "department": "Commercial",
+    "description": "Generate new freight accounts across manufacturing, retail, and e-commerce sectors. Cold outreach, follow-up, and RFP experience in trucking or freight forwarding required.",
+    "posted_date": "2026-06-17",
+    "is_active": true
+  }
+},
+{
+  "model": "core.job",
+  "pk": 57,
+  "fields": {
+    "title": "Carrier Relations Manager",
+    "company_name": "Augustus Corp",
+    "location": "USA (Remote)",
+    "job_type": "Full-Time",
+    "department": "Operations",
+    "description": "Build and maintain relationships with vetted OTR and cross-border carriers. Negotiate rates, manage compliance documentation, and grow the carrier network.",
+    "posted_date": "2026-06-17",
+    "is_active": true
+  }
+},
+{
+  "model": "core.job",
+  "pk": 58,
+  "fields": {
+    "title": "Logistics & Admin Officer",
+    "company_name": "Augustus Corp",
+    "location": "USA",
+    "job_type": "Full-Time",
+    "department": "Finance",
+    "description": "Support invoicing, freight billing, carrier payments, and internal reporting. Experience with TMS platforms and freight accounting preferred.",
+    "posted_date": "2026-06-17",
+    "is_active": true
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 22,
+  "fields": {
+    "name": "Full Truckload (FTL)",
+    "key": "ftl",
+    "base_rate": "2200.00",
+    "unit_label": "per load",
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 23,
+  "fields": {
+    "name": "Less Than Truckload (LTL)",
+    "key": "ltl",
+    "base_rate": "320.00",
+    "unit_label": "per pallet",
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 24,
+  "fields": {
+    "name": "Drayage (Port / Rail)",
+    "key": "drayage",
+    "base_rate": "450.00",
+    "unit_label": "per move",
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 25,
+  "fields": {
+    "name": "Reefer (Temperature-Controlled)",
+    "key": "reefer",
+    "base_rate": "2800.00",
+    "unit_label": "per load",
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 26,
+  "fields": {
+    "name": "Intermodal (Rail + Truck)",
+    "key": "intermodal",
+    "base_rate": "1600.00",
+    "unit_label": "per load",
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 27,
+  "fields": {
+    "name": "Heavy-Haul & Specialized",
+    "key": "heavy-haul",
+    "base_rate": "3500.00",
+    "unit_label": "per load",
+    "is_active": true,
+    "order": 6
+  }
+},
+{
+  "model": "core.calcservice",
+  "pk": 28,
+  "fields": {
+    "name": "Cross-Border US–Canada",
+    "key": "cross-border",
+    "base_rate": "2600.00",
+    "unit_label": "per load",
+    "is_active": true,
+    "order": 7
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 37,
+  "fields": {
+    "name": "West Coast USA",
+    "key": "west-coast-usa",
+    "order": 1
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 38,
+  "fields": {
+    "name": "East Coast USA",
+    "key": "east-coast-usa",
+    "order": 2
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 39,
+  "fields": {
+    "name": "South USA",
+    "key": "south-usa",
+    "order": 3
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 40,
+  "fields": {
+    "name": "Midwest USA",
+    "key": "midwest-usa",
+    "order": 4
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 41,
+  "fields": {
+    "name": "Mountain / Southwest",
+    "key": "mountain-usa",
+    "order": 5
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 42,
+  "fields": {
+    "name": "Canada",
+    "key": "canada",
+    "order": 6
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 43,
+  "fields": {
+    "name": "Mexico",
+    "key": "mexico",
+    "order": 7
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 44,
+  "fields": {
+    "name": "Europe",
+    "key": "europe",
+    "order": 8
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 45,
+  "fields": {
+    "name": "Asia Pacific",
+    "key": "asia-pacific",
+    "order": 9
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 46,
+  "fields": {
+    "name": "Middle East",
+    "key": "middle-east",
+    "order": 10
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 47,
+  "fields": {
+    "name": "Latin America",
+    "key": "latin-america",
+    "order": 11
+  }
+},
+{
+  "model": "core.calczone",
+  "pk": 48,
+  "fields": {
+    "name": "Africa",
+    "key": "africa",
+    "order": 12
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 433,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 37,
+    "multiplier": "0.400",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 434,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 38,
+    "multiplier": "1.300",
+    "transit_days": "5–7"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 435,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 39,
+    "multiplier": "1.100",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 436,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 40,
+    "multiplier": "1.000",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 437,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 41,
+    "multiplier": "0.600",
+    "transit_days": "1–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 438,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 42,
+    "multiplier": "1.600",
+    "transit_days": "3–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 439,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 43,
+    "multiplier": "1.200",
+    "transit_days": "2–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 440,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 44,
+    "multiplier": "3.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 441,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 45,
+    "multiplier": "3.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 442,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 46,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 443,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 47,
+    "multiplier": "2.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 444,
+  "fields": {
+    "origin_zone": 37,
+    "dest_zone": 48,
+    "multiplier": "4.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 445,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 37,
+    "multiplier": "1.300",
+    "transit_days": "5–7"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 446,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 38,
+    "multiplier": "0.400",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 447,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 39,
+    "multiplier": "0.800",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 448,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 40,
+    "multiplier": "0.700",
+    "transit_days": "2–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 449,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 41,
+    "multiplier": "1.100",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 450,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 42,
+    "multiplier": "1.500",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 451,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 43,
+    "multiplier": "1.400",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 452,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 44,
+    "multiplier": "3.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 453,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 45,
+    "multiplier": "3.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 454,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 46,
+    "multiplier": "4.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 455,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 47,
+    "multiplier": "2.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 456,
+  "fields": {
+    "origin_zone": 38,
+    "dest_zone": 48,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 457,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 37,
+    "multiplier": "1.100",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 458,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 38,
+    "multiplier": "0.800",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 459,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 39,
+    "multiplier": "0.400",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 460,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 40,
+    "multiplier": "0.900",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 461,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 41,
+    "multiplier": "0.900",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 462,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 42,
+    "multiplier": "1.800",
+    "transit_days": "4–7"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 463,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 43,
+    "multiplier": "0.900",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 464,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 44,
+    "multiplier": "3.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 465,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 45,
+    "multiplier": "3.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 466,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 46,
+    "multiplier": "4.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 467,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 47,
+    "multiplier": "1.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 468,
+  "fields": {
+    "origin_zone": 39,
+    "dest_zone": 48,
+    "multiplier": "4.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 469,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 37,
+    "multiplier": "1.000",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 470,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 38,
+    "multiplier": "0.700",
+    "transit_days": "2–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 471,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 39,
+    "multiplier": "0.900",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 472,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 40,
+    "multiplier": "0.350",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 473,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 41,
+    "multiplier": "0.800",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 474,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 42,
+    "multiplier": "1.600",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 475,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 43,
+    "multiplier": "1.300",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 476,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 44,
+    "multiplier": "3.300",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 477,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 45,
+    "multiplier": "3.600",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 478,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 46,
+    "multiplier": "4.300",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 479,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 47,
+    "multiplier": "2.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 480,
+  "fields": {
+    "origin_zone": 40,
+    "dest_zone": 48,
+    "multiplier": "4.300",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 481,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 37,
+    "multiplier": "0.600",
+    "transit_days": "1–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 482,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 38,
+    "multiplier": "1.100",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 483,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 39,
+    "multiplier": "0.900",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 484,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 40,
+    "multiplier": "0.800",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 485,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 41,
+    "multiplier": "0.400",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 486,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 42,
+    "multiplier": "1.700",
+    "transit_days": "3–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 487,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 43,
+    "multiplier": "1.000",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 488,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 44,
+    "multiplier": "3.600",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 489,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 45,
+    "multiplier": "3.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 490,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 46,
+    "multiplier": "4.100",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 491,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 47,
+    "multiplier": "2.400",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 492,
+  "fields": {
+    "origin_zone": 41,
+    "dest_zone": 48,
+    "multiplier": "4.600",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 493,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 37,
+    "multiplier": "1.600",
+    "transit_days": "3–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 494,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 38,
+    "multiplier": "1.500",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 495,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 39,
+    "multiplier": "1.800",
+    "transit_days": "4–7"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 496,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 40,
+    "multiplier": "1.600",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 497,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 41,
+    "multiplier": "1.700",
+    "transit_days": "3–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 498,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 42,
+    "multiplier": "0.500",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 499,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 43,
+    "multiplier": "1.900",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 500,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 44,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 501,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 45,
+    "multiplier": "3.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 502,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 46,
+    "multiplier": "4.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 503,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 47,
+    "multiplier": "3.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 504,
+  "fields": {
+    "origin_zone": 42,
+    "dest_zone": 48,
+    "multiplier": "5.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 505,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 37,
+    "multiplier": "1.200",
+    "transit_days": "2–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 506,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 38,
+    "multiplier": "1.400",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 507,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 39,
+    "multiplier": "0.900",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 508,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 40,
+    "multiplier": "1.300",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 509,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 41,
+    "multiplier": "1.000",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 510,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 42,
+    "multiplier": "1.900",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 511,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 43,
+    "multiplier": "0.500",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 512,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 44,
+    "multiplier": "4.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 513,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 45,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 514,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 46,
+    "multiplier": "4.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 515,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 47,
+    "multiplier": "1.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 516,
+  "fields": {
+    "origin_zone": 43,
+    "dest_zone": 48,
+    "multiplier": "4.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 517,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 37,
+    "multiplier": "3.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 518,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 38,
+    "multiplier": "3.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 519,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 39,
+    "multiplier": "3.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 520,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 40,
+    "multiplier": "3.300",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 521,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 41,
+    "multiplier": "3.600",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 522,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 42,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 523,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 43,
+    "multiplier": "4.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 524,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 44,
+    "multiplier": "0.800",
+    "transit_days": "1–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 525,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 45,
+    "multiplier": "2.000",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 526,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 46,
+    "multiplier": "2.500",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 527,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 47,
+    "multiplier": "3.500",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 528,
+  "fields": {
+    "origin_zone": 44,
+    "dest_zone": 48,
+    "multiplier": "2.000",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 529,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 37,
+    "multiplier": "3.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 530,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 38,
+    "multiplier": "3.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 531,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 39,
+    "multiplier": "3.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 532,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 40,
+    "multiplier": "3.600",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 533,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 41,
+    "multiplier": "3.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 534,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 42,
+    "multiplier": "3.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 535,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 43,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 536,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 44,
+    "multiplier": "2.000",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 537,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 45,
+    "multiplier": "0.800",
+    "transit_days": "1–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 538,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 46,
+    "multiplier": "1.500",
+    "transit_days": "2–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 539,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 47,
+    "multiplier": "4.000",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 540,
+  "fields": {
+    "origin_zone": 45,
+    "dest_zone": 48,
+    "multiplier": "3.000",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 541,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 37,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 542,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 38,
+    "multiplier": "4.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 543,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 39,
+    "multiplier": "4.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 544,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 40,
+    "multiplier": "4.300",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 545,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 41,
+    "multiplier": "4.100",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 546,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 42,
+    "multiplier": "4.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 547,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 43,
+    "multiplier": "4.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 548,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 44,
+    "multiplier": "2.500",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 549,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 45,
+    "multiplier": "1.500",
+    "transit_days": "2–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 550,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 46,
+    "multiplier": "0.800",
+    "transit_days": "1–2"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 551,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 47,
+    "multiplier": "4.500",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 552,
+  "fields": {
+    "origin_zone": 46,
+    "dest_zone": 48,
+    "multiplier": "2.500",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 553,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 37,
+    "multiplier": "2.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 554,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 38,
+    "multiplier": "2.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 555,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 39,
+    "multiplier": "1.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 556,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 40,
+    "multiplier": "2.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 557,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 41,
+    "multiplier": "2.400",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 558,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 42,
+    "multiplier": "3.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 559,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 43,
+    "multiplier": "1.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 560,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 44,
+    "multiplier": "3.500",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 561,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 45,
+    "multiplier": "4.000",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 562,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 46,
+    "multiplier": "4.500",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 563,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 47,
+    "multiplier": "0.700",
+    "transit_days": "1–3"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 564,
+  "fields": {
+    "origin_zone": 47,
+    "dest_zone": 48,
+    "multiplier": "4.200",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 565,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 37,
+    "multiplier": "4.500",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 566,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 38,
+    "multiplier": "4.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 567,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 39,
+    "multiplier": "4.200",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 568,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 40,
+    "multiplier": "4.300",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 569,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 41,
+    "multiplier": "4.600",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 570,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 42,
+    "multiplier": "5.000",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 571,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 43,
+    "multiplier": "4.800",
+    "transit_days": "Contact us"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 572,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 44,
+    "multiplier": "2.000",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 573,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 45,
+    "multiplier": "3.000",
+    "transit_days": "3–5"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 574,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 46,
+    "multiplier": "2.500",
+    "transit_days": "2–4"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 575,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 47,
+    "multiplier": "4.200",
+    "transit_days": "4–6"
+  }
+},
+{
+  "model": "core.calcroute",
+  "pk": 576,
+  "fields": {
+    "origin_zone": 48,
+    "dest_zone": 48,
+    "multiplier": "0.900",
+    "transit_days": "1–3"
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 673,
+  "fields": {
+    "name": "Los Angeles",
+    "country": "USA",
+    "zone": 37,
+    "lat": 34.052,
+    "lng": -118.244,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 674,
+  "fields": {
+    "name": "Long Beach",
+    "country": "USA",
+    "zone": 37,
+    "lat": 33.771,
+    "lng": -118.194,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 675,
+  "fields": {
+    "name": "Oakland",
+    "country": "USA",
+    "zone": 37,
+    "lat": 37.804,
+    "lng": -122.271,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 676,
+  "fields": {
+    "name": "Seattle",
+    "country": "USA",
+    "zone": 37,
+    "lat": 47.606,
+    "lng": -122.332,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 677,
+  "fields": {
+    "name": "Tacoma",
+    "country": "USA",
+    "zone": 37,
+    "lat": 47.253,
+    "lng": -122.444,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 678,
+  "fields": {
+    "name": "Portland",
+    "country": "USA",
+    "zone": 37,
+    "lat": 45.523,
+    "lng": -122.676,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 679,
+  "fields": {
+    "name": "San Diego",
+    "country": "USA",
+    "zone": 37,
+    "lat": 32.715,
+    "lng": -117.157,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 680,
+  "fields": {
+    "name": "San Francisco",
+    "country": "USA",
+    "zone": 37,
+    "lat": 37.775,
+    "lng": -122.419,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 681,
+  "fields": {
+    "name": "Stockton",
+    "country": "USA",
+    "zone": 37,
+    "lat": 37.958,
+    "lng": -121.291,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 682,
+  "fields": {
+    "name": "Sacramento",
+    "country": "USA",
+    "zone": 37,
+    "lat": 38.582,
+    "lng": -121.494,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 683,
+  "fields": {
+    "name": "New York",
+    "country": "USA",
+    "zone": 38,
+    "lat": 40.713,
+    "lng": -74.006,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 684,
+  "fields": {
+    "name": "Newark",
+    "country": "USA",
+    "zone": 38,
+    "lat": 40.735,
+    "lng": -74.172,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 685,
+  "fields": {
+    "name": "Baltimore",
+    "country": "USA",
+    "zone": 38,
+    "lat": 39.29,
+    "lng": -76.612,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 686,
+  "fields": {
+    "name": "Norfolk",
+    "country": "USA",
+    "zone": 38,
+    "lat": 36.851,
+    "lng": -76.285,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 687,
+  "fields": {
+    "name": "Philadelphia",
+    "country": "USA",
+    "zone": 38,
+    "lat": 39.952,
+    "lng": -75.164,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 688,
+  "fields": {
+    "name": "Boston",
+    "country": "USA",
+    "zone": 38,
+    "lat": 42.358,
+    "lng": -71.064,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 689,
+  "fields": {
+    "name": "Jacksonville",
+    "country": "USA",
+    "zone": 38,
+    "lat": 30.332,
+    "lng": -81.656,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 690,
+  "fields": {
+    "name": "Miami",
+    "country": "USA",
+    "zone": 38,
+    "lat": 25.775,
+    "lng": -80.208,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 691,
+  "fields": {
+    "name": "Port Everglades",
+    "country": "USA",
+    "zone": 38,
+    "lat": 26.083,
+    "lng": -80.116,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 692,
+  "fields": {
+    "name": "Savannah",
+    "country": "USA",
+    "zone": 38,
+    "lat": 32.078,
+    "lng": -81.099,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 693,
+  "fields": {
+    "name": "Charleston",
+    "country": "USA",
+    "zone": 38,
+    "lat": 32.777,
+    "lng": -79.931,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 694,
+  "fields": {
+    "name": "Wilmington",
+    "country": "USA",
+    "zone": 38,
+    "lat": 34.226,
+    "lng": -77.945,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 695,
+  "fields": {
+    "name": "Brunswick",
+    "country": "USA",
+    "zone": 38,
+    "lat": 31.15,
+    "lng": -81.491,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 696,
+  "fields": {
+    "name": "Tampa",
+    "country": "USA",
+    "zone": 38,
+    "lat": 27.95,
+    "lng": -82.457,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 697,
+  "fields": {
+    "name": "Houston",
+    "country": "USA",
+    "zone": 39,
+    "lat": 29.76,
+    "lng": -95.37,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 698,
+  "fields": {
+    "name": "New Orleans",
+    "country": "USA",
+    "zone": 39,
+    "lat": 29.951,
+    "lng": -90.072,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 699,
+  "fields": {
+    "name": "Corpus Christi",
+    "country": "USA",
+    "zone": 39,
+    "lat": 27.801,
+    "lng": -97.397,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 700,
+  "fields": {
+    "name": "Beaumont",
+    "country": "USA",
+    "zone": 39,
+    "lat": 30.086,
+    "lng": -94.102,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 701,
+  "fields": {
+    "name": "Galveston",
+    "country": "USA",
+    "zone": 39,
+    "lat": 29.301,
+    "lng": -94.798,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 702,
+  "fields": {
+    "name": "Mobile",
+    "country": "USA",
+    "zone": 39,
+    "lat": 30.694,
+    "lng": -88.043,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 703,
+  "fields": {
+    "name": "Dallas",
+    "country": "USA",
+    "zone": 39,
+    "lat": 32.776,
+    "lng": -96.797,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 704,
+  "fields": {
+    "name": "Memphis",
+    "country": "USA",
+    "zone": 39,
+    "lat": 35.149,
+    "lng": -90.049,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 705,
+  "fields": {
+    "name": "Atlanta",
+    "country": "USA",
+    "zone": 39,
+    "lat": 33.749,
+    "lng": -84.388,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 706,
+  "fields": {
+    "name": "Nashville",
+    "country": "USA",
+    "zone": 39,
+    "lat": 36.162,
+    "lng": -86.781,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 707,
+  "fields": {
+    "name": "San Antonio",
+    "country": "USA",
+    "zone": 39,
+    "lat": 29.425,
+    "lng": -98.494,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 708,
+  "fields": {
+    "name": "Baton Rouge",
+    "country": "USA",
+    "zone": 39,
+    "lat": 30.451,
+    "lng": -91.188,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 709,
+  "fields": {
+    "name": "Chicago",
+    "country": "USA",
+    "zone": 40,
+    "lat": 41.878,
+    "lng": -87.63,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 710,
+  "fields": {
+    "name": "Detroit",
+    "country": "USA",
+    "zone": 40,
+    "lat": 42.331,
+    "lng": -83.046,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 711,
+  "fields": {
+    "name": "Cleveland",
+    "country": "USA",
+    "zone": 40,
+    "lat": 41.499,
+    "lng": -81.695,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 712,
+  "fields": {
+    "name": "Columbus",
+    "country": "USA",
+    "zone": 40,
+    "lat": 39.961,
+    "lng": -82.999,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 713,
+  "fields": {
+    "name": "Indianapolis",
+    "country": "USA",
+    "zone": 40,
+    "lat": 39.768,
+    "lng": -86.158,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 714,
+  "fields": {
+    "name": "Milwaukee",
+    "country": "USA",
+    "zone": 40,
+    "lat": 43.039,
+    "lng": -87.907,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 715,
+  "fields": {
+    "name": "Minneapolis",
+    "country": "USA",
+    "zone": 40,
+    "lat": 44.98,
+    "lng": -93.265,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 716,
+  "fields": {
+    "name": "Kansas City",
+    "country": "USA",
+    "zone": 40,
+    "lat": 39.1,
+    "lng": -94.578,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 717,
+  "fields": {
+    "name": "St. Louis",
+    "country": "USA",
+    "zone": 40,
+    "lat": 38.627,
+    "lng": -90.198,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 718,
+  "fields": {
+    "name": "Cincinnati",
+    "country": "USA",
+    "zone": 40,
+    "lat": 39.103,
+    "lng": -84.512,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 719,
+  "fields": {
+    "name": "Pittsburgh",
+    "country": "USA",
+    "zone": 40,
+    "lat": 40.44,
+    "lng": -79.996,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 720,
+  "fields": {
+    "name": "Toledo",
+    "country": "USA",
+    "zone": 40,
+    "lat": 41.663,
+    "lng": -83.556,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 721,
+  "fields": {
+    "name": "Duluth",
+    "country": "USA",
+    "zone": 40,
+    "lat": 46.786,
+    "lng": -92.101,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 722,
+  "fields": {
+    "name": "Phoenix",
+    "country": "USA",
+    "zone": 41,
+    "lat": 33.448,
+    "lng": -112.074,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 723,
+  "fields": {
+    "name": "Denver",
+    "country": "USA",
+    "zone": 41,
+    "lat": 39.739,
+    "lng": -104.984,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 724,
+  "fields": {
+    "name": "Las Vegas",
+    "country": "USA",
+    "zone": 41,
+    "lat": 36.175,
+    "lng": -115.137,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 725,
+  "fields": {
+    "name": "Salt Lake City",
+    "country": "USA",
+    "zone": 41,
+    "lat": 40.76,
+    "lng": -111.891,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 726,
+  "fields": {
+    "name": "Albuquerque",
+    "country": "USA",
+    "zone": 41,
+    "lat": 35.085,
+    "lng": -106.651,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 727,
+  "fields": {
+    "name": "El Paso",
+    "country": "USA",
+    "zone": 41,
+    "lat": 31.758,
+    "lng": -106.487,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 728,
+  "fields": {
+    "name": "Tucson",
+    "country": "USA",
+    "zone": 41,
+    "lat": 32.222,
+    "lng": -110.927,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 729,
+  "fields": {
+    "name": "Reno",
+    "country": "USA",
+    "zone": 41,
+    "lat": 39.529,
+    "lng": -119.814,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 730,
+  "fields": {
+    "name": "Boise",
+    "country": "USA",
+    "zone": 41,
+    "lat": 43.616,
+    "lng": -116.201,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 731,
+  "fields": {
+    "name": "Vancouver",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 49.283,
+    "lng": -123.121,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 732,
+  "fields": {
+    "name": "Prince Rupert",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 54.316,
+    "lng": -130.319,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 733,
+  "fields": {
+    "name": "Toronto",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 43.651,
+    "lng": -79.347,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 734,
+  "fields": {
+    "name": "Montreal",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 45.501,
+    "lng": -73.567,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 735,
+  "fields": {
+    "name": "Halifax",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 44.649,
+    "lng": -63.575,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 736,
+  "fields": {
+    "name": "Hamilton",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 43.256,
+    "lng": -79.869,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 737,
+  "fields": {
+    "name": "Calgary",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 51.045,
+    "lng": -114.072,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 738,
+  "fields": {
+    "name": "Edmonton",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 53.546,
+    "lng": -113.49,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 739,
+  "fields": {
+    "name": "Winnipeg",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 49.895,
+    "lng": -97.138,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 740,
+  "fields": {
+    "name": "Quebec City",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 46.813,
+    "lng": -71.208,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 741,
+  "fields": {
+    "name": "Thunder Bay",
+    "country": "Canada",
+    "zone": 42,
+    "lat": 48.38,
+    "lng": -89.246,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 742,
+  "fields": {
+    "name": "Manzanillo",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 19.052,
+    "lng": -104.315,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 743,
+  "fields": {
+    "name": "Lazaro Cardenas",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 17.958,
+    "lng": -102.197,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 744,
+  "fields": {
+    "name": "Veracruz",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 19.174,
+    "lng": -96.134,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 745,
+  "fields": {
+    "name": "Altamira",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 22.4,
+    "lng": -97.917,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 746,
+  "fields": {
+    "name": "Ensenada",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 31.867,
+    "lng": -116.596,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 747,
+  "fields": {
+    "name": "Tijuana",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 32.514,
+    "lng": -117.038,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 748,
+  "fields": {
+    "name": "Guadalajara",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 20.659,
+    "lng": -103.35,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 749,
+  "fields": {
+    "name": "Mexico City",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 19.433,
+    "lng": -99.133,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 750,
+  "fields": {
+    "name": "Monterrey",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 25.686,
+    "lng": -100.316,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 751,
+  "fields": {
+    "name": "Progreso",
+    "country": "Mexico",
+    "zone": 43,
+    "lat": 21.285,
+    "lng": -89.666,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 752,
+  "fields": {
+    "name": "Rotterdam",
+    "country": "Netherlands",
+    "zone": 44,
+    "lat": 51.906,
+    "lng": 4.484,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 753,
+  "fields": {
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "zone": 44,
+    "lat": 52.372,
+    "lng": 4.896,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 754,
+  "fields": {
+    "name": "Hamburg",
+    "country": "Germany",
+    "zone": 44,
+    "lat": 53.551,
+    "lng": 10.001,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 755,
+  "fields": {
+    "name": "Bremerhaven",
+    "country": "Germany",
+    "zone": 44,
+    "lat": 53.539,
+    "lng": 8.578,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 756,
+  "fields": {
+    "name": "Antwerp",
+    "country": "Belgium",
+    "zone": 44,
+    "lat": 51.221,
+    "lng": 4.404,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 757,
+  "fields": {
+    "name": "Zeebrugge",
+    "country": "Belgium",
+    "zone": 44,
+    "lat": 51.327,
+    "lng": 3.161,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 758,
+  "fields": {
+    "name": "Felixstowe",
+    "country": "UK",
+    "zone": 44,
+    "lat": 51.964,
+    "lng": 1.352,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 759,
+  "fields": {
+    "name": "Southampton",
+    "country": "UK",
+    "zone": 44,
+    "lat": 50.897,
+    "lng": -1.399,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 760,
+  "fields": {
+    "name": "London",
+    "country": "UK",
+    "zone": 44,
+    "lat": 51.508,
+    "lng": -0.128,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 761,
+  "fields": {
+    "name": "Liverpool",
+    "country": "UK",
+    "zone": 44,
+    "lat": 53.408,
+    "lng": -2.978,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 762,
+  "fields": {
+    "name": "Le Havre",
+    "country": "France",
+    "zone": 44,
+    "lat": 49.494,
+    "lng": 0.107,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 763,
+  "fields": {
+    "name": "Marseille",
+    "country": "France",
+    "zone": 44,
+    "lat": 43.297,
+    "lng": 5.381,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 764,
+  "fields": {
+    "name": "Genoa",
+    "country": "Italy",
+    "zone": 44,
+    "lat": 44.407,
+    "lng": 8.934,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 765,
+  "fields": {
+    "name": "Naples",
+    "country": "Italy",
+    "zone": 44,
+    "lat": 40.852,
+    "lng": 14.268,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 766,
+  "fields": {
+    "name": "Gioia Tauro",
+    "country": "Italy",
+    "zone": 44,
+    "lat": 38.433,
+    "lng": 15.901,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 767,
+  "fields": {
+    "name": "Trieste",
+    "country": "Italy",
+    "zone": 44,
+    "lat": 45.649,
+    "lng": 13.777,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 768,
+  "fields": {
+    "name": "Barcelona",
+    "country": "Spain",
+    "zone": 44,
+    "lat": 41.386,
+    "lng": 2.17,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 769,
+  "fields": {
+    "name": "Valencia",
+    "country": "Spain",
+    "zone": 44,
+    "lat": 39.47,
+    "lng": -0.376,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 770,
+  "fields": {
+    "name": "Algeciras",
+    "country": "Spain",
+    "zone": 44,
+    "lat": 36.13,
+    "lng": -5.451,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 771,
+  "fields": {
+    "name": "Bilbao",
+    "country": "Spain",
+    "zone": 44,
+    "lat": 43.263,
+    "lng": -2.935,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 772,
+  "fields": {
+    "name": "Lisbon",
+    "country": "Portugal",
+    "zone": 44,
+    "lat": 38.717,
+    "lng": -9.143,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 773,
+  "fields": {
+    "name": "Sines",
+    "country": "Portugal",
+    "zone": 44,
+    "lat": 37.956,
+    "lng": -8.87,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 774,
+  "fields": {
+    "name": "Piraeus",
+    "country": "Greece",
+    "zone": 44,
+    "lat": 37.943,
+    "lng": 23.648,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 775,
+  "fields": {
+    "name": "Thessaloniki",
+    "country": "Greece",
+    "zone": 44,
+    "lat": 40.64,
+    "lng": 22.944,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 776,
+  "fields": {
+    "name": "Istanbul",
+    "country": "Turkey",
+    "zone": 44,
+    "lat": 41.015,
+    "lng": 28.98,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 777,
+  "fields": {
+    "name": "Izmir",
+    "country": "Turkey",
+    "zone": 44,
+    "lat": 38.419,
+    "lng": 27.129,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 778,
+  "fields": {
+    "name": "Gdansk",
+    "country": "Poland",
+    "zone": 44,
+    "lat": 54.352,
+    "lng": 18.647,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 779,
+  "fields": {
+    "name": "Gothenburg",
+    "country": "Sweden",
+    "zone": 44,
+    "lat": 57.707,
+    "lng": 11.967,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 780,
+  "fields": {
+    "name": "Copenhagen",
+    "country": "Denmark",
+    "zone": 44,
+    "lat": 55.676,
+    "lng": 12.568,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 781,
+  "fields": {
+    "name": "Helsinki",
+    "country": "Finland",
+    "zone": 44,
+    "lat": 60.17,
+    "lng": 24.942,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 782,
+  "fields": {
+    "name": "Oslo",
+    "country": "Norway",
+    "zone": 44,
+    "lat": 59.912,
+    "lng": 10.752,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 783,
+  "fields": {
+    "name": "Dublin",
+    "country": "Ireland",
+    "zone": 44,
+    "lat": 53.349,
+    "lng": -6.26,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 784,
+  "fields": {
+    "name": "Limassol",
+    "country": "Cyprus",
+    "zone": 44,
+    "lat": 34.675,
+    "lng": 33.045,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 785,
+  "fields": {
+    "name": "Riga",
+    "country": "Latvia",
+    "zone": 44,
+    "lat": 56.946,
+    "lng": 24.106,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 786,
+  "fields": {
+    "name": "Tallinn",
+    "country": "Estonia",
+    "zone": 44,
+    "lat": 59.436,
+    "lng": 24.754,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 787,
+  "fields": {
+    "name": "Shanghai",
+    "country": "China",
+    "zone": 45,
+    "lat": 31.224,
+    "lng": 121.474,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 788,
+  "fields": {
+    "name": "Shenzhen",
+    "country": "China",
+    "zone": 45,
+    "lat": 22.542,
+    "lng": 114.054,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 789,
+  "fields": {
+    "name": "Guangzhou",
+    "country": "China",
+    "zone": 45,
+    "lat": 23.13,
+    "lng": 113.264,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 790,
+  "fields": {
+    "name": "Ningbo",
+    "country": "China",
+    "zone": 45,
+    "lat": 29.868,
+    "lng": 121.544,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 791,
+  "fields": {
+    "name": "Tianjin",
+    "country": "China",
+    "zone": 45,
+    "lat": 39.125,
+    "lng": 117.191,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 792,
+  "fields": {
+    "name": "Qingdao",
+    "country": "China",
+    "zone": 45,
+    "lat": 36.067,
+    "lng": 120.383,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 793,
+  "fields": {
+    "name": "Dalian",
+    "country": "China",
+    "zone": 45,
+    "lat": 38.914,
+    "lng": 121.614,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 794,
+  "fields": {
+    "name": "Xiamen",
+    "country": "China",
+    "zone": 45,
+    "lat": 24.479,
+    "lng": 118.09,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 795,
+  "fields": {
+    "name": "Hong Kong",
+    "country": "China",
+    "zone": 45,
+    "lat": 22.32,
+    "lng": 114.178,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 796,
+  "fields": {
+    "name": "Singapore",
+    "country": "Singapore",
+    "zone": 45,
+    "lat": 1.352,
+    "lng": 103.82,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 797,
+  "fields": {
+    "name": "Busan",
+    "country": "South Korea",
+    "zone": 45,
+    "lat": 35.179,
+    "lng": 129.076,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 798,
+  "fields": {
+    "name": "Incheon",
+    "country": "South Korea",
+    "zone": 45,
+    "lat": 37.456,
+    "lng": 126.706,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 799,
+  "fields": {
+    "name": "Tokyo",
+    "country": "Japan",
+    "zone": 45,
+    "lat": 35.69,
+    "lng": 139.692,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 800,
+  "fields": {
+    "name": "Yokohama",
+    "country": "Japan",
+    "zone": 45,
+    "lat": 35.444,
+    "lng": 139.638,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 801,
+  "fields": {
+    "name": "Kobe",
+    "country": "Japan",
+    "zone": 45,
+    "lat": 34.69,
+    "lng": 135.196,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 802,
+  "fields": {
+    "name": "Osaka",
+    "country": "Japan",
+    "zone": 45,
+    "lat": 34.694,
+    "lng": 135.502,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 803,
+  "fields": {
+    "name": "Nagoya",
+    "country": "Japan",
+    "zone": 45,
+    "lat": 35.181,
+    "lng": 136.907,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 804,
+  "fields": {
+    "name": "Kaohsiung",
+    "country": "Taiwan",
+    "zone": 45,
+    "lat": 22.616,
+    "lng": 120.301,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 805,
+  "fields": {
+    "name": "Keelung",
+    "country": "Taiwan",
+    "zone": 45,
+    "lat": 25.127,
+    "lng": 121.74,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 806,
+  "fields": {
+    "name": "Taichung",
+    "country": "Taiwan",
+    "zone": 45,
+    "lat": 24.148,
+    "lng": 120.674,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 807,
+  "fields": {
+    "name": "Laem Chabang",
+    "country": "Thailand",
+    "zone": 45,
+    "lat": 13.084,
+    "lng": 100.879,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 808,
+  "fields": {
+    "name": "Bangkok",
+    "country": "Thailand",
+    "zone": 45,
+    "lat": 13.754,
+    "lng": 100.502,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 809,
+  "fields": {
+    "name": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "zone": 45,
+    "lat": 10.823,
+    "lng": 106.63,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 810,
+  "fields": {
+    "name": "Haiphong",
+    "country": "Vietnam",
+    "zone": 45,
+    "lat": 20.844,
+    "lng": 106.69,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 811,
+  "fields": {
+    "name": "Hanoi",
+    "country": "Vietnam",
+    "zone": 45,
+    "lat": 21.028,
+    "lng": 105.854,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 812,
+  "fields": {
+    "name": "Jakarta",
+    "country": "Indonesia",
+    "zone": 45,
+    "lat": -6.208,
+    "lng": 106.845,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 813,
+  "fields": {
+    "name": "Surabaya",
+    "country": "Indonesia",
+    "zone": 45,
+    "lat": -7.266,
+    "lng": 112.752,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 814,
+  "fields": {
+    "name": "Port Klang",
+    "country": "Malaysia",
+    "zone": 45,
+    "lat": 3.0,
+    "lng": 101.4,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 815,
+  "fields": {
+    "name": "Penang",
+    "country": "Malaysia",
+    "zone": 45,
+    "lat": 5.415,
+    "lng": 100.329,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 816,
+  "fields": {
+    "name": "Colombo",
+    "country": "Sri Lanka",
+    "zone": 45,
+    "lat": 6.927,
+    "lng": 79.861,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 817,
+  "fields": {
+    "name": "Chennai",
+    "country": "India",
+    "zone": 45,
+    "lat": 13.083,
+    "lng": 80.27,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 818,
+  "fields": {
+    "name": "Mumbai",
+    "country": "India",
+    "zone": 45,
+    "lat": 19.076,
+    "lng": 72.878,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 819,
+  "fields": {
+    "name": "Nhava Sheva",
+    "country": "India",
+    "zone": 45,
+    "lat": 18.949,
+    "lng": 72.954,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 820,
+  "fields": {
+    "name": "Mundra",
+    "country": "India",
+    "zone": 45,
+    "lat": 22.839,
+    "lng": 69.718,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 821,
+  "fields": {
+    "name": "Kolkata",
+    "country": "India",
+    "zone": 45,
+    "lat": 22.572,
+    "lng": 88.364,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 822,
+  "fields": {
+    "name": "Visakhapatnam",
+    "country": "India",
+    "zone": 45,
+    "lat": 17.686,
+    "lng": 83.218,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 823,
+  "fields": {
+    "name": "Chittagong",
+    "country": "Bangladesh",
+    "zone": 45,
+    "lat": 22.341,
+    "lng": 91.832,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 824,
+  "fields": {
+    "name": "Karachi",
+    "country": "Pakistan",
+    "zone": 45,
+    "lat": 24.861,
+    "lng": 67.01,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 825,
+  "fields": {
+    "name": "Manila",
+    "country": "Philippines",
+    "zone": 45,
+    "lat": 14.599,
+    "lng": 120.984,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 826,
+  "fields": {
+    "name": "Cebu",
+    "country": "Philippines",
+    "zone": 45,
+    "lat": 10.317,
+    "lng": 123.891,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 827,
+  "fields": {
+    "name": "Sydney",
+    "country": "Australia",
+    "zone": 45,
+    "lat": -33.868,
+    "lng": 151.209,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 828,
+  "fields": {
+    "name": "Melbourne",
+    "country": "Australia",
+    "zone": 45,
+    "lat": -37.814,
+    "lng": 144.963,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 829,
+  "fields": {
+    "name": "Brisbane",
+    "country": "Australia",
+    "zone": 45,
+    "lat": -27.471,
+    "lng": 153.024,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 830,
+  "fields": {
+    "name": "Fremantle",
+    "country": "Australia",
+    "zone": 45,
+    "lat": -32.056,
+    "lng": 115.748,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 831,
+  "fields": {
+    "name": "Adelaide",
+    "country": "Australia",
+    "zone": 45,
+    "lat": -34.929,
+    "lng": 138.6,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 832,
+  "fields": {
+    "name": "Auckland",
+    "country": "New Zealand",
+    "zone": 45,
+    "lat": -36.848,
+    "lng": 174.763,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 833,
+  "fields": {
+    "name": "Port Moresby",
+    "country": "Papua New Guinea",
+    "zone": 45,
+    "lat": -9.443,
+    "lng": 147.18,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 834,
+  "fields": {
+    "name": "Dubai (Jebel Ali)",
+    "country": "UAE",
+    "zone": 46,
+    "lat": 25.007,
+    "lng": 55.112,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 835,
+  "fields": {
+    "name": "Abu Dhabi",
+    "country": "UAE",
+    "zone": 46,
+    "lat": 24.453,
+    "lng": 54.377,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 836,
+  "fields": {
+    "name": "Sharjah",
+    "country": "UAE",
+    "zone": 46,
+    "lat": 25.356,
+    "lng": 55.391,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 837,
+  "fields": {
+    "name": "Muscat",
+    "country": "Oman",
+    "zone": 46,
+    "lat": 23.588,
+    "lng": 58.38,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 838,
+  "fields": {
+    "name": "Salalah",
+    "country": "Oman",
+    "zone": 46,
+    "lat": 17.019,
+    "lng": 54.094,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 839,
+  "fields": {
+    "name": "Jeddah",
+    "country": "Saudi Arabia",
+    "zone": 46,
+    "lat": 21.543,
+    "lng": 39.173,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 840,
+  "fields": {
+    "name": "Dammam",
+    "country": "Saudi Arabia",
+    "zone": 46,
+    "lat": 26.432,
+    "lng": 50.103,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 841,
+  "fields": {
+    "name": "Riyadh",
+    "country": "Saudi Arabia",
+    "zone": 46,
+    "lat": 24.774,
+    "lng": 46.738,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 842,
+  "fields": {
+    "name": "Kuwait City",
+    "country": "Kuwait",
+    "zone": 46,
+    "lat": 29.37,
+    "lng": 47.978,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 843,
+  "fields": {
+    "name": "Bahrain",
+    "country": "Bahrain",
+    "zone": 46,
+    "lat": 26.225,
+    "lng": 50.586,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 844,
+  "fields": {
+    "name": "Doha",
+    "country": "Qatar",
+    "zone": 46,
+    "lat": 25.286,
+    "lng": 51.533,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 845,
+  "fields": {
+    "name": "Beirut",
+    "country": "Lebanon",
+    "zone": 46,
+    "lat": 33.889,
+    "lng": 35.495,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 846,
+  "fields": {
+    "name": "Haifa",
+    "country": "Israel",
+    "zone": 46,
+    "lat": 32.819,
+    "lng": 34.984,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 847,
+  "fields": {
+    "name": "Ashdod",
+    "country": "Israel",
+    "zone": 46,
+    "lat": 31.804,
+    "lng": 34.65,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 848,
+  "fields": {
+    "name": "Alexandria",
+    "country": "Egypt",
+    "zone": 46,
+    "lat": 31.2,
+    "lng": 29.919,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 849,
+  "fields": {
+    "name": "Port Said",
+    "country": "Egypt",
+    "zone": 46,
+    "lat": 31.257,
+    "lng": 32.284,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 850,
+  "fields": {
+    "name": "Aqaba",
+    "country": "Jordan",
+    "zone": 46,
+    "lat": 29.526,
+    "lng": 35.006,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 851,
+  "fields": {
+    "name": "Bandar Abbas",
+    "country": "Iran",
+    "zone": 46,
+    "lat": 27.164,
+    "lng": 56.272,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 852,
+  "fields": {
+    "name": "Santos",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -23.961,
+    "lng": -46.334,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 853,
+  "fields": {
+    "name": "Itajai",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -26.908,
+    "lng": -48.661,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 854,
+  "fields": {
+    "name": "Rio de Janeiro",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -22.907,
+    "lng": -43.173,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 855,
+  "fields": {
+    "name": "Paranagua",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -25.521,
+    "lng": -48.509,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 856,
+  "fields": {
+    "name": "Salvador",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -12.972,
+    "lng": -38.512,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 857,
+  "fields": {
+    "name": "Fortaleza",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -3.717,
+    "lng": -38.543,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 858,
+  "fields": {
+    "name": "Manaus",
+    "country": "Brazil",
+    "zone": 47,
+    "lat": -3.119,
+    "lng": -60.022,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 859,
+  "fields": {
+    "name": "Buenos Aires",
+    "country": "Argentina",
+    "zone": 47,
+    "lat": -34.604,
+    "lng": -58.382,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 860,
+  "fields": {
+    "name": "Rosario",
+    "country": "Argentina",
+    "zone": 47,
+    "lat": -32.951,
+    "lng": -60.639,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 861,
+  "fields": {
+    "name": "Callao",
+    "country": "Peru",
+    "zone": 47,
+    "lat": -12.056,
+    "lng": -77.135,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 862,
+  "fields": {
+    "name": "Cartagena",
+    "country": "Colombia",
+    "zone": 47,
+    "lat": 10.391,
+    "lng": -75.48,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 863,
+  "fields": {
+    "name": "Buenaventura",
+    "country": "Colombia",
+    "zone": 47,
+    "lat": 3.883,
+    "lng": -77.03,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 864,
+  "fields": {
+    "name": "Barranquilla",
+    "country": "Colombia",
+    "zone": 47,
+    "lat": 10.964,
+    "lng": -74.797,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 865,
+  "fields": {
+    "name": "Guayaquil",
+    "country": "Ecuador",
+    "zone": 47,
+    "lat": -2.2,
+    "lng": -79.9,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 866,
+  "fields": {
+    "name": "Colon",
+    "country": "Panama",
+    "zone": 47,
+    "lat": 9.359,
+    "lng": -79.9,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 867,
+  "fields": {
+    "name": "Panama City",
+    "country": "Panama",
+    "zone": 47,
+    "lat": 8.994,
+    "lng": -79.519,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 868,
+  "fields": {
+    "name": "Kingston",
+    "country": "Jamaica",
+    "zone": 47,
+    "lat": 17.997,
+    "lng": -76.794,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 869,
+  "fields": {
+    "name": "Freeport",
+    "country": "Bahamas",
+    "zone": 47,
+    "lat": 26.53,
+    "lng": -78.692,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 870,
+  "fields": {
+    "name": "San Juan",
+    "country": "Puerto Rico",
+    "zone": 47,
+    "lat": 18.466,
+    "lng": -66.108,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 871,
+  "fields": {
+    "name": "Valparaiso",
+    "country": "Chile",
+    "zone": 47,
+    "lat": -33.046,
+    "lng": -71.619,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 872,
+  "fields": {
+    "name": "Valparaiso Port",
+    "country": "Chile",
+    "zone": 47,
+    "lat": -33.046,
+    "lng": -71.619,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 873,
+  "fields": {
+    "name": "Montevideo",
+    "country": "Uruguay",
+    "zone": 47,
+    "lat": -34.901,
+    "lng": -56.165,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 874,
+  "fields": {
+    "name": "Caracas",
+    "country": "Venezuela",
+    "zone": 47,
+    "lat": 10.48,
+    "lng": -66.916,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 875,
+  "fields": {
+    "name": "La Guaira",
+    "country": "Venezuela",
+    "zone": 47,
+    "lat": 10.602,
+    "lng": -66.934,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 876,
+  "fields": {
+    "name": "Durban",
+    "country": "South Africa",
+    "zone": 48,
+    "lat": -29.857,
+    "lng": 31.029,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 877,
+  "fields": {
+    "name": "Cape Town",
+    "country": "South Africa",
+    "zone": 48,
+    "lat": -33.926,
+    "lng": 18.424,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 878,
+  "fields": {
+    "name": "Port Elizabeth",
+    "country": "South Africa",
+    "zone": 48,
+    "lat": -33.96,
+    "lng": 25.613,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 879,
+  "fields": {
+    "name": "Mombasa",
+    "country": "Kenya",
+    "zone": 48,
+    "lat": -4.043,
+    "lng": 39.668,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 880,
+  "fields": {
+    "name": "Dar es Salaam",
+    "country": "Tanzania",
+    "zone": 48,
+    "lat": -6.786,
+    "lng": 39.273,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 881,
+  "fields": {
+    "name": "Lagos",
+    "country": "Nigeria",
+    "zone": 48,
+    "lat": 6.453,
+    "lng": 3.396,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 882,
+  "fields": {
+    "name": "Apapa",
+    "country": "Nigeria",
+    "zone": 48,
+    "lat": 6.446,
+    "lng": 3.361,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 883,
+  "fields": {
+    "name": "Tema",
+    "country": "Ghana",
+    "zone": 48,
+    "lat": 5.639,
+    "lng": -0.016,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 884,
+  "fields": {
+    "name": "Abidjan",
+    "country": "Ivory Coast",
+    "zone": 48,
+    "lat": 5.359,
+    "lng": -4.008,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 885,
+  "fields": {
+    "name": "Dakar",
+    "country": "Senegal",
+    "zone": 48,
+    "lat": 14.717,
+    "lng": -17.468,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 886,
+  "fields": {
+    "name": "Casablanca",
+    "country": "Morocco",
+    "zone": 48,
+    "lat": 33.573,
+    "lng": -7.59,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 887,
+  "fields": {
+    "name": "Tanger Med",
+    "country": "Morocco",
+    "zone": 48,
+    "lat": 35.861,
+    "lng": -5.503,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 888,
+  "fields": {
+    "name": "Djibouti",
+    "country": "Djibouti",
+    "zone": 48,
+    "lat": 11.825,
+    "lng": 42.59,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 889,
+  "fields": {
+    "name": "Maputo",
+    "country": "Mozambique",
+    "zone": 48,
+    "lat": -25.966,
+    "lng": 32.582,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 890,
+  "fields": {
+    "name": "Port Louis",
+    "country": "Mauritius",
+    "zone": 48,
+    "lat": -20.161,
+    "lng": 57.499,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 891,
+  "fields": {
+    "name": "Toamasina",
+    "country": "Madagascar",
+    "zone": 48,
+    "lat": -18.145,
+    "lng": 49.401,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 892,
+  "fields": {
+    "name": "Beira",
+    "country": "Mozambique",
+    "zone": 48,
+    "lat": -19.843,
+    "lng": 34.838,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 893,
+  "fields": {
+    "name": "Luanda",
+    "country": "Angola",
+    "zone": 48,
+    "lat": -8.838,
+    "lng": 13.234,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 894,
+  "fields": {
+    "name": "Conakry",
+    "country": "Guinea",
+    "zone": 48,
+    "lat": 9.509,
+    "lng": -13.712,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 895,
+  "fields": {
+    "name": "Lome",
+    "country": "Togo",
+    "zone": 48,
+    "lat": 6.137,
+    "lng": 1.222,
+    "is_active": true
+  }
+},
+{
+  "model": "core.portcity",
+  "pk": 896,
+  "fields": {
+    "name": "Cotonou",
+    "country": "Benin",
+    "zone": 48,
+    "lat": 6.366,
+    "lng": 2.42,
+    "is_active": true
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 8,
+  "fields": {
+    "name": "Dry Van 53'",
+    "key": "dry-van",
+    "description": "Standard enclosed trailer for general freight",
+    "capacity": "44,000 lbs / 2,700 cu ft",
+    "rate_per_mile": "2.80",
+    "min_charge": "600.00",
+    "fuel_surcharge_pct": "25.00",
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 9,
+  "fields": {
+    "name": "Reefer 53'",
+    "key": "reefer",
+    "description": "Temperature-controlled trailer for perishables",
+    "capacity": "43,000 lbs / 2,700 cu ft",
+    "rate_per_mile": "3.50",
+    "min_charge": "850.00",
+    "fuel_surcharge_pct": "25.00",
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 10,
+  "fields": {
+    "name": "Flatbed 48'",
+    "key": "flatbed",
+    "description": "Open deck for oversized, machinery or building loads",
+    "capacity": "48,000 lbs / 48 ft deck",
+    "rate_per_mile": "3.20",
+    "min_charge": "750.00",
+    "fuel_surcharge_pct": "25.00",
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 11,
+  "fields": {
+    "name": "Step Deck",
+    "key": "step-deck",
+    "description": "Lower deck height for taller cargo",
+    "capacity": "46,000 lbs / 53 ft deck",
+    "rate_per_mile": "3.40",
+    "min_charge": "800.00",
+    "fuel_surcharge_pct": "25.00",
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 12,
+  "fields": {
+    "name": "Box Truck 26'",
+    "key": "box-truck",
+    "description": "Medium freight — city deliveries and LTL",
+    "capacity": "12,500 lbs / 1,700 cu ft",
+    "rate_per_mile": "2.20",
+    "min_charge": "350.00",
+    "fuel_surcharge_pct": "20.00",
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 13,
+  "fields": {
+    "name": "Sprinter Van",
+    "key": "sprinter",
+    "description": "Expedited small freight and urgent loads",
+    "capacity": "3,500 lbs / 270 cu ft",
+    "rate_per_mile": "1.80",
+    "min_charge": "200.00",
+    "fuel_surcharge_pct": "20.00",
+    "is_active": true,
+    "order": 6
+  }
+},
+{
+  "model": "core.trucktype",
+  "pk": 14,
+  "fields": {
+    "name": "Lowboy / Heavy Haul",
+    "key": "lowboy",
+    "description": "Heavy machinery, equipment, and oversized loads",
+    "capacity": "80,000 lbs+",
+    "rate_per_mile": "4.50",
+    "min_charge": "1200.00",
+    "fuel_surcharge_pct": "30.00",
+    "is_active": true,
+    "order": 7
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 11,
+  "fields": {
+    "name": "General Freight",
+    "key": "general",
+    "description": "Standard palletized or boxed cargo",
+    "multiplier": "1.00",
+    "is_active": true,
+    "order": 1
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 12,
+  "fields": {
+    "name": "Food & Beverage",
+    "key": "food",
+    "description": "Temperature-sensitive food and beverage products",
+    "multiplier": "1.15",
+    "is_active": true,
+    "order": 2
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 13,
+  "fields": {
+    "name": "Electronics",
+    "key": "electronics",
+    "description": "High-value electronic equipment and components",
+    "multiplier": "1.20",
+    "is_active": true,
+    "order": 3
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 14,
+  "fields": {
+    "name": "Automotive Parts",
+    "key": "automotive",
+    "description": "Vehicle parts, components and accessories",
+    "multiplier": "1.10",
+    "is_active": true,
+    "order": 4
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 15,
+  "fields": {
+    "name": "Building Materials",
+    "key": "building",
+    "description": "Construction materials, lumber, steel",
+    "multiplier": "1.00",
+    "is_active": true,
+    "order": 5
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 16,
+  "fields": {
+    "name": "Medical / Pharma",
+    "key": "medical",
+    "description": "Medical devices, pharmaceuticals and healthcare products",
+    "multiplier": "1.35",
+    "is_active": true,
+    "order": 6
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 17,
+  "fields": {
+    "name": "Fragile / High Value",
+    "key": "fragile",
+    "description": "Art, antiques or high-value fragile items",
+    "multiplier": "1.30",
+    "is_active": true,
+    "order": 7
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 18,
+  "fields": {
+    "name": "Hazardous Materials",
+    "key": "hazmat",
+    "description": "DOT-regulated hazardous materials (HAZMAT)",
+    "multiplier": "1.50",
+    "is_active": true,
+    "order": 8
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 19,
+  "fields": {
+    "name": "Oversized / Heavy Haul",
+    "key": "oversized",
+    "description": "Machinery, equipment or loads requiring special permits",
+    "multiplier": "1.80",
+    "is_active": true,
+    "order": 9
+  }
+},
+{
+  "model": "core.cargotype",
+  "pk": 20,
+  "fields": {
+    "name": "Perishables (Reefer)",
+    "key": "perishables",
+    "description": "Fresh produce, frozen goods and cold-chain freight",
+    "multiplier": "1.25",
+    "is_active": true,
+    "order": 10
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 1,
+  "fields": {
+    "label": "Home",
+    "url": "/",
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 2,
+  "fields": {
+    "label": "About Us",
+    "url": "/about/",
+    "order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 3,
+  "fields": {
+    "label": "Our Services",
+    "url": "/services/",
+    "order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 4,
+  "fields": {
+    "label": "Our Partners",
+    "url": "/companies/",
+    "order": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 5,
+  "fields": {
+    "label": "Career",
+    "url": "/career/",
+    "order": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 6,
+  "fields": {
+    "label": "News",
+    "url": "/blog/",
+    "order": 5,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 7,
+  "fields": {
+    "label": "FAQ",
+    "url": "/faq/",
+    "order": 6,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 8,
+  "fields": {
+    "label": "Contact",
+    "url": "/contact/",
+    "order": 7,
+    "is_active": true
+  }
+},
+{
+  "model": "core.navlink",
+  "pk": 9,
+  "fields": {
+    "label": "Support",
+    "url": "/support/",
+    "order": 8,
+    "is_active": true
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-06-16T22:15:41.974Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-06-16T22:36:43.280Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-06-16T22:38:06.942Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-06-16T22:51:20.356Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-06-17T05:46:36.247Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-06-17T06:05:44.489Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo dark\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-06-17T06:09:06.295Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-06-17T06:10:31.605Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-06-17T06:15:45.510Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo dark\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-06-17T06:51:33.035Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-06-17T07:50:42.394Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Logo dark\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-06-17T07:53:14.968Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo dark\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-06-17T07:54:50.956Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo dark\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-06-17T09:17:32.709Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Logo dark\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-06-17T22:26:43.432Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "25",
+    "object_repr": "Augustus Brokerage",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-06-17T23:06:31.567Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "testimonial"
+    ],
+    "object_id": "36",
+    "object_repr": "Angela Park — E-Commerce Direct LLC",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Avatar\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-06-17T23:12:26.030Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "25",
+    "object_repr": "Augustus Brokerage",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-06-17T23:12:46.672Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "testimonial"
+    ],
+    "object_id": "36",
+    "object_repr": "Angela Park — E-Commerce Direct LLC",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Avatar\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-06-17T23:17:44.893Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "54",
+    "object_repr": "OTR Transportation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-06-18T06:22:42.113Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "26",
+    "object_repr": "Augustus Transport",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-06-18T07:23:09.384Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Logo dark\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-06-18T16:48:23.950Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "26",
+    "object_repr": "Augustus Transport",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-06-18T16:50:43.815Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "25",
+    "object_repr": "Augustus Brokerage",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-06-18T16:50:48.344Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "25",
+    "object_repr": "Augustus Brokerage",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-06-18T16:51:17.766Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "26",
+    "object_repr": "Augustus Transport",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-06-18T16:51:47.301Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "27",
+    "object_repr": "Augustus Logistics",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-06-18T16:52:23.169Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "26",
+    "object_repr": "Augustus Transport",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-06-18T16:52:38.037Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "25",
+    "object_repr": "Augustus Brokerage",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-06-18T16:52:47.491Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "company"
+    ],
+    "object_id": "27",
+    "object_repr": "Augustus Logistics",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-06-18T16:53:48.094Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "blogpost"
+    ],
+    "object_id": "27",
+    "object_repr": "Cross-Border Freight: What You Need to Know About US–Canada Shipping",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-06-18T16:53:57.249Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "blogpost"
+    ],
+    "object_id": "26",
+    "object_repr": "Understanding Drayage: How Port & Rail Container Moves Work",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-06-18T16:54:12.262Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "blogpost"
+    ],
+    "object_id": "25",
+    "object_repr": "OTR vs. Intermodal: Which Mode is Right for Your Freight?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-06-18T16:55:19.349Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "navlink"
+    ],
+    "object_id": "3",
+    "object_repr": "Our Services → /services/",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-06-18T16:55:19.351Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "navlink"
+    ],
+    "object_id": "4",
+    "object_repr": "Our Partners → /companies/",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-06-18T16:57:17.613Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "office"
+    ],
+    "object_id": "13",
+    "object_repr": "Headquarters (USA)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-06-18T16:57:48.116Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "quote"
+    ],
+    "object_id": "1",
+    "object_repr": "Quote #1 — Test User (Full Container Load (FCL))",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-06-18T16:57:52.886Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "quote"
+    ],
+    "object_id": "2",
+    "object_repr": "Quote #2 — test (Less Container Load (LCL))",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-06-18T16:57:57.317Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "quote"
+    ],
+    "object_id": "3",
+    "object_repr": "Quote #3 — test2 (Less Container Load (LCL))",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-06-18T17:00:13.742Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"About image\", \"About image 2\", \"Gallery 1\", \"Gallery 2\", \"Gallery 3\", \"Gallery 4\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-06-18T17:16:49.621Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "blogpost"
+    ],
+    "object_id": "27",
+    "object_repr": "Cross-Border Freight: What You Need to Know About US–Canada Shipping",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-06-18T17:17:02.092Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "blogpost"
+    ],
+    "object_id": "26",
+    "object_repr": "Understanding Drayage: How Port & Rail Container Moves Work",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-06-18T17:17:10.412Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "blogpost"
+    ],
+    "object_id": "25",
+    "object_repr": "OTR vs. Intermodal: Which Mode is Right for Your Freight?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-06-18T17:24:02.518Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "testimonial"
+    ],
+    "object_id": "35",
+    "object_repr": "James Whitmore — Gulf Port Importers",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Avatar\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-06-18T17:24:21.133Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "testimonial"
+    ],
+    "object_id": "36",
+    "object_repr": "Angela Park — E-Commerce Direct LLC",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Avatar\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-06-18T17:27:13.454Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "testimonial"
+    ],
+    "object_id": "34",
+    "object_repr": "Maria Santos — Pacific Fresh Foods",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Avatar\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-06-18T17:27:59.708Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "testimonial"
+    ],
+    "object_id": "33",
+    "object_repr": "David Harrington — Midwest Manufacturing Co.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Avatar\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-06-18T17:28:48.723Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "sitesettings"
+    ],
+    "object_id": "1",
+    "object_repr": "Site Settings — Augustus Corp",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-06-18T17:28:57.397Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "office"
+    ],
+    "object_id": "13",
+    "object_repr": "Headquarters (USA)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-06-18T17:29:03.423Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "office"
+    ],
+    "object_id": "14",
+    "object_repr": "West Coast Operations",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-06-18T17:29:07.970Z",
+    "user": [
+      "supriyayadav"
+    ],
+    "content_type": [
+      "core",
+      "office"
+    ],
+    "object_id": "15",
+    "object_repr": "Augustus Logistics UAE",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+}
+]
