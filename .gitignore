@@ -20,7 +20,6 @@ env/
 # Django
 db.sqlite3
 staticfiles/
-media/
 *.log
 *.zip
 
