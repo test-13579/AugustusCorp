@@ -4,7 +4,7 @@ _FALLBACK_NAV = [
     ('Home',         '/'),
     ('About Us',     '/about/'),
     ('Our Services', '/services/'),
-    ('Our Partners', '/companies/'),
+    ('Our Companies', '/companies/'),
     ('Career',       '/career/'),
     ('News',         '/blog/'),
     ('FAQ',          '/faq/'),

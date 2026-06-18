@@ -5818,7 +5818,7 @@
   "model": "core.navlink",
   "pk": 4,
   "fields": {
-    "label": "Our Partners",
+    "label": "Our Companies",
     "url": "/companies/",
     "order": 2,
     "is_active": true
@@ -6481,7 +6481,7 @@
       "navlink"
     ],
     "object_id": "4",
-    "object_repr": "Our Partners → /companies/",
+    "object_repr": "Our Companies → /companies/",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"Order\"]}}]"
   }
